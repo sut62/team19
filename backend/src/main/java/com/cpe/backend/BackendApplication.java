@@ -6,6 +6,13 @@ import com.cpe.backend.RentCar.Repository.RentTypeRepository;
 import com.cpe.backend.Carreturn.Entity.Payforfine;
 import com.cpe.backend.Carreturn.Repository.PayforfineRepository;
 
+import com.cpe.backend.Customer.Repository.JobRepository;
+import com.cpe.backend.Customer.Repository.RegisTypeRepository;
+import com.cpe.backend.Customer.Entity.Customer;
+import com.cpe.backend.Customer.Repository.CustomerRepository;
+import com.cpe.backend.Customer.Entity.Job;
+import com.cpe.backend.Customer.Entity.RegisType;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.ApplicationRunner;
@@ -20,7 +27,8 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 	@Bean
-	ApplicationRunner init(RentTypeRepository rentTypeRepository,PayforfineRepository payforfineRepository) {
+	ApplicationRunner init(RentTypeRepository rentTypeRepository,PayforfineRepository payforfineRepository,JobRepository jobRepository,
+		RegisTypeRepository regisTypeRepository,CustomerRepository customerRepository) {
 		return args -> {
 			Stream.of("รายวัน", "รายเดือน").forEach(namet -> {
 				Stream.of(600, 18000).forEach(name -> {
@@ -42,6 +50,17 @@ public class BackendApplication {
 				Payforfine payforfine = new Payforfine(); 
 				payforfine.setDescription(description); 
 				payforfineRepository.save(payforfine); 
+			});
+
+			Stream.of("รับราชการ", "รับจ้างทั่วไป", "ว่างงาน").forEach(name -> {
+				Job job = new Job();
+				job.setJob(name);
+				jobRepository.save(job);
+			});
+			Stream.of("ชั่วคราว", "แบบธรรมดา" , "VIP").forEach(name -> {
+				RegisType type = new RegisType();
+				type.setType(name);
+				regisTypeRepository.save(type);
 			});
 
 			payforfineRepository.findAll().forEach(System.out::println);
