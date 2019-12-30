@@ -13,6 +13,9 @@ import com.cpe.backend.Customer.Repository.CustomerRepository;
 import com.cpe.backend.Customer.Entity.Job;
 import com.cpe.backend.Customer.Entity.RegisType;
 
+import com.cpe.backend.FileSharing.Entity.Employee;
+import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.ApplicationRunner;
@@ -28,7 +31,7 @@ public class BackendApplication {
 	}
 	@Bean
 	ApplicationRunner init(RentTypeRepository rentTypeRepository,PayforfineRepository payforfineRepository,JobRepository jobRepository,
-		RegisTypeRepository regisTypeRepository,CustomerRepository customerRepository) {
+		RegisTypeRepository regisTypeRepository,CustomerRepository customerRepository,EmployeeRepository employeeRepository) {
 		return args -> {
 			Stream.of("รายวัน", "รายเดือน").forEach(namet -> {
 				Stream.of(600, 18000).forEach(name -> {
@@ -63,6 +66,19 @@ public class BackendApplication {
 				regisTypeRepository.save(type);
 			});
 
+			Employee p1 = new  Employee();
+			p1.setName("เด่นชัย ราชประสงค์");
+			p1.setUsername("denchai");
+			p1.setPassword("12345678");
+			employeeRepository.save(p1);
+
+			Employee p2 = new  Employee();
+			p2.setName("บัวขาว บักแตงโม");
+			p2.setUsername("buakao");
+			p2.setPassword("12345678");
+			employeeRepository.save(p2);
+
+			employeeRepository.findAll().forEach(System.out::println);
 			payforfineRepository.findAll().forEach(System.out::println);
 			rentTypeRepository.findAll().forEach(System.out::println);
 		};
