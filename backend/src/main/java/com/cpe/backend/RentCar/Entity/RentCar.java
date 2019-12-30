@@ -1,5 +1,5 @@
 package com.cpe.backend.RentCar.Entity;
-// import com.cpe.backend.FileSharing.entity.Employee;
+import com.cpe.backend.FileSharing.Entity.Employee;
 // import com.cpe.backend.Carname.entity.Car;
 import com.cpe.backend.Customer.Entity.Customer;
 
@@ -47,9 +47,9 @@ public class RentCar {
 
     /*@ManyToOne(fetch = FetchType.EAGER, targetEntity = Car.class)
     @JoinColumn(name = "CAR_ID", insertable = true)
-    private Car selectcar;
+    private Car selectcar;*/
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
     @JoinColumn(name = "EMPLOYEE_ID", insertable = true)
-    private Employee createdby;*/
+    private Employee createdby;
 }
