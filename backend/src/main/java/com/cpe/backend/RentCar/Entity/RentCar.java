@@ -1,7 +1,7 @@
 package com.cpe.backend.RentCar.Entity;
-// import com.cpe.se.FileSharing.entity.Employee;
-// import com.cpe.se.Carname.entity.Car;
-// import com.cpe.se.Customer.entity.Customer;
+// import com.cpe.backend.FileSharing.entity.Employee;
+// import com.cpe.backend.Carname.entity.Car;
+import com.cpe.backend.Customer.Entity.Customer;
 
 import javax.persistence.*;
 import lombok.*;
@@ -41,11 +41,11 @@ public class RentCar {
     @JsonManagedReference
     private RentType type;
 
-    /*@ManyToOne(fetch = FetchType.EAGER, targetEntity = Customer.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Customer.class)
     @JoinColumn(name = "CUSTOMER_ID", insertable = true)
     private Customer rentalBy;
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Car.class)
+    /*@ManyToOne(fetch = FetchType.EAGER, targetEntity = Car.class)
     @JoinColumn(name = "CAR_ID", insertable = true)
     private Car selectcar;
 
