@@ -19,6 +19,11 @@ import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
 import com.cpe.backend.Payment.Entity.PaymentOptions;
 import com.cpe.backend.Payment.Repository.OptionsRepository;
 
+import com.cpe.backend.Maintenance.Entity.Repairman;
+import com.cpe.backend.Maintenance.Entity.Service;
+import com.cpe.backend.Maintenance.Repository.RepairmanRepository;
+import com.cpe.backend.Maintenance.Repository.ServiceRepository;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.ApplicationRunner;
@@ -34,7 +39,8 @@ public class BackendApplication {
 	}
 	@Bean
 	ApplicationRunner init(RentTypeRepository rentTypeRepository,PayforfineRepository payforfineRepository,JobRepository jobRepository,
-		RegisTypeRepository regisTypeRepository,CustomerRepository customerRepository,EmployeeRepository employeeRepository,OptionsRepository optionsRepository) {
+		RegisTypeRepository regisTypeRepository,CustomerRepository customerRepository,EmployeeRepository employeeRepository,OptionsRepository optionsRepository,
+		RepairmanRepository repairmanRepository,ServiceRepository serviceRepository) {
 		return args -> {
 			Stream.of("รายวัน", "รายเดือน").forEach(namet -> {
 				Stream.of(600, 18000).forEach(name -> {
@@ -87,10 +93,38 @@ public class BackendApplication {
 			p2.setPassword("12345678");
 			employeeRepository.save(p2);
 
+			Stream.of("ตรวจสอบทั่วไป", "เกี่ยวกับช่วงล่าง/เบรก/ล้อ", "เกี่ยวกับระบบไฟฟ้า","เกี่ยวกับเครื่องยนต์","เกี่ยวกับตัวถัง").forEach(name -> {
+				Service service = new Service();
+				service.setService(name);
+				serviceRepository.save(service);
+			});
+
+			Repairman r1 = new Repairman();
+			r1.setRepairman("สมยศ จันทร์ส่องฟ้า");
+			r1.setUsername("somyot");
+			r1.setPassword("sy12345678");
+			repairmanRepository.save(r1);
+
+			Repairman r2 = new Repairman();
+			r2.setRepairman("ประวุฒ รักเพื่อนพ้อง");
+			r2.setUsername("pravut");
+			r2.setPassword("pv12345678");
+			repairmanRepository.save(r2);
+
+			Repairman r3 = new Repairman();
+			r3.setRepairman("สมศักดิ์ จิตรดี");
+			r3.setUsername("somsak");
+			r3.setPassword("ss12345678");
+			repairmanRepository.save(r3);
+
+
+
 			employeeRepository.findAll().forEach(System.out::println);
 			payforfineRepository.findAll().forEach(System.out::println);
 			rentTypeRepository.findAll().forEach(System.out::println);
 			optionsRepository.findAll().forEach(System.out::println);
+			repairmanRepository.findAll().forEach(System.out::println);
+			serviceRepository.findAll().forEach(System.out::println);
 		};
 	}
 
