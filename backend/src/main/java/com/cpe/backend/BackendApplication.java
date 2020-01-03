@@ -15,10 +15,10 @@ import com.cpe.backend.Customer.Entity.RegisType;
 
 import com.cpe.backend.Carname.Entity.Brand;
 import com.cpe.backend.Carname.Entity.Province;
-import com.cpe.backend.Carname.Entity.Cartype;
+import com.cpe.backend.Carname.Entity.Carseat;
 import com.cpe.backend.Carname.Repository.BrandRepository;
 import com.cpe.backend.Carname.Repository.ProvinceRepository;
-import com.cpe.backend.Carname.Repository.CartypeRepository;
+import com.cpe.backend.Carname.Repository.CarseatRepository;
 
 import com.cpe.backend.FileSharing.Entity.Employee;
 import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
@@ -47,7 +47,7 @@ public class BackendApplication {
 	@Bean
 	ApplicationRunner init(RentTypeRepository rentTypeRepository,PayforfineRepository payforfineRepository,JobRepository jobRepository,
 		RegisTypeRepository regisTypeRepository,CustomerRepository customerRepository,EmployeeRepository employeeRepository,OptionsRepository optionsRepository,
-		RepairmanRepository repairmanRepository,ServiceRepository serviceRepository,BrandRepository brandRepository,ProvinceRepository provinceRepository,CartypeRepository cartypeRepository) {
+		RepairmanRepository repairmanRepository,ServiceRepository serviceRepository,BrandRepository brandRepository,ProvinceRepository provinceRepository,CarseatRepository carseatRepository) {
 		return args -> {
 			Stream.of("Toyota Vigo", "Honda civic", "Susuki swift", "Mclaren P1","Mitsubishi Pajero").forEach(name -> {
 				Brand brand = new Brand(); 
@@ -79,9 +79,9 @@ public class BackendApplication {
 			});
 			
 			Stream.of("2ที่นั่ง","4 ที่นั่ง", "8 ที่นั่ง", "11 ที่นั่ง").forEach(cartypee -> {
-				Cartype cartype = new Cartype(); 
-				cartype.setCartype(cartypee); 
-				cartypeRepository.save(cartype);
+				Carseat carseat = new Carseat(); 
+				carseat.setCarseat(cartypee); 
+				carseatRepository.save(carseat);
 			});
 
 			Stream.of("รายวัน", "รายเดือน").forEach(namet -> {
@@ -161,7 +161,7 @@ public class BackendApplication {
 
 			
 			provinceRepository.findAll().forEach(System.out::println);
-			cartypeRepository.findAll().forEach(System.out::println);
+			carseatRepository.findAll().forEach(System.out::println);
 			brandRepository.findAll().forEach(System.out::println); 
 			employeeRepository.findAll().forEach(System.out::println);
 			payforfineRepository.findAll().forEach(System.out::println);

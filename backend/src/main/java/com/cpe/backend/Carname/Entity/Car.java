@@ -38,9 +38,9 @@ public class Car {
     @JoinColumn(name = "BRAND_ID", insertable = true)
     private Brand carbrand;
 
-     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Cartype.class)
-    @JoinColumn(name = "TYPE_ID", insertable = true)
-    private Cartype cartype;
+     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Carseat.class)
+    @JoinColumn(name = "SEAT_ID", insertable = true)
+    private Carseat carseat;
 
      @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
     @JoinColumn(name = "PROVINCE_ID", insertable = true)
