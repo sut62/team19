@@ -13,6 +13,13 @@ import com.cpe.backend.Customer.Repository.CustomerRepository;
 import com.cpe.backend.Customer.Entity.Job;
 import com.cpe.backend.Customer.Entity.RegisType;
 
+import com.cpe.backend.Carname.Entity.Brand;
+import com.cpe.backend.Carname.Entity.Province;
+import com.cpe.backend.Carname.Entity.Cartype;
+import com.cpe.backend.Carname.Repository.BrandRepository;
+import com.cpe.backend.Carname.Repository.ProvinceRepository;
+import com.cpe.backend.Carname.Repository.CartypeRepository;
+
 import com.cpe.backend.FileSharing.Entity.Employee;
 import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
 
@@ -40,8 +47,43 @@ public class BackendApplication {
 	@Bean
 	ApplicationRunner init(RentTypeRepository rentTypeRepository,PayforfineRepository payforfineRepository,JobRepository jobRepository,
 		RegisTypeRepository regisTypeRepository,CustomerRepository customerRepository,EmployeeRepository employeeRepository,OptionsRepository optionsRepository,
-		RepairmanRepository repairmanRepository,ServiceRepository serviceRepository) {
+		RepairmanRepository repairmanRepository,ServiceRepository serviceRepository,BrandRepository brandRepository,ProvinceRepository provinceRepository,CartypeRepository cartypeRepository) {
 		return args -> {
+			Stream.of("Toyota Vigo", "Honda civic", "Susuki swift", "Mclaren P1","Mitsubishi Pajero").forEach(name -> {
+				Brand brand = new Brand(); 
+				brand.setBrand(name); 
+				brandRepository.save(brand); 
+			});
+			Stream.of("กระบี่", "กรุงเทพมหานคร", "กาญจนบุรี", "กาฬสินธุ์", "กำแพงเพชร",
+    					"ขอนแก่น",
+    					"จันทบุรี",
+    					"ฉะเชิงเทรา",
+    					"ชลบุรี", "ชัยนาท", "ชัยภูมิ", "ชุมพร", "เชียงราย", "เชียงใหม่",
+    					"ตรัง", "ตราด", "ตาก",
+    					"นครนายก", "นครปฐม", "นครพนม", "นครราชสีมา", "นครศรีธรรมราช", "นครสวรรค์", "นนทบุรี", "นราธิวาส", "น่าน",
+    					"บึงกาฬ", "บุรีรัมย์",
+    					"ปทุมธานี", "ประจวบคีรีขันธ์", "ปราจีนบุรี", "ปัตตานี",
+    					"พระนครศรีอยุธยา", "พะเยา", "พังงา", "พัทลุง", "พิจิตร", "พิษณุโลก", "เพชรบุรี", "เพชรบูรณ์", "แพร่",
+    					"ภูเก็ต",
+    					"มหาสารคาม", "มุกดาหาร", "แม่ฮ่องสอน",
+   					 	"ยโสธร", "ยะลา",
+    					"ร้อยเอ็ด", "ระนอง", "ระยอง", "ราชบุรี",
+    					"ลพบุรี", "ลำปาง", "ลำพูน", "เลย",
+    					"ศรีสะเกษ",
+    					"สกลนคร", "สงขลา", "สตูล", "สมุทรปราการ", "สมุทรสงคราม", "สมุทรสาคร", "สระแก้ว", "สระบุรี", "สิงห์บุรี", "สุโขทัย", "สุพรรณบุรี", "สุราษฎร์ธานี", "สุรินทร์",
+    					"หนองคาย", "หนองบัวลำภู",
+    					"อ่างทอง", "อำนาจเจริญ", "อุดรธานี", "อุตรดิตถ์", "อุทัยธานี", "อุบลราชธานี").forEach(provincee -> {
+				Province province = new Province(); 
+				province.setProvince(provincee); 
+				provinceRepository.save(province); 
+			});
+			
+			Stream.of("2ที่นั่ง","4 ที่นั่ง", "8 ที่นั่ง", "11 ที่นั่ง").forEach(cartypee -> {
+				Cartype cartype = new Cartype(); 
+				cartype.setCartype(cartypee); 
+				cartypeRepository.save(cartype);
+			});
+
 			Stream.of("รายวัน", "รายเดือน").forEach(namet -> {
 				Stream.of(600, 18000).forEach(name -> {
 					if(namet == "รายวัน" && name == 600){
@@ -117,8 +159,10 @@ public class BackendApplication {
 			r3.setPassword("ss12345678");
 			repairmanRepository.save(r3);
 
-
-
+			
+			provinceRepository.findAll().forEach(System.out::println);
+			cartypeRepository.findAll().forEach(System.out::println);
+			brandRepository.findAll().forEach(System.out::println); 
 			employeeRepository.findAll().forEach(System.out::println);
 			payforfineRepository.findAll().forEach(System.out::println);
 			rentTypeRepository.findAll().forEach(System.out::println);
