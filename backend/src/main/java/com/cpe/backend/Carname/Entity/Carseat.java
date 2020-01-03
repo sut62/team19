@@ -19,15 +19,15 @@ import org.hibernate.annotations.FetchMode;
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name="CARTYPE")
-public class Cartype {
+@Table(name="CARSEAT")
+public class Carseat {
 
     @Id
-    @SequenceGenerator(name="cartype_seq",sequenceName="cartype_seq")               
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="cartype_seq")  
-    @Column(name = "TYPE_ID", unique = true, nullable = true)
+    @SequenceGenerator(name="carseat_seq",sequenceName="carseat_seq")               
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="carseat_seq")  
+    @Column(name = "SEAT_ID", unique = true, nullable = true)
     private @NonNull Long id;
-    private @NonNull String cartype;
+    private @NonNull String carseat;
 
 
     @OneToMany(fetch = FetchType.EAGER)
