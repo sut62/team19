@@ -23,8 +23,8 @@ import com.cpe.backend.Carname.Repository.CarseatRepository;
 import com.cpe.backend.FileSharing.Entity.Employee;
 import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
 
-import com.cpe.backend.Payment.Entity.PaymentOptions;
-import com.cpe.backend.Payment.Repository.OptionsRepository;
+import com.cpe.backend.Payment.entity.PaymentOptions;
+import com.cpe.backend.Payment.repository.OptionsRepository;
 
 import com.cpe.backend.Maintenance.Entity.Repairman;
 import com.cpe.backend.Maintenance.Entity.Service;

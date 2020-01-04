@@ -1,6 +1,6 @@
 package com.cpe.backend.RentCar.Entity;
 import com.cpe.backend.FileSharing.Entity.Employee;
-// import com.cpe.backend.Carname.entity.Car;
+import com.cpe.backend.Carname.Entity.Car;
 import com.cpe.backend.Customer.Entity.Customer;
 
 import javax.persistence.*;
@@ -45,9 +45,9 @@ public class RentCar {
     @JoinColumn(name = "CUSTOMER_ID", insertable = true)
     private Customer rentalBy;
 
-    /*@ManyToOne(fetch = FetchType.EAGER, targetEntity = Car.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Car.class)
     @JoinColumn(name = "CAR_ID", insertable = true)
-    private Car selectcar;*/
+    private Car selectcar;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
     @JoinColumn(name = "EMPLOYEE_ID", insertable = true)
