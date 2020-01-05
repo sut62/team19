@@ -1,5 +1,5 @@
 package com.cpe.backend.Customer.Entity;
-//import com.okta.Car.FileSharing.entity.Employee;
+import com.cpe.backend.FileSharing.Entity.Employee;
 
 import lombok.*;
 import javax.persistence.Id;
@@ -40,9 +40,9 @@ public class Customer {
     @JoinColumn(name = "JOB", insertable = true)
     private Job work;
 
-    /*@ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
     @JoinColumn(name = "EMPLOYEE", insertable = true)
-    private Employee createdby;*/
+    private Employee createdBy;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = RegisType.class)
     @JoinColumn(name = "REGISTYPE", insertable = true)

@@ -13,6 +13,6 @@ interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query( value = "SELECT * FROM Employee o where o.username = :username and o.password = :password",
             nativeQuery = true)
     Collection<Employee> findEmployeeByUsername(@Param("username") String username,
-    											@Param("password") String password);
+    			@Param("password") String password);
 
 }
