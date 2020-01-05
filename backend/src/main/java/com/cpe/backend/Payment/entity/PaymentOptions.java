@@ -1,4 +1,4 @@
-package com.cpe.backend.Payment.entity;
+package com.cpe.backend.Payment.Entity;
 
 import lombok.*;
 import javax.persistence.Id;

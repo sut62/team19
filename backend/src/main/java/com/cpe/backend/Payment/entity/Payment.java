@@ -1,4 +1,4 @@
-package com.cpe.backend.Payment.entity;
+package com.cpe.backend.Payment.Entity;
 import com.cpe.backend.FileSharing.Entity.Employee;
 import com.cpe.backend.RentCar.Entity.RentCar;
 import com.cpe.backend.Customer.Entity.Customer;
