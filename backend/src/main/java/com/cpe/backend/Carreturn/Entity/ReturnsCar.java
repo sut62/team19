@@ -1,7 +1,7 @@
 package com.cpe.backend.Carreturn.Entity;
-//import com.cpe.backend.FileSharing.entity.Employee;
+import com.cpe.backend.FileSharing.Entity.Employee;
 import com.cpe.backend.RentCar.Entity.RentCar;
-//import com.cpe.backend.Customer.entity.Customer;
+import com.cpe.backend.Customer.Entity.Customer;
 
 import lombok.*;
 import javax.persistence.*;
@@ -40,9 +40,9 @@ public class ReturnsCar {
 
 
 
-    /*@ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
     @JoinColumn(name = "EMPLOYEE_ID", insertable = true)
-    private Employee createdby;*/
+    private Employee createdby;
 
     @OneToOne(fetch = FetchType.EAGER, targetEntity = RentCar.class)
     @JoinColumn(name = "RENT_CAR_ID", insertable = true)
