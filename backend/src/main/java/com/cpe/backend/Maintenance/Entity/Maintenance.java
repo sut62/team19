@@ -1,5 +1,5 @@
 package com.cpe.backend.Maintenance.Entity;
-//import com.cpe.backend.Carname.Entity.Car;
+import com.cpe.backend.Carname.Entity.Car;
 
 
 import javax.persistence.*;
@@ -39,9 +39,9 @@ public class Maintenance {
     @JoinColumn(name = "REPAIRMAN_ID", insertable = true)
     private Repairman fixedBy;
 
-    /*@ManyToOne(fetch = FetchType.EAGER, targetEntity = Car.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Car.class)
     @JoinColumn(name = "CAR_ID", insertable = true)
-    private Car car;*/
+    private Car car;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Service.class)
     @JoinColumn(name = "SERVICE_ID", insertable = true)
