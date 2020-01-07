@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import RentCar from '../components/RentCar'
+import Car from '../components/Car'
 import Hello from '../components/ChoiceLogin'
 import loginm from '../components/loginm'
 import login from '../components/login';
@@ -30,6 +31,10 @@ export default new VueRouter({
         {
             path: '/rentcar',
             component: RentCar
+        },
+         {
+            path: '/car',
+            component: Car
         },
     ]
 })
