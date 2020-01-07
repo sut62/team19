@@ -55,7 +55,7 @@
                       solo
                       v-model="rentCar.carId"
                       :items="cars"
-                      item-text="carbrand.name"
+                      item-text="carbrand.brand"
                       item-value="id"
                       :rules="[(v) => !!v || 'Item is required']"
                       required
@@ -134,12 +134,9 @@ export default {
     }
   },
     /* eslint-disable no-console */
-    ////////////////////////##[ calculate ]##////////
     calculate(){
         this.rentCar.price = this.rentCar.rentday*this.rentCar.rentTypePrice;
     },
-    ////////////////////////////////////////////////
-    // ดึงข้อมูล Customer ใส่ combobox
     getCustomers() {
       http
         .get("/customer")
@@ -151,7 +148,6 @@ export default {
           console.log(e);
         });
     },
-    // ดึงข้อมูล RentType ใส่ combobox
     getRentTypes() {
       http
         .get("/rentType")
@@ -163,7 +159,6 @@ export default {
           console.log(e);
         });
     },
-    // ดึงข้อมูล Car ใส่ combobox
     getCars() {
       http
         .get("/car")
@@ -175,7 +170,6 @@ export default {
           console.log(e);
         });
     },
-    // ดึงข้อมูล Employee ใส่ combobox
     getEmployees() {
       http
         .get("/employee")
@@ -187,7 +181,6 @@ export default {
           console.log(e);
         });
     },
-    // function เมื่อกดปุ่ม submit
     saveCarRent() {
       http
         .post(
@@ -208,10 +201,12 @@ export default {
         .then(response => {
           console.log(response);
           alert("บันทึกสำเร็จ");
+          this.clear();
         })
         .catch(e => {
           console.log(e);
           alert("บันทึกไม่สำเร็จ");
+          this.clear();
         });
     },
      clear() {
