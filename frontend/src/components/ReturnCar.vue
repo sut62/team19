@@ -298,10 +298,12 @@ export default {
         .then(response => {
           console.log(response);
           alert("การคืนรถเสร็จสิ้น");
+          this.clear();
         })
         .catch(e => {
           console.log(e);
           alert("บันทึกผิดพลาด!");
+          this.clear();
         });
     },
     clear() {
