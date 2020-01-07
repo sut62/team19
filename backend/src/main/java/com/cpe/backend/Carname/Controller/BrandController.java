@@ -1,4 +1,4 @@
-package com.cpe.backend.Carname.controller;
+package com.cpe.backend.Carname.Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
