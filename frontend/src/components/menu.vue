@@ -18,7 +18,7 @@
                    
                         <v-btn large rounded color="primary" dark href="/car" target="_self" >เพิ่มรถเช่า</v-btn><br/><br/>
                     
-                        <v-btn large rounded color="primary" dark href="/carent" target="_self" >เช่ารถ</v-btn><br/><br/>
+                        <v-btn large rounded color="primary" dark href="/rentcar" target="_self" >เช่ารถ</v-btn><br/><br/>
                    
                         <v-btn large rounded color="primary" dark href="/pay" target="_self" >ชำระเงิน</v-btn><br/><br/>
                    
