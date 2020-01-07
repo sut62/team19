@@ -1,4 +1,4 @@
-package com.cpe.backend.Maintenance.controller;
+package com.cpe.backend.Maintenance.Controller;
 
 import com.cpe.backend.Maintenance.Entity.Repairman;
 import com.cpe.backend.Maintenance.Repository.RepairmanRepository;
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
 public class RepairmanController {
-
     @Autowired
     private final RepairmanRepository repairmanRepository;
 
