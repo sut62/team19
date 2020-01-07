@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import RentCar from '../components/RentCar'
 import Car from '../components/Car'
+import Customer from '../components/Customer'
 import Hello from '../components/ChoiceLogin'
 import loginm from '../components/loginm'
 import login from '../components/login';
@@ -40,6 +41,10 @@ export default new VueRouter({
          {
             path: '/maintenance',
             component: Maintenance
+        },
+        {
+            path: '/cus',
+            component: Customer
         },
     ]
 })
