@@ -1,4 +1,4 @@
-package com.cpe.backend.Maintenance.controller;
+package com.cpe.backend.Maintenance.Controller;
 
 import com.cpe.backend.Maintenance.Entity.Service;
 import com.cpe.backend.Maintenance.Repository.ServiceRepository;
