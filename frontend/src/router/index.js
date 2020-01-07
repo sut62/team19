@@ -6,6 +6,7 @@ import Hello from '../components/ChoiceLogin'
 import loginm from '../components/loginm'
 import login from '../components/login';
 import menu from '../components/menu';
+import Maintenance from '../components/Maintenance'
 
 Vue.use(VueRouter)
 
@@ -35,6 +36,10 @@ export default new VueRouter({
          {
             path: '/car',
             component: Car
+        },
+         {
+            path: '/maintenance',
+            component: Maintenance
         },
     ]
 })
