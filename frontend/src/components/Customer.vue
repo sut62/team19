@@ -29,9 +29,7 @@
                  clearable
               ></v-text-field >
             </v-row>
-
-
-
+            
             <v-row>
               <v-select
                 solo
