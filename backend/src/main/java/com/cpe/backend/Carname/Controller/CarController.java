@@ -1,4 +1,4 @@
-package com.cpe.backend.Carname.controller;
+package com.cpe.backend.Carname.Controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
