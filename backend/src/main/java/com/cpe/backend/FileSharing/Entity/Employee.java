@@ -1,4 +1,5 @@
 package com.cpe.backend.FileSharing.Entity;
+import com.cpe.backend.RentCar.Entity.RentCar;
 import lombok.*;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -13,7 +14,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import java.util.Collection;
-
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Data
 @Entity
@@ -29,4 +31,8 @@ public class Employee {
     private String name;
     private String username;
     private String password;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SUBSELECT)
+    private Collection<RentCar> rent;
 }
