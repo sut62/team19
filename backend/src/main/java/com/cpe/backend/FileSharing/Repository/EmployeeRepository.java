@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.data.repository.query.Param;
 import java.util.Collection;
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8081")
 @RepositoryRestResource
 public
 interface EmployeeRepository extends JpaRepository<Employee, Long> {

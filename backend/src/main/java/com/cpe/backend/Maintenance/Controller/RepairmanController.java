@@ -1,4 +1,4 @@
-package com.okta.Car.Maintenance.controller;
+package com.cpe.backend.Maintenance.controller;
 
 import com.cpe.backend.Maintenance.Entity.Repairman;
 import com.cpe.backend.Maintenance.Repository.RepairmanRepository;
@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 public class RepairmanController {
 

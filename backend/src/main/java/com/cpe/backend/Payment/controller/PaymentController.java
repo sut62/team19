@@ -1,4 +1,4 @@
-package com.cpe.backend.Payment.Controller;
+package com.cpe.backend.Payment.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,13 +22,13 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.net.URLDecoder;
 
-import com.cpe.backend.Payment.Entity.Payment;
-import com.cpe.backend.Payment.Entity.PaymentOptions;
+import com.cpe.backend.Payment.entity.Payment;
+import com.cpe.backend.Payment.entity.PaymentOptions;
 import com.cpe.backend.FileSharing.Entity.Employee;
 import com.cpe.backend.RentCar.Entity.RentCar;
 
-import com.cpe.backend.Payment.Repository.PaymentRepository;
-import com.cpe.backend.Payment.Repository.OptionsRepository;
+import com.cpe.backend.Payment.repository.PaymentRepository;
+import com.cpe.backend.Payment.repository.OptionsRepository;
 import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
 import com.cpe.backend.RentCar.Repository.RentCarRepository;
 
