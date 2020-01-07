@@ -1,7 +1,7 @@
-package com.cpe.backend.Payment.Controller;
+package com.cpe.backend.Payment.controller;
 
-import com.cpe.backend.Payment.Entity.PaymentOptions;
-import com.cpe.backend.Payment.Repository.OptionsRepository;
+import com.cpe.backend.Payment.entity.PaymentOptions;
+import com.cpe.backend.Payment.repository.OptionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

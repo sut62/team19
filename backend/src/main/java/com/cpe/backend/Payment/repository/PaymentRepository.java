@@ -1,6 +1,6 @@
-package com.cpe.backend.Payment.Repository;
+package com.cpe.backend.Payment.repository;
 
-import com.cpe.backend.Payment.Entity.Payment;
+import com.cpe.backend.Payment.entity.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
