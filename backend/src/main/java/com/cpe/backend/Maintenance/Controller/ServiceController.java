@@ -27,4 +27,5 @@ public class ServiceController {
         return serviceRepository.findAll().stream().collect(Collectors.toList());
     }
 
+    
 }
