@@ -9,6 +9,7 @@ import loginm from '../components/loginm'
 import login from '../components/login';
 import menu from '../components/menu';
 import Maintenance from '../components/Maintenance'
+import Payment from '../components/Payment'
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,10 @@ export default new VueRouter({
         {
             path: '/returncar',
             component: Return
+        },
+        {
+            path: '/pay',
+            component: Payment
         },
     ]
 })
