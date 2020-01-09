@@ -210,10 +210,12 @@ export default {
         .then(response => {
           console.log(response);
           alert("บันทึกข้อมูลซ่อมบำรุงสำเร็จ!");
+          this.clear();
         })
         .catch(e => {
           console.log(e);
           alert("บันทึกไม่สำเร็จ!");
+          this.clear();
         })
     },
     clear() {
