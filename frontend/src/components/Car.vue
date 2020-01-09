@@ -14,7 +14,7 @@
             <v-col cols="10">
               <v-text-field
 
-                clearable
+                solo
                 label="เลขตัวถังรถ"
                 v-model="car.vin"
                 :rules="[(v) => !!v || 'Item is required']"
@@ -28,7 +28,7 @@
             <v-col cols="10">
               <v-text-field
                    
-                clearable
+                solo
                 label="ทะเบียนรถ"
                 v-model = "car.plate"
                 :rules="[(v) => !!v || 'Item is required']"
@@ -49,6 +49,7 @@
                   item-value="id"
                   :rules="[(v) => !!v || 'Item is required']"
                   required
+                  solo
                 ></v-select>
               </v-col>
             </v-row>
@@ -63,6 +64,7 @@
                   item-value="id"
                   :rules="[(v) => !!v || 'Item is required']"
                   required
+                  solo
                 ></v-select>
               </v-col>
             </v-row>
@@ -80,6 +82,7 @@
                   item-value="id"
                   :rules="[(v) => !!v || 'Item is required']"
                   required
+                  solo
                 ></v-select>
               </v-col>
             </v-row>
