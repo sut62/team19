@@ -117,8 +117,8 @@ export default {
   name: "car",
   data() {
     return {
-    	checkSave: false,
-        alwayselect:false,
+    checkSave: false,
+    alwayselect:false,
       car: {
         vin: "",
         plate :"",

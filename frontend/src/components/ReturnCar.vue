@@ -136,7 +136,18 @@
 
             <v-row justify="center">
               <v-col cols="15">
-                <v-btn @click="saveCarReturn" :class="{ writh: !valid, green: valid }">Accept</v-btn>
+
+                 <v-bottom-sheet v-model="alwayselect" >
+                                <template v-slot:activator="{ on }">
+                                    <v-btn @click="saveCarReturn" :class="{ writh: !valid, green: valid }">Accept</v-btn>
+                                </template>
+                                <v-sheet class="text-center" height="200px">
+                                    <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
+                                    <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
+                                </v-sheet>
+                            </v-bottom-sheet>
+
+               
                 <v-btn style="margin-left: 15px;" @click="clear">clear</v-btn>
               </v-col>
             </v-row>
@@ -181,7 +192,9 @@ export default {
       rentcars:[],
       menu:[],
       cars:[],
-      renttypes:[]
+      renttypes:[],
+      checkSave: false,
+      alwayselect:false
       
     };
   },
@@ -297,12 +310,14 @@ export default {
         )
         .then(response => {
           console.log(response);
-          alert("การคืนรถเสร็จสิ้น");
+          this.alwayselect = true;
+          this.checkSave = true;
           this.clear();
         })
         .catch(e => {
           console.log(e);
-          alert("บันทึกผิดพลาด!");
+          this.alwayselect = true;
+          this.checkSave = false;
           this.clear();
         });
     },
