@@ -84,10 +84,18 @@
             </v-row>
   
             <v-row justify="center">
-                <v-btn @click="saveCustomer" :class="ma-2" color="primary" dark>Accept
-                    <v-icon dark right>mdi-checkbox-marked-circle</v-icon>
-                </v-btn>
-                <v-btn style="margin-left: 15px;" @click="clear">clear</v-btn>
+              <v-bottom-sheet v-model="alwayselect" >
+                  <template v-slot:activator="{ on }">
+                      <v-btn @click="saveCustomer" :class="ma-2" color="primary" dark>สมัคร
+                        <v-icon dark right>mdi-checkbox-marked-circle</v-icon>
+                      </v-btn>
+                  </template>
+                   <v-sheet class="text-center" height="200px">
+                      <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
+                      <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
+                      </v-sheet>
+              </v-bottom-sheet>
+              <v-btn style="margin-left: 15px;" @click="clear">clear</v-btn>
             </v-row>
         </v-form>
     </v-row>
@@ -113,7 +121,9 @@ export default {
       regisTypes:[],
       employees:[],
       isLogins:[],
-      valid: false
+      valid: false,
+      checkSave: false,
+      alwayselect:false
     };
   },
   methods: {
@@ -214,13 +224,15 @@ export default {
         )
         .then(response => {
           console.log(response);
-          alert("บันทึกสำเร็จ");
-          this.clear()
+          this.alwayselect = true;
+          this.checkSave = true;
+          this.clear();
           
         })
         .catch(e => {
           console.log(e);
-          alert("บันทึกไม่สำเร็จ");
+          this.alwayselect = true;
+          this.checkSave = false;
           this.clear();
         });
     },
