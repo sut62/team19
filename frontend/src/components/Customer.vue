@@ -127,6 +127,7 @@ export default {
     };
   },
   methods: {
+    
     /* eslint-disable no-console */
     // ดึงข้อมูล Job ใส่ combobox
     getJobs() {
