@@ -127,7 +127,16 @@
 
             <v-row justify="center">
               <v-col cols="12">
-                <v-btn @click="savePayment" :class="{ pink: !valid, teal: valid }">บันทึก</v-btn>
+                <v-bottom-sheet v-model="alwayselect" >
+                                <template v-slot:activator="{ on }">
+                                    <v-btn @click="savePayment" :class="{ pink: !valid, teal: valid }">บันทึก</v-btn>
+                                </template>
+                                <v-sheet class="text-center" height="200px">
+                                    <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
+                                    <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
+                                </v-sheet>
+                            </v-bottom-sheet>
+
                 <v-btn style="margin-left: 15px;" @click="clear" color = "yellow">clear</v-btn>
               </v-col>
             </v-row>
@@ -163,6 +172,8 @@ export default {
   name: "payment",
   data () {
     return {
+      checkSave: false,
+      alwayselect:false,
       payment: {
         optionsId: "",
         rentcarId: "",
@@ -299,12 +310,14 @@ export default {
         )
         .then(response => {
           console.log(response);
-          alert("บันทึกสำเร็จ");
+          this.alwayselect = true;
+          this.checkSave = true;
           this.clear();
         })
         .catch(e => {
           console.log(e);
-          alert("บันทึกไม่สำเร็จ!");
+          this.alwayselect = true;
+          this.checkSave = false;
           this.clear();
         });
     },
