@@ -125,7 +125,16 @@
 
     <v-row justify="center">
               <v-col class="d-flex" cols="50" sm="30">
-                <v-btn @click="saveMaintenance" :class="{ green: !valid, blue: valid }">submit</v-btn>
+                 <v-bottom-sheet v-model="alwayselect" >
+                                <template v-slot:activator="{ on }">
+                                    <v-btn @click="saveMaintenance" :class="{ green: !valid, blue: valid }">submit</v-btn>
+                                </template>
+                                <v-sheet class="text-center" height="200px">
+                                    <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
+                                    <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
+                                </v-sheet>
+                            </v-bottom-sheet>
+                
                 <v-btn style="margin-left: 15px;" @click="clear">clear</v-btn>
               </v-col>
              <br><br>
@@ -143,6 +152,8 @@ export default {
   name: "Maintenance",
   data() {
     return {
+    checkSave: false,
+    alwayselect:false,
       maintenance: {
         
         carId: "",
@@ -209,12 +220,14 @@ export default {
         )
         .then(response => {
           console.log(response);
-          alert("บันทึกข้อมูลซ่อมบำรุงสำเร็จ!");
+          this.alwayselect = true;
+          this.checkSave = true;
           this.clear();
         })
         .catch(e => {
           console.log(e);
-          alert("บันทึกไม่สำเร็จ!");
+          this.alwayselect = true;
+          this.checkSave = false;
           this.clear();
         })
     },
