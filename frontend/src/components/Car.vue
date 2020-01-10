@@ -89,7 +89,15 @@
 
             <v-row justify="center">
                <v-col cols="8">
-                <v-btn @click="saveCar">ยืนยัน</v-btn>
+                <v-bottom-sheet v-model="alwayselect" >
+                                <template v-slot:activator="{ on }">
+                                    <v-btn @click="saveCar" :class="{ white: !valid, green: valid }" class="subtitle-1 font-weight-bold">ยืนยัน</v-btn>
+                                </template>
+                                <v-sheet class="text-center" height="200px">
+                                    <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
+                                    <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
+                                </v-sheet>
+                            </v-bottom-sheet>
                 <v-btn style="margin-left: 2px;" @click="clear">clear</v-btn>
               </v-col>
             </v-row>
@@ -109,6 +117,8 @@ export default {
   name: "car",
   data() {
     return {
+    	checkSave: false,
+        alwayselect:false,
       car: {
         vin: "",
         plate :"",
@@ -181,13 +191,15 @@ export default {
         )
         .then(response => {
           console.log(response);
-          alert("บันทึกสำเร็จ");
+            this.alwayselect = true;
+            this.checkSave = true;
           this.clear()
           
         })
         .catch(e => {
             console.log(e);
-            alert("บันทึกไม่สำเร็จ");
+            this.alwayselect = true;
+            this.checkSave = false;
             this.clear();
         });
     },
