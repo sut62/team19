@@ -31,9 +31,9 @@
             </v-row>
             
             <v-row>
-              <v-select
-                solo
+              <v-select 
                 label="อาชีพ"
+                solo
                 v-model="customer.jobId"
                 :items="jobs"
                 item-text="job"

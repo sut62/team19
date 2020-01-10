@@ -194,7 +194,6 @@ export default {
       optionss:[],
       rentcars:[],
       menu:[],
-      customers:[],
       cars:[],
       renttypes:[]
 
