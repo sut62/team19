@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - RentCarTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>RentCarTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.cpe.backend.html">com.cpe.backend</a> &gt; RentCarTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.233s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">b6004804_test_InsertDataNormal()</td>
+<td class="success">0.044s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">b6004804_test_MustBeMax()</td>
+<td class="success">0.030s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">b6004804_test_MustBePositiveOrZero()</td>
+<td class="success">0.134s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">b6004804_test_MustNotBeNull()</td>
+<td class="success">0.025s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2020-01-16 21:32:51.898  INFO 4664 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cpe.backend.RentCarTest], using SpringBootContextLoader
+2020-01-16 21:32:51.900  INFO 4664 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.cpe.backend.RentCarTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-01-16 21:32:51.901  INFO 4664 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.cpe.backend.RentCarTest]: RentCarTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-01-16 21:32:51.929  INFO 4664 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.cpe.backend.BackendApplication for test class com.cpe.backend.RentCarTest
+2020-01-16 21:32:51.930  INFO 4664 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-01-16 21:32:51.931  INFO 4664 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@9f5ed62, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4639ceb2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4d6abb1b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@47ceb518, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6176de7e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@69b2c0bc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@71980cf2, org.springframework.test.context.event.EventPublishingTestExecutionListener@43cc11ac, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@149eb285, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6b56378a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5a18498e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@797a7210, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1811ed20]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.2.RELEASE)
+
+2020-01-16 21:32:51.994  INFO 4664 --- [    Test worker] com.cpe.backend.RentCarTest              : Starting RentCarTest on DESKTOP-LN9579K with PID 4664 (started by USER in D:\team19\backend)
+2020-01-16 21:32:51.996  INFO 4664 --- [    Test worker] com.cpe.backend.RentCarTest              : No active profile set, falling back to default profiles: default
+2020-01-16 21:32:52.154  INFO 4664 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-16 21:32:52.226  INFO 4664 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71ms. Found 17 JPA repository interfaces.
+2020-01-16 21:32:52.255  INFO 4664 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2020-01-16 21:32:52.336  INFO 4664 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:06d22802-55ba-4e02-85f5-1109bd575923;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2020-01-16 21:32:52.460  INFO 4664 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-16 21:32:52.471  INFO 4664 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: drop table brand if exists
+Hibernate: drop table brand_car if exists
+Hibernate: drop table car if exists
+Hibernate: drop table carseat if exists
+Hibernate: drop table carseat_car if exists
+Hibernate: drop table customer if exists
+Hibernate: drop table employee if exists
+Hibernate: drop table employee_rent if exists
+Hibernate: drop table job if exists
+Hibernate: drop table job_cus if exists
+Hibernate: drop table maintenanece if exists
+Hibernate: drop table payforfine if exists
+Hibernate: drop table payforfine_returns if exists
+Hibernate: drop table payment if exists
+Hibernate: drop table payment_options if exists
+Hibernate: drop table payment_options_pay if exists
+Hibernate: drop table plateprovince if exists
+Hibernate: drop table plateprovince_car if exists
+Hibernate: drop table rent_car if exists
+Hibernate: drop table renttype if exists
+Hibernate: drop table renttype_rent if exists
+Hibernate: drop table repairman if exists
+Hibernate: drop table repairman_repair if exists
+Hibernate: drop table resgistype if exists
+Hibernate: drop table resgistype_cus if exists
+Hibernate: drop table returnscar if exists
+Hibernate: drop table service if exists
+Hibernate: drop table service_repair if exists
+Hibernate: drop sequence if exists brand_seq
+Hibernate: drop sequence if exists car_seq
+Hibernate: drop sequence if exists carseat_seq
+Hibernate: drop sequence if exists customer_seq
+Hibernate: drop sequence if exists employee_seq
+Hibernate: drop sequence if exists job_seq
+Hibernate: drop sequence if exists maintenance_seq
+Hibernate: drop sequence if exists options_seq
+Hibernate: drop sequence if exists payforfine_seq
+Hibernate: drop sequence if exists payment_seq
+Hibernate: drop sequence if exists province_seq
+Hibernate: drop sequence if exists regis_type_seq
+Hibernate: drop sequence if exists rent_car_seq
+Hibernate: drop sequence if exists renttype_seq
+Hibernate: drop sequence if exists repairman_seq
+Hibernate: drop sequence if exists returnscar_seq
+Hibernate: drop sequence if exists service_seq
+Hibernate: create sequence brand_seq start with 1 increment by 50
+Hibernate: create sequence car_seq start with 1 increment by 50
+Hibernate: create sequence carseat_seq start with 1 increment by 50
+Hibernate: create sequence customer_seq start with 1 increment by 50
+Hibernate: create sequence employee_seq start with 1 increment by 50
+Hibernate: create sequence job_seq start with 1 increment by 50
+Hibernate: create sequence maintenance_seq start with 1 increment by 50
+Hibernate: create sequence options_seq start with 1 increment by 50
+Hibernate: create sequence payforfine_seq start with 1 increment by 50
+Hibernate: create sequence payment_seq start with 1 increment by 50
+Hibernate: create sequence province_seq start with 1 increment by 50
+Hibernate: create sequence regis_type_seq start with 1 increment by 50
+Hibernate: create sequence rent_car_seq start with 1 increment by 50
+Hibernate: create sequence renttype_seq start with 1 increment by 50
+Hibernate: create sequence repairman_seq start with 1 increment by 50
+Hibernate: create sequence returnscar_seq start with 1 increment by 50
+Hibernate: create sequence service_seq start with 1 increment by 50
+Hibernate: create table brand (brand_id bigint not null, brand varchar(255), primary key (brand_id))
+Hibernate: create table brand_car (brand_brand_id bigint not null, car_car_id bigint not null)
+Hibernate: create table car (car_id bigint not null, plate varchar(255), vin varchar(255), brand_id bigint, seat_id bigint, employee_id bigint, province_id bigint, primary key (car_id))
+Hibernate: create table carseat (seat_id bigint not null, carseat varchar(255), primary key (seat_id))
+Hibernate: create table carseat_car (carseat_seat_id bigint not null, car_car_id bigint not null)
+Hibernate: create table customer (customer_id bigint not null, address varchar(255), age integer, date timestamp, name varchar(255), num_id varchar(255), tel varchar(255), employee bigint, registype bigint, job bigint, primary key (customer_id))
+Hibernate: create table employee (employee_id bigint not null, name varchar(255), password varchar(255), username varchar(255), primary key (employee_id))
+Hibernate: create table employee_rent (employee_employee_id bigint not null, rent_rent_car_id bigint not null)
+Hibernate: create table job (job_id bigint not null, job varchar(255), primary key (job_id))
+Hibernate: create table job_cus (job_job_id bigint not null, cus_customer_id bigint not null)
+Hibernate: create table maintenanece (maintenance_id bigint not null, auto_part varchar(255), fixdate timestamp, message_box varchar(255), mileage bigint, car_id bigint, repairman_id bigint, service_id bigint, primary key (maintenance_id))
+Hibernate: create table payforfine (payforfine_id bigint not null, description varchar(255), primary key (payforfine_id))
+Hibernate: create table payforfine_returns (payforfine_payforfine_id bigint not null, returns_returnscar_id bigint not null)
+Hibernate: create table payment (payment_id bigint not null, date timestamp, employee_id bigint, options_id bigint, rent_car_id bigint, primary key (payment_id))
+Hibernate: create table payment_options (options_id bigint not null, name varchar(255), primary key (options_id))
+Hibernate: create table payment_options_pay (payment_options_options_id bigint not null, pay_payment_id bigint not null)
+Hibernate: create table plateprovince (province_id bigint not null, province varchar(255), primary key (province_id))
+Hibernate: create table plateprovince_car (province_province_id bigint not null, car_car_id bigint not null)
+Hibernate: create table rent_car (rent_car_id bigint not null, price integer not null, rent_date timestamp not null, rentday integer not null check (rentday&lt;=7), employee_id bigint, customer_id bigint, car_id bigint, renttype_id bigint, primary key (rent_car_id))
+Hibernate: create table renttype (renttype_id bigint not null, nametype varchar(255), unitprice integer, primary key (renttype_id))
+Hibernate: create table renttype_rent (rent_type_renttype_id bigint not null, rent_rent_car_id bigint not null)
+Hibernate: create table repairman (repairman_id bigint not null, password varchar(255), repairman varchar(255), username varchar(255), primary key (repairman_id))
+Hibernate: create table repairman_repair (repairman_repairman_id bigint not null, repair_maintenance_id bigint not null)
+Hibernate: create table resgistype (regis_type_id bigint not null, type varchar(255), primary key (regis_type_id))
+Hibernate: create table resgistype_cus (regis_type_regis_type_id bigint not null, cus_customer_id bigint not null)
+Hibernate: create table returnscar (returnscar_id bigint not null, annotation varchar(255), returndate timestamp, employee_id bigint, payforfine_id bigint, rent_car_id bigint, primary key (returnscar_id))
+Hibernate: create table service (service_id bigint not null, service varchar(255), primary key (service_id))
+Hibernate: create table service_repair (service_service_id bigint not null, repair_maintenance_id bigint not null)
+Hibernate: alter table brand_car add constraint UK_rouvftb9r31mr25b7i0k2p486 unique (car_car_id)
+Hibernate: alter table carseat_car add constraint UK_ayolwpjwbejrrup8eky0k5lgv unique (car_car_id)
+Hibernate: alter table employee_rent add constraint UK_ig2w6sk16xl8wmr0wqrs6x18r unique (rent_rent_car_id)
+Hibernate: alter table job_cus add constraint UK_cs34po7nycfafxxufxvo0glce unique (cus_customer_id)
+Hibernate: alter table payforfine_returns add constraint UK_i71i7yj641xqunk230k757xa5 unique (returns_returnscar_id)
+Hibernate: alter table payment_options_pay add constraint UK_mp5901l00xeivj9argg4hwa5d unique (pay_payment_id)
+Hibernate: alter table plateprovince_car add constraint UK_rfrebx25o6fm2eyjb0giugr5x unique (car_car_id)
+Hibernate: alter table renttype_rent add constraint UK_fa4jbmxg5oxelwsxyuhisby0x unique (rent_rent_car_id)
+Hibernate: alter table repairman_repair add constraint UK_3d1h2tl4rsayk5xo0y6njd5kn unique (repair_maintenance_id)
+Hibernate: alter table resgistype_cus add constraint UK_p1k08gb4c04arlwnytctp33lb unique (cus_customer_id)
+Hibernate: alter table service_repair add constraint UK_lfehrnchw1asmsfyqcbpp765q unique (repair_maintenance_id)
+Hibernate: alter table brand_car add constraint FKem2pqsg5n9hxytbqxe9rb7g3s foreign key (car_car_id) references car
+Hibernate: alter table brand_car add constraint FKdpv3n4lgtig812oxf52oxuqkn foreign key (brand_brand_id) references brand
+Hibernate: alter table car add constraint FKj1mws2ruu9q6k2sa4pwlxthxn foreign key (brand_id) references brand
+Hibernate: alter table car add constraint FK6a0454x6okgadch8dp135s6y8 foreign key (seat_id) references carseat
+Hibernate: alter table car add constraint FKg95yir8221kh1dlrqafr4we3s foreign key (employee_id) references employee
+Hibernate: alter table car add constraint FK79t5drx46f11f1r6hmhgt7dvc foreign key (province_id) references plateprovince
+Hibernate: alter table carseat_car add constraint FKmsfgdg0tjx6xxu0l9g4pgrthm foreign key (car_car_id) references car
+Hibernate: alter table carseat_car add constraint FKmnva3nao6am85dgu3gce3ayvf foreign key (carseat_seat_id) references carseat
+Hibernate: alter table customer add constraint FKlxc5m75erou9wuo6u2rgg309v foreign key (employee) references employee
+Hibernate: alter table customer add constraint FKoibvp1l6nbqdabo303ynvn0ll foreign key (registype) references resgistype
+Hibernate: alter table customer add constraint FKo5s7i166ukm6rscjfo4onjqtq foreign key (job) references job
+Hibernate: alter table employee_rent add constraint FKmsyym7g3ps031nocxvc7l18bf foreign key (rent_rent_car_id) references rent_car
+Hibernate: alter table employee_rent add constraint FK8rjyejucum8mfx7t8781hmy72 foreign key (employee_employee_id) references employee
+Hibernate: alter table job_cus add constraint FKfuu8g83qp2gtp43eljn5kbbk1 foreign key (cus_customer_id) references customer
+Hibernate: alter table job_cus add constraint FKqgye56bvwx0e72mpceqmjloew foreign key (job_job_id) references job
+Hibernate: alter table maintenanece add constraint FKshhkjrg0jweoson0kw7gctn1w foreign key (car_id) references car
+Hibernate: alter table maintenanece add constraint FKhsthc8ow4e8v6cduklb5enn3v foreign key (repairman_id) references repairman
+Hibernate: alter table maintenanece add constraint FKo9s2oidsgctuibx2eb4qw87ni foreign key (service_id) references service
+Hibernate: alter table payforfine_returns add constraint FK9kuvvra6n6omqf9piobrodrx6 foreign key (returns_returnscar_id) references returnscar
+Hibernate: alter table payforfine_returns add constraint FKohq3pbkkneqac0t10thpp14ot foreign key (payforfine_payforfine_id) references payforfine
+Hibernate: alter table payment add constraint FK80uujv6vcwhagikotxoynv7ta foreign key (employee_id) references employee
+Hibernate: alter table payment add constraint FKrw73y11emo06wina242585shv foreign key (options_id) references payment_options
+Hibernate: alter table payment add constraint FKgakph9tcd2sm7ywa1uuvqggn7 foreign key (rent_car_id) references rent_car
+Hibernate: alter table payment_options_pay add constraint FKffopjfjreya4nk9wim5fmifg3 foreign key (pay_payment_id) references payment
+Hibernate: alter table payment_options_pay add constraint FK2bollsnhgql5nuqgd6t0ljrdu foreign key (payment_options_options_id) references payment_options
+Hibernate: alter table plateprovince_car add constraint FKrpdwy9dr9kc0i9jgpu89ia3bb foreign key (car_car_id) references car
+Hibernate: alter table plateprovince_car add constraint FKrbs82osaii8gixrv39vryww86 foreign key (province_province_id) references plateprovince
+Hibernate: alter table rent_car add constraint FKmp0o4eciueae3w42yrvrgvkyi foreign key (employee_id) references employee
+Hibernate: alter table rent_car add constraint FKog3ouuge74nwxx29u8ugb2i00 foreign key (customer_id) references customer
+Hibernate: alter table rent_car add constraint FKksukf53n0jpalcxavgo2u757k foreign key (car_id) references car
+Hibernate: alter table rent_car add constraint FK7bokkdsecr8oq1t1u2dl1t8dl foreign key (renttype_id) references renttype
+Hibernate: alter table renttype_rent add constraint FKsti0slyeole1nc1smhy4nwe9w foreign key (rent_rent_car_id) references rent_car
+Hibernate: alter table renttype_rent add constraint FK2v3wqcd0jko75tcql2e83jipw foreign key (rent_type_renttype_id) references renttype
+Hibernate: alter table repairman_repair add constraint FKmytyb914073xofxw7gmj932nt foreign key (repair_maintenance_id) references maintenanece
+Hibernate: alter table repairman_repair add constraint FKhemk7rp7ip62k515vb7ldkjck foreign key (repairman_repairman_id) references repairman
+Hibernate: alter table resgistype_cus add constraint FKtahup9lx4v0021u8wy1x2311w foreign key (cus_customer_id) references customer
+Hibernate: alter table resgistype_cus add constraint FKswot2u2o3t9i4ar2t6y3q4ar6 foreign key (regis_type_regis_type_id) references resgistype
+Hibernate: alter table returnscar add constraint FK8c8ufscmyenket4pxdyipg8uj foreign key (employee_id) references employee
+Hibernate: alter table returnscar add constraint FKou9a3mplgt45omq29djkrtinf foreign key (payforfine_id) references payforfine
+Hibernate: alter table returnscar add constraint FKe6leu5sciq1x1bmtl8w5hfm0u foreign key (rent_car_id) references rent_car
+Hibernate: alter table service_repair add constraint FKf5cp04m0x87xxpjf7kab7u6bb foreign key (repair_maintenance_id) references maintenanece
+Hibernate: alter table service_repair add constraint FK7b97jmqc03wu7whqgix7xxmps foreign key (service_service_id) references service
+2020-01-16 21:32:52.950  INFO 4664 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-16 21:32:52.950  INFO 4664 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-16 21:32:53.614  INFO 4664 --- [    Test worker] com.cpe.backend.RentCarTest              : Started RentCarTest in 1.677 seconds (JVM running for 17.304)
+Hibernate: call next value for brand_seq
+Hibernate: call next value for brand_seq
+Hibernate: insert into brand (brand, brand_id) values (?, ?)
+Hibernate: insert into brand (brand, brand_id) values (?, ?)
+Hibernate: insert into brand (brand, brand_id) values (?, ?)
+Hibernate: insert into brand (brand, brand_id) values (?, ?)
+Hibernate: insert into brand (brand, brand_id) values (?, ?)
+Hibernate: call next value for province_seq
+Hibernate: call next value for province_seq
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: call next value for province_seq
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: insert into plateprovince (province, province_id) values (?, ?)
+Hibernate: call next value for carseat_seq
+Hibernate: call next value for carseat_seq
+Hibernate: insert into carseat (carseat, seat_id) values (?, ?)
+Hibernate: insert into carseat (carseat, seat_id) values (?, ?)
+Hibernate: insert into carseat (carseat, seat_id) values (?, ?)
+Hibernate: insert into carseat (carseat, seat_id) values (?, ?)
+Hibernate: call next value for renttype_seq
+Hibernate: call next value for renttype_seq
+Hibernate: insert into renttype (nametype, unitprice, renttype_id) values (?, ?, ?)
+Hibernate: insert into renttype (nametype, unitprice, renttype_id) values (?, ?, ?)
+Hibernate: call next value for payforfine_seq
+Hibernate: call next value for payforfine_seq
+Hibernate: insert into payforfine (description, payforfine_id) values (?, ?)
+Hibernate: insert into payforfine (description, payforfine_id) values (?, ?)
+Hibernate: insert into payforfine (description, payforfine_id) values (?, ?)
+Hibernate: insert into payforfine (description, payforfine_id) values (?, ?)
+Hibernate: call next value for job_seq
+Hibernate: call next value for job_seq
+Hibernate: insert into job (job, job_id) values (?, ?)
+Hibernate: insert into job (job, job_id) values (?, ?)
+Hibernate: insert into job (job, job_id) values (?, ?)
+Hibernate: call next value for regis_type_seq
+Hibernate: call next value for regis_type_seq
+Hibernate: insert into resgistype (type, regis_type_id) values (?, ?)
+Hibernate: insert into resgistype (type, regis_type_id) values (?, ?)
+Hibernate: insert into resgistype (type, regis_type_id) values (?, ?)
+Hibernate: call next value for options_seq
+Hibernate: call next value for options_seq
+Hibernate: insert into payment_options (name, options_id) values (?, ?)
+Hibernate: insert into payment_options (name, options_id) values (?, ?)
+Hibernate: insert into payment_options (name, options_id) values (?, ?)
+Hibernate: call next value for employee_seq
+Hibernate: call next value for employee_seq
+Hibernate: insert into employee (name, password, username, employee_id) values (?, ?, ?, ?)
+Hibernate: insert into employee (name, password, username, employee_id) values (?, ?, ?, ?)
+Hibernate: call next value for service_seq
+Hibernate: call next value for service_seq
+Hibernate: insert into service (service, service_id) values (?, ?)
+Hibernate: insert into service (service, service_id) values (?, ?)
+Hibernate: insert into service (service, service_id) values (?, ?)
+Hibernate: insert into service (service, service_id) values (?, ?)
+Hibernate: insert into service (service, service_id) values (?, ?)
+Hibernate: call next value for repairman_seq
+Hibernate: call next value for repairman_seq
+Hibernate: insert into repairman (password, repairman, username, repairman_id) values (?, ?, ?, ?)
+Hibernate: insert into repairman (password, repairman, username, repairman_id) values (?, ?, ?, ?)
+Hibernate: insert into repairman (password, repairman, username, repairman_id) values (?, ?, ?, ?)
+2020-01-16 21:32:53.998  INFO 4664 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@59b3baec testClass = RentCarTest, testInstance = com.cpe.backend.RentCarTest@72c06535, testMethod = b6004804_test_MustBePositiveOrZero@RentCarTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@50aa76b1 testClass = RentCarTest, locations = '{}', classes = '{class com.cpe.backend.BackendApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3ef2edf2, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1d590850, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3ce834ff, [ImportsContextCustomizer@1cd0677 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@60b0be6e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@69568a21, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@15a5bf50]; rollback [true]
+2020-01-16 21:32:54.122  INFO 4664 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@59b3baec testClass = RentCarTest, testInstance = com.cpe.backend.RentCarTest@72c06535, testMethod = b6004804_test_MustBePositiveOrZero@RentCarTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@50aa76b1 testClass = RentCarTest, locations = '{}', classes = '{class com.cpe.backend.BackendApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3ef2edf2, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1d590850, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3ce834ff, [ImportsContextCustomizer@1cd0677 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@60b0be6e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@69568a21, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+2020-01-16 21:32:54.128  INFO 4664 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@59b3baec testClass = RentCarTest, testInstance = com.cpe.backend.RentCarTest@40b10d63, testMethod = b6004804_test_MustNotBeNull@RentCarTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@50aa76b1 testClass = RentCarTest, locations = '{}', classes = '{class com.cpe.backend.BackendApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3ef2edf2, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1d590850, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3ce834ff, [ImportsContextCustomizer@1cd0677 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@60b0be6e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@69568a21, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@15a5bf50]; rollback [true]
+2020-01-16 21:32:54.151  INFO 4664 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@59b3baec testClass = RentCarTest, testInstance = com.cpe.backend.RentCarTest@40b10d63, testMethod = b6004804_test_MustNotBeNull@RentCarTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@50aa76b1 testClass = RentCarTest, locations = '{}', classes = '{class com.cpe.backend.BackendApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3ef2edf2, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1d590850, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3ce834ff, [ImportsContextCustomizer@1cd0677 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@60b0be6e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@69568a21, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+2020-01-16 21:32:54.158  INFO 4664 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@59b3baec testClass = RentCarTest, testInstance = com.cpe.backend.RentCarTest@7848e6e, testMethod = b6004804_test_InsertDataNormal@RentCarTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@50aa76b1 testClass = RentCarTest, locations = '{}', classes = '{class com.cpe.backend.BackendApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3ef2edf2, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1d590850, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3ce834ff, [ImportsContextCustomizer@1cd0677 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@60b0be6e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@69568a21, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@15a5bf50]; rollback [true]
+Hibernate: call next value for rent_car_seq
+Hibernate: call next value for rent_car_seq
+Hibernate: insert into rent_car (employee_id, price, rent_date, customer_id, rentday, car_id, renttype_id, rent_car_id) values (?, ?, ?, ?, ?, ?, ?, ?)
+2020-01-16 21:32:54.197  INFO 4664 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@59b3baec testClass = RentCarTest, testInstance = com.cpe.backend.RentCarTest@7848e6e, testMethod = b6004804_test_InsertDataNormal@RentCarTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@50aa76b1 testClass = RentCarTest, locations = '{}', classes = '{class com.cpe.backend.BackendApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3ef2edf2, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1d590850, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3ce834ff, [ImportsContextCustomizer@1cd0677 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@60b0be6e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@69568a21, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+2020-01-16 21:32:54.201  INFO 4664 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@59b3baec testClass = RentCarTest, testInstance = com.cpe.backend.RentCarTest@3f3dd939, testMethod = b6004804_test_MustBeMax@RentCarTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@50aa76b1 testClass = RentCarTest, locations = '{}', classes = '{class com.cpe.backend.BackendApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3ef2edf2, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1d590850, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3ce834ff, [ImportsContextCustomizer@1cd0677 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@60b0be6e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@69568a21, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@15a5bf50]; rollback [true]
+2020-01-16 21:32:54.229  INFO 4664 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@59b3baec testClass = RentCarTest, testInstance = com.cpe.backend.RentCarTest@3f3dd939, testMethod = b6004804_test_MustBeMax@RentCarTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@50aa76b1 testClass = RentCarTest, locations = '{}', classes = '{class com.cpe.backend.BackendApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3ef2edf2, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1d590850, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3ce834ff, [ImportsContextCustomizer@1cd0677 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@60b0be6e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@69568a21, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.0.1</a> at Jan 16, 2020 9:32:54 PM</p>
+</div>
+</div>
+</body>
+</html>

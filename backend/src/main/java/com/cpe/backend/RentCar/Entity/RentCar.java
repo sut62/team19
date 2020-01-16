@@ -13,12 +13,15 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import com.fasterxml.jackson.annotation.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Max;
+
 
 @Data
 @Entity
@@ -29,12 +32,17 @@ public class RentCar {
     @SequenceGenerator(name = "rent_car_seq", sequenceName = "rent_car_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rent_car_seq")
     @Column(name = "RENT_CAR_ID", unique = true, nullable = true)
-    private @NonNull Long id;
+    private Long id;
 
     @Column(name = "RENT_DATE")
-    private @NonNull LocalDateTime rentDate;
-    private @NonNull Integer rentday;
-    private @NonNull Integer price;
+    private @NotNull LocalDateTime rentDate;
+
+    @PositiveOrZero
+    @Max(value = 7)
+    private @NotNull Integer rentday;
+
+
+    private @NotNull Integer price;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = RentType.class)
     @JoinColumn(name = "RENTTYPE_ID", insertable = true)
