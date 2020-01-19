@@ -20,6 +20,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import com.fasterxml.jackson.annotation.*;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 
 @Data
 @Entity
@@ -31,13 +35,14 @@ public class ReturnsCar {
     @SequenceGenerator(name="returnscar_seq",sequenceName="returnscar_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="returnscar_seq")
     @Column(name = "RETURNSCAR_ID", unique = true, nullable = true)
-    private @NonNull Long id;
+    private Long id;
    
     @Column(name="RETURNDATE")
-    private @NonNull LocalDateTime returndate;
-    @Column(name="ANNOTATION")
-    private @NonNull String note;
+    private @NotNull LocalDateTime returndate;
 
+    @Column(name="ANNOTATION")
+    @Size(max = 68 , message = "error")
+    private @NotNull String note;
 
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
