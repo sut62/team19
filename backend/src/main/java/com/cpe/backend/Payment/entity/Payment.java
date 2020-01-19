@@ -17,6 +17,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import com.fasterxml.jackson.annotation.*;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -27,9 +28,9 @@ public class Payment {
     @SequenceGenerator(name="payment_seq",sequenceName="payment_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="payment_seq")
     @Column(name = "PAYMENT_ID", unique = true, nullable = true)
-    private @NonNull Long id;
+    private  Long id;
     @Column(name="DATE")
-    private @NonNull LocalDateTime date;
+    private @NotNull LocalDateTime date;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = PaymentOptions.class)
     @JoinColumn(name = "OPTIONS_ID", insertable = true)
