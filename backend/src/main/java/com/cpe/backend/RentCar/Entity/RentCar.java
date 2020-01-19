@@ -21,6 +21,7 @@ import java.time.LocalDateTime;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 
 @Data
@@ -34,15 +35,19 @@ public class RentCar {
     @Column(name = "RENT_CAR_ID", unique = true, nullable = true)
     private Long id;
 
+    @NotNull
     @Column(name = "RENT_DATE")
-    private @NotNull LocalDateTime rentDate;
+    private LocalDateTime rentDate;
 
+    @NotNull
     @PositiveOrZero
-    @Max(value = 7)
-    private @NotNull Integer rentday;
+    @Max(value = 366)
+    private Integer rentday;
 
-
-    private @NotNull Integer price;
+    @NotNull
+    @Max(value = 999999999)
+    @Min(value = 600)
+    private Integer price;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = RentType.class)
     @JoinColumn(name = "RENTTYPE_ID", insertable = true)
