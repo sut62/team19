@@ -17,20 +17,33 @@ import com.cpe.backend.FileSharing.Entity.Employee;
 import com.fasterxml.jackson.annotation.*;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.NotBlank;
+import javax.persistence.*;
 
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name="CAR")
+@Table(
+    uniqueConstraints = @UniqueConstraint(columnNames = {"VIN"})
+    )
 public class Car {
 
     @Id
     @SequenceGenerator(name="car_seq",sequenceName="car_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="car_seq")
     @Column(name = "CAR_ID", unique = true, nullable = true)
-    private @NonNull Long id;
+    private Long id;
+    
+    @NotNull
+    @Size(min = 11,max = 17)
     @Column(name="VIN")
     private String vin;
+    
+    @Pattern(regexp = "[ก-ฮ][ก-ฮ]\\d{4}")
+    @NotNull
     @Column(name="PLATE")
     private String plate;
 
