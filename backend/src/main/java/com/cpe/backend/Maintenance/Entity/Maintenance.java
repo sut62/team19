@@ -18,6 +18,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import com.fasterxml.jackson.annotation.*;
 import java.time.LocalDateTime;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.NotNull;
 @Data
 @Entity
 @NoArgsConstructor
@@ -28,12 +30,15 @@ public class Maintenance {
     @SequenceGenerator(name="Maintenance_seq",sequenceName="Maintenance_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Maintenance_seq")
     @Column(name = "MAINTENANCE_ID", unique = true, nullable = true)
-    private @NonNull Long id;
-    private @NonNull String messageBox;
-    private @NonNull String autoPart;
-    private @NonNull Long mileage;
+    private Long id;
+    private @NotNull String messageBox;
+    private @NotNull String autoPart;
+
+    @PositiveOrZero
+    private @NotNull Long mileage;
+
     @Column(name="FIXDATE")
-    private @NonNull LocalDateTime fixdate;
+    private @NotNull LocalDateTime fixdate;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Repairman.class)
     @JoinColumn(name = "REPAIRMAN_ID", insertable = true)
