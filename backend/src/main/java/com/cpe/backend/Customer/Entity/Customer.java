@@ -15,26 +15,56 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name="CUSTOMER")
+@Table(
+    name="CUSTOMER" , 
+    uniqueConstraints = @UniqueConstraint(columnNames = {"NUM_ID"})
+    )
 public class Customer {
 
     @Id
     @SequenceGenerator(name="Customer_seq",sequenceName="Customer_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Customer_seq")
     @Column(name = "Customer_ID", unique = true, nullable = true)
-    private @NonNull Long id;
-    @Column(name="name")
-    private @NonNull String name;
-    private @NonNull String num_id;
-    private @NonNull Integer age;
-    @Column(name="address")
-    private @NonNull  String address;
-    private @NonNull String tel;
-    private @NonNull LocalDateTime date;
+    private  Long id;
+
+    @NotNull
+    @Pattern(regexp = "^[A-Za-z ]{1,30}$")
+    @Column(name = "NAME")
+    private String name;
+
+    @NotNull 
+    @Pattern(regexp = "\\d{13}")
+    @Column(name = "NUM_ID")
+    private String num_id;
+
+    @NotNull
+    @Column(name = "AGE")
+    @Min(value = 20)
+    @Max(value = 70)
+    private  Integer age;
+    
+    @NotNull
+    @Column(name = "ADDRESS")
+    @Pattern(regexp = "^[0-9a-zA-Z -./]{1,50}$")
+    private String address;
+
+    @NotNull 
+    @Pattern(regexp = "\\d{10}")
+    @Column(name = "TEL")
+    private String tel;
+
+    @NotNull
+    @Column(name = "DATE")
+    private LocalDateTime date;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Job.class)
     @JoinColumn(name = "JOB", insertable = true)
