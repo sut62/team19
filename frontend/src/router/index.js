@@ -6,10 +6,11 @@ import Customer from '../components/Customer'
 import Return from '../components/ReturnCar'
 import Hello from '../components/ChoiceLogin'
 import loginm from '../components/loginm'
-import login from '../components/login';
-import menu from '../components/menu';
+import login from '../components/login'
+import menu from '../components/menu'
 import Maintenance from '../components/Maintenance'
 import Payment from '../components/Payment'
+import ViewRental from '../components/ViewDataRental'
 
 Vue.use(VueRouter)
 
@@ -36,11 +37,11 @@ export default new VueRouter({
             path: '/rentcar',
             component: RentCar
         },
-         {
+        {
             path: '/car',
             component: Car
         },
-         {
+        {
             path: '/maintenance',
             component: Maintenance
         },
@@ -56,5 +57,9 @@ export default new VueRouter({
             path: '/pay',
             component: Payment
         },
+        {
+            path: '/viewdatarent',
+            component: ViewRental
+        }
     ]
 })

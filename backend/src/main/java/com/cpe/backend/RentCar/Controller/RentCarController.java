@@ -53,6 +53,12 @@ public class RentCarController {
     public Collection<RentCar> RentCars() {
         return rentCarRepository.findAll().stream().collect(Collectors.toList());
     }
+
+    @GetMapping("/rentCar/{id}")
+    public Collection<RentCar> getIdRentCarCustomer(@PathVariable("id") Long id) {
+        return rentCarRepository.findByIdCustomer(id);
+    }
+
     @PostMapping("/rentCar/{rentdays}/{type_id}/{customer_id}/{car_id}/{employee_id}/{t_price}")
     public RentCar newRentCar(RentCar newRentCar,
                                     @PathVariable long customer_id,
