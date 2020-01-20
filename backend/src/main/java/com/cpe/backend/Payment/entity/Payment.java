@@ -18,6 +18,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import com.fasterxml.jackson.annotation.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -29,8 +31,13 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="payment_seq")
     @Column(name = "PAYMENT_ID", unique = true, nullable = true)
     private  Long id;
+
     @Column(name="DATE")
     private @NotNull LocalDateTime date;
+
+    @Column(name="NOTE")
+    @Size(max = 68 , message = "error")
+    private @NotNull String note;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = PaymentOptions.class)
     @JoinColumn(name = "OPTIONS_ID", insertable = true)

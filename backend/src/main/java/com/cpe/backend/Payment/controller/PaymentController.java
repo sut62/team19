@@ -54,21 +54,24 @@ public class PaymentController {
         return paymentRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @PostMapping("/payment/{employee_id}/{rentcar_id}/{options_id}")
+    @PostMapping("/payment/{employee_id}/{rentcar_id}/{options_id}/{note}")
     public Payment newPayment(Payment newPayment,
                                       @PathVariable long options_id,
                                       @PathVariable long employee_id,
-                                      @PathVariable long rentcar_id) {
+                                      @PathVariable long rentcar_id,
+                                      @PathVariable String note) {
         
         PaymentOptions payoptions = optionsRepository.findById(options_id);
         Employee createdby = employeeRepository.findById(employee_id);
         RentCar rent = rentcarRepository.findById(rentcar_id);
         LocalDateTime date = LocalDateTime.now();
 
+
         newPayment.setPayoptions(payoptions);
         newPayment.setCreatedby(createdby);
         newPayment.setRent(rent);
         newPayment.setDate(date);
+        newPayment.setNote(note);
 
         return paymentRepository.save(newPayment); 
     }

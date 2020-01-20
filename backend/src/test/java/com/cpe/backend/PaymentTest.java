@@ -35,11 +35,13 @@ public class PaymentTest {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
     }
+    LocalDateTime date = LocalDateTime.now();
     
     @Test
-    void b6008611_test_DateNotNull() {
-       Payment payment = new Payment();
+    void b6008611_test_DateNotBeNull() {
+        Payment payment = new Payment();
         payment.setDate(null);
+        payment.setNote("ชำระเงินแล้ว");
         
 
         Set<ConstraintViolation<Payment>> result = validator.validate(payment);
@@ -50,10 +52,24 @@ public class PaymentTest {
         assertEquals("date", v.getPropertyPath().toString());
     
     }
+    void b6008611_test_NoteNotBeNull() {
+       Payment payment = new Payment();
+        payment.setDate(date);
+        payment.setNote(null);
+        
+
+        Set<ConstraintViolation<Payment>> result = validator.validate(payment);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<Payment> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("note", v.getPropertyPath().toString());
+    
+    }
 
     @Test
     void b6008611_test_OptionsNotNull() {
-       PaymentOptions options = new PaymentOptions();
+        PaymentOptions options = new PaymentOptions();
         options.setName(null);
         
 
@@ -66,6 +82,32 @@ public class PaymentTest {
     
     }
 
+    @Test
+    void b6008611_test_InsertInformation() {
+        Payment payment = new Payment();
+        payment.setDate(date);
+        payment.setNote("ชำระเงินแล้ว");
+        payment = paymentRepository.saveAndFlush(payment);
+
+        Optional<Payment> found = paymentRepository.findById(payment.getId());
+        assertEquals(payment, found.get());
+
+    }
+    
+    @Test
+    void b6008611_testMaxsize() {
+        Payment payment = new Payment();
+       payment.setDate(date);
+       payment.setNote("กขฅคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษศหฬอฮabcdefghijklmnopqrstuvwxyzz");
+
+       Set<ConstraintViolation<Payment>> result = validator.validate(payment);
+        assertEquals(1, result.size());
+
+       ConstraintViolation<Payment> violation = result.iterator().next();
+        assertEquals("error", violation.getMessage());
+        assertEquals("note", violation.getPropertyPath().toString());
+
+    }
 
 
 }
