@@ -136,7 +136,6 @@
 
             <v-row justify="center">
               <v-col cols="15">
-
                  <v-bottom-sheet v-model="alwayselect" >
                                 <template v-slot:activator="{ on }">
                                     <v-btn @click="saveCarReturn" :class="{ writh: !valid, green: valid }">Accept</v-btn>
@@ -145,7 +144,7 @@
                                     <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
                                     <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
                                 </v-sheet>
-                            </v-bottom-sheet>
+                  </v-bottom-sheet>
 
                
                 <v-btn style="margin-left: 15px;" @click="clear">clear</v-btn>

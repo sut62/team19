@@ -122,32 +122,43 @@
             </v-col>
           </v-row>
 
+          <v-row >
+          <v-col cols="12" sm="12" md="12">
+          <v-text-field
+            v-model="payment.note"
+            :rules = "[(v) => !!v || 'กรุณากรอกข้อมูล']"
+            solo
+            label="หมายเหตุ"
+            clearable
+          ></v-text-field>
+        </v-col>
+        </v-row>
 
 
-
-            <v-row justify="center">
-              <v-col cols="12">
+            <v-row >
+              <v-col cols="10" >
                 <v-bottom-sheet v-model="alwayselect" >
                                 <template v-slot:activator="{ on }">
                                     <v-btn @click="savePayment" :class="{ pink: !valid, teal: valid }">บันทึก</v-btn>
                                 </template>
+
                                 <v-sheet class="text-center" height="200px">
                                     <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
                                     <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
                                 </v-sheet>
-                            </v-bottom-sheet>
+                </v-bottom-sheet>
 
-                <v-btn style="margin-left: 15px;" @click="clear" color = "yellow">clear</v-btn>
+                <v-btn style="margin-left: 30px;" @click="clear" color = "yellow">clear</v-btn>
+             
               </v-col>
             </v-row>
 
-            </v-row>
-
+        </v-row>
         </v-form>
+
                 <v-row >
                      <v-col cols="10" >
                       <v-text-field
-                       color = "green"
                        solo
                        readonly
                        label="วันที่ชำระเงิน"
@@ -172,16 +183,17 @@ export default {
   name: "payment",
   data () {
     return {
-      checkSave: false,
-      alwayselect:false,
       payment: {
         optionsId: "",
         rentcarId: "",
-        rentcusId:"",
+        note:"",
+
         rentcarr:"",
         rentcarrId:"",
+
         renttype:"",
         renttypeId:"",
+
         renttime:"",
         rentprice:"",
         rentdays:"",
@@ -195,7 +207,9 @@ export default {
       rentcars:[],
       menu:[],
       cars:[],
-      renttypes:[]
+      renttypes:[],
+      checkSave: false,
+      alwayselect:false
 
     };
   },
@@ -299,11 +313,14 @@ export default {
       http
         .post(
           "/payment/" +
-             localStorage.getItem("Id") +
+
+            localStorage.getItem("Id") +
             "/" +
             this.payment.rentcarId +
             "/" +
-            this.payment.optionsId  ,
+            this.payment.optionsId +
+            "/" +
+            this.payment.note ,
 
           this.payment
         )
