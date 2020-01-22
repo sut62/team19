@@ -26,11 +26,13 @@ import com.cpe.backend.Payment.entity.Payment;
 import com.cpe.backend.Payment.entity.PaymentOptions;
 import com.cpe.backend.FileSharing.Entity.Employee;
 import com.cpe.backend.RentCar.Entity.RentCar;
+import com.cpe.backend.Customer.Entity.Customer;
 
 import com.cpe.backend.Payment.repository.PaymentRepository;
 import com.cpe.backend.Payment.repository.OptionsRepository;
 import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
 import com.cpe.backend.RentCar.Repository.RentCarRepository;
+import com.cpe.backend.Customer.Repository.CustomerRepository;
 
 
 @CrossOrigin(origins = "http://localhost:8081")
@@ -44,6 +46,8 @@ public class PaymentController {
     private EmployeeRepository employeeRepository;
     @Autowired
     private RentCarRepository rentcarRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
     PaymentController(PaymentRepository paymentRepository) {
         this.paymentRepository= paymentRepository;
@@ -54,6 +58,11 @@ public class PaymentController {
         return paymentRepository.findAll().stream().collect(Collectors.toList());
     }
 
+    @GetMapping("/payment/{rentid}")
+    public Collection<Payment> findByNameCustomer(@PathVariable("rentid") String rentid ){
+         return paymentRepository.findByRentcar(rentid);
+    }
+
     @PostMapping("/payment/{employee_id}/{rentcar_id}/{options_id}/{note}")
     public Payment newPayment(Payment newPayment,
                                       @PathVariable long options_id,
@@ -61,15 +70,16 @@ public class PaymentController {
                                       @PathVariable long rentcar_id,
                                       @PathVariable String note) {
         
-        PaymentOptions payoptions = optionsRepository.findById(options_id);
+
         Employee createdby = employeeRepository.findById(employee_id);
         RentCar rent = rentcarRepository.findById(rentcar_id);
+        PaymentOptions payoptions = optionsRepository.findById(options_id);
         LocalDateTime date = LocalDateTime.now();
 
 
-        newPayment.setPayoptions(payoptions);
         newPayment.setCreatedby(createdby);
         newPayment.setRent(rent);
+        newPayment.setPayoptions(payoptions);
         newPayment.setDate(date);
         newPayment.setNote(note);
 
