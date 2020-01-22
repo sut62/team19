@@ -131,6 +131,39 @@ public class MaintenanceTest {
         assertEquals("fixdate", v.getPropertyPath().toString());
     }
 
+    @Test
+    void b6012328_tesMaxMessageBox() {
+        Maintenance maintenance = new Maintenance();
+        maintenance.setFixdate(fixdate);
+        maintenance.setMessageBox("เปลี่ยนยางฝั่งซ้ายเพราะมันรั่วมีตะปูสิบดอกอยู่ในนั้นทำให้ไม่สามารถขับต่อไปอย่างสะดวกสบายได้อย่างที่เคยเป็นมา");
+        maintenance.setAutoPart("ยางหลังฝั่งซ้าย");
+        maintenance.setMileage((long)34366);
+
+       Set<ConstraintViolation<Maintenance>> result = validator.validate(maintenance);
+        assertEquals(1, result.size());
+
+       ConstraintViolation<Maintenance> violation = result.iterator().next();
+        assertEquals("error", violation.getMessage());
+        assertEquals("messageBox", violation.getPropertyPath().toString());
+    }
+
+    @Test
+    void b6012328_tesMaxAutopart() {
+        Maintenance maintenance = new Maintenance();
+        maintenance.setFixdate(fixdate);
+        maintenance.setMessageBox("เปลี่ยนยาง");
+        maintenance.setAutoPart("ยางหลังฝั่งซ้ายยี่ห้อมิชเชอลินเกรดพรีเมียมนำเข้าจากสหรัฐอเมริกา");
+        maintenance.setMileage((long)34366);
+
+       Set<ConstraintViolation<Maintenance>> result = validator.validate(maintenance);
+        assertEquals(1, result.size());
+
+       ConstraintViolation<Maintenance> violation = result.iterator().next();
+        assertEquals("error", violation.getMessage());
+        assertEquals("autoPart", violation.getPropertyPath().toString());
+    }
+    
+
 }
 
 

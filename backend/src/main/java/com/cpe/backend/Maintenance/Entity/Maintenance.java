@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.*;
 import java.time.LocalDateTime;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 @Data
 @Entity
 @NoArgsConstructor
@@ -31,7 +32,11 @@ public class Maintenance {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Maintenance_seq")
     @Column(name = "MAINTENANCE_ID", unique = true, nullable = true)
     private Long id;
+
+    @Size(max = 68 , message = "error")
     private @NotNull String messageBox;
+
+    @Size(max = 44 , message = "error")
     private @NotNull String autoPart;
 
     @PositiveOrZero
