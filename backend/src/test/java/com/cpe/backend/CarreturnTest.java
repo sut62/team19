@@ -35,6 +35,28 @@ public class CarreturnTest {
     }
     LocalDateTime returndate = LocalDateTime.now();
     // ตั้งชื่อ test ให้สอดคล้องกับสิ่งที่ต้อง test
+    //======================================================================
+    //=                             [ Test saveinformation ]               =
+    //======================================================================
+
+     @Test
+    void b6010317_testInsertInformationOk() {
+        // สร้าง
+        ReturnsCar returnsCar = new ReturnsCar();
+
+        // เซ็ตค่าต่างๆ
+       returnsCar.setReturndate(returndate);
+       returnsCar.setNote("กระจกข้างเสียหาย");
+       returnsCar = returnsCarRepository.saveAndFlush(returnsCar);
+
+        Optional<ReturnsCar> found = returnsCarRepository.findById(returnsCar.getId());
+        assertEquals(returnsCar, found.get());
+
+    }
+
+    //======================================================================
+    //=                             [ Test Note ]                          =
+    //======================================================================
 
     @Test
     void b6010317_test_NoteMustBeNull() {
@@ -51,6 +73,46 @@ public class CarreturnTest {
     }
 
     @Test
+    void b6010317_testNotemorethan88() {
+        // สร้าง
+        ReturnsCar returnsCar = new ReturnsCar();
+
+        // เซ็ตค่าต่างๆ
+       returnsCar.setReturndate(returndate);
+       returnsCar.setNote("กขฅคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษศหฬอฮกขฅคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษศหฬอฮฮ");
+
+       Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
+        assertEquals(1, result.size());
+
+       ConstraintViolation<ReturnsCar> v = result.iterator().next();
+        assertEquals("size must be between 1 and 88", v.getMessage());
+        assertEquals("note", v.getPropertyPath().toString());
+
+    }
+
+    @Test
+    void b6010317_testNotelestthan88() {
+        // สร้าง
+        ReturnsCar returnsCar = new ReturnsCar();
+
+        // เซ็ตค่าต่างๆ
+       returnsCar.setReturndate(returndate);
+       returnsCar.setNote("");
+
+       Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
+        assertEquals(1, result.size());
+
+       ConstraintViolation<ReturnsCar> v = result.iterator().next();
+        assertEquals("size must be between 1 and 88", v.getMessage());
+        assertEquals("note", v.getPropertyPath().toString());
+
+    }
+
+    //======================================================================
+    //=                             [ Test Returndate ]                    =
+    //======================================================================
+
+     @Test
     void b6010317_test_ReturndateMustBeNull() {
        ReturnsCar returnsCar = new ReturnsCar();
         returnsCar.setReturndate(null);
@@ -63,41 +125,6 @@ public class CarreturnTest {
         assertEquals("must not be null", v.getMessage());
         assertEquals("returndate", v.getPropertyPath().toString());
     }
-
-    @Test
-    void b6010317_testInsertInformationOk() {
-        // สร้าง
-        ReturnsCar returnsCar = new ReturnsCar();
-
-        // เซ็ตค่าต่างๆ
-       returnsCar.setReturndate(returndate);
-       returnsCar.setNote("กระจกข้างเสียหาย");
-       returnsCar = returnsCarRepository.saveAndFlush(returnsCar);
-
-        Optional<ReturnsCar> found = returnsCarRepository.findById(returnsCar.getId());
-        assertEquals(returnsCar, found.get());
-
-    }
-
-    @Test
-    void b6010317_testMaxsize() {
-        // สร้าง
-        ReturnsCar returnsCar = new ReturnsCar();
-
-        // เซ็ตค่าต่างๆ
-       returnsCar.setReturndate(returndate);
-       returnsCar.setNote("กขฅคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษศหฬอฮabcdefghijklmnopqrstuvwxyzz");
-
-       Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
-        assertEquals(1, result.size());
-
-       ConstraintViolation<ReturnsCar> violation = result.iterator().next();
-        assertEquals("error", violation.getMessage());
-        assertEquals("note", violation.getPropertyPath().toString());
-
-    }
-
-
 }
 
 

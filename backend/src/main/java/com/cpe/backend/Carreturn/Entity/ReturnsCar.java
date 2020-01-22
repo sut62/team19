@@ -37,12 +37,14 @@ public class ReturnsCar {
     @Column(name = "RETURNSCAR_ID", unique = true, nullable = true)
     private Long id;
    
+    @NotNull 
     @Column(name="RETURNDATE")
-    private @NotNull LocalDateTime returndate;
+    private LocalDateTime returndate;
 
+    @NotNull
     @Column(name="ANNOTATION")
-    @Size(max = 68 , message = "error")
-    private @NotNull String note;
+    @Size(max = 88 , min = 1)
+    private  String note;
 
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
