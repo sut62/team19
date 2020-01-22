@@ -57,6 +57,10 @@ public class CarController {
     public Collection<Car> Cars() {
         return carRepository.findAll().stream().collect(Collectors.toList());
     }
+    @GetMapping("/car/{plate}")
+    public Collection<Car> getCarByPlate(@PathVariable("plate") String plate) {
+        return carRepository.findCarByPlate(plate);
+    }
 
     @PostMapping("/car/{vins}/{plates}/{seat_id}/{brand_id}/{province_id}/{employee_id}")
     public Car newCar(Car newCar,
