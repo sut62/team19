@@ -56,6 +56,13 @@ public class ReturnsCarController {
         return returnsCarRepository.findAll().stream().collect(Collectors.toList());
     }
 
+     
+    @GetMapping("/returnsCar/{rentid}")
+    public Collection<ReturnsCar> findByNameCustomer(@PathVariable("rentid") String rentid ){
+         return returnsCarRepository.findByRentcar(rentid);
+     }
+
+
     @PostMapping("/returnsCar/{note}/{employee_id}/{rentcar_id}/{payforfine_id}")
     public ReturnsCar newReturnsCar(ReturnsCar newReturnsCar,
     @PathVariable long employee_id,

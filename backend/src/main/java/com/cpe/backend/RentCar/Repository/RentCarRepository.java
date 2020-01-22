@@ -6,6 +6,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.data.repository.query.Param;
+
 import java.util.Collection;
 
 @CrossOrigin(origins = "http://localhost:8081")
