@@ -11,6 +11,7 @@ import menu from '../components/menu'
 import Maintenance from '../components/Maintenance'
 import Payment from '../components/Payment'
 import ViewRental from '../components/ViewDataRental'
+import CarData from '../components/CarData'
 
 Vue.use(VueRouter)
 
@@ -60,6 +61,10 @@ export default new VueRouter({
         {
             path: '/viewdatarent',
             component: ViewRental
+        },
+        {
+            path: '/cardata',
+            component: CarData
         }
     ]
 })
