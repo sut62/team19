@@ -13,33 +13,79 @@
 
                     <v-row justify="center">
                         <v-col cols="10">
-                            <v-select class="subtitle-1 font-weight-bold" label="เลือกลูกค้า" solo v-model="rentCar.customerId" :items="customers" item-text="name" item-value="id" :rules="[(v) => !!v || 'Item is required']" required></v-select>
+                            <v-select class="subtitle-1 font-weight-bold" 
+                                label="เลือกลูกค้า" 
+                                solo 
+                                v-model="rentCar.customerId" 
+                                :items="customers" item-text="name" 
+                                item-value="id" 
+                                :rules="[(v) => !!v || 'Item is required']" 
+                                required>
+                            </v-select>
                         </v-col>
                     </v-row>
 
                     <v-row justify="center">
-                        <v-select class="subtitle-1 font-weight-bold" label="เลือกประเภทการเช่า" solo v-model="rentCar.rentType" :items="rentTypes" item-text="nametype" item-value="id" :rules="[(v) => !!v || 'Item is required']" required @input="getPrice"></v-select>
+                        <v-select class="subtitle-1 font-weight-bold" 
+                            label="เลือกประเภทการเช่า" 
+                            solo 
+                            v-model="rentCar.rentType" 
+                            :items="rentTypes" item-text="nametype" 
+                            item-value="id" :rules="[(v) => !!v || 'Item is required']" 
+                            required 
+                            @input="getPrice">
+                        </v-select>
 
-                        <v-text-field style="margin-left: 10px;" class="subtitle-1 font-weight-bold" solo readonly label="ราคาต่อ วัน/เดือน" v-model="rentCar.rentTypePrice" @input="calculate"></v-text-field>
+                        <v-text-field style="margin-left: 10px;" 
+                            class="subtitle-1 font-weight-bold" 
+                            solo 
+                            readonly 
+                            label="ราคาต่อ วัน/เดือน" 
+                            v-model="rentCar.rentTypePrice" 
+                            @input="calculate">
+                        </v-text-field>
                     </v-row>
 
                     <v-row justify="center">
                         <v-col cols="10">
-                            <v-select class="subtitle-1 font-weight-bold" label="เลือกรถ" solo v-model="rentCar.carId" :items="cars" item-text="carbrand.brand" item-value="id" :rules="[(v) => !!v || 'Item is required']" required></v-select>
+                            <v-select class="subtitle-1 font-weight-bold" 
+                                label="เลือกรถ" solo v-model="rentCar.carId" 
+                                :items="cars" item-text="carbrand.brand" 
+                                item-value="id" :rules="[(v) => !!v || 'Item is required']" 
+                                required>
+                            </v-select>
                         </v-col>
                     </v-row>
 
                     <v-row justify="center">
-                        <v-text-field class="subtitle-1 font-weight-bold" solo label="จำนวนที่ต้องการเช่า" v-model="rentCar.rentday" suffix="วัน/เดือน" :rules="[(v) => !!v || 'Item is required']" required @input="calculate"></v-text-field>
+                        <v-text-field class="subtitle-1 font-weight-bold" 
+                            solo 
+                            label="จำนวนที่ต้องการเช่า" 
+                            v-model="rentCar.rentday" 
+                            suffix="วัน/เดือน" 
+                            :rules="[(v) => !!v || 'Item is required']" 
+                            required 
+                            @input="calculate">
+                        </v-text-field>
 
-                        <v-text-field style="margin-left: 15px;" class="subtitle-1 font-weight-bold" readonly solo label="ราคาทั้งหมด" v-model="rentCar.price" suffix="บาท"></v-text-field>
+                        <v-text-field style="margin-left: 15px;" 
+                            class="subtitle-1 font-weight-bold" 
+                            readonly 
+                            solo 
+                            label="ราคาทั้งหมด" 
+                            v-model="rentCar.price" 
+                            suffix="บาท">
+                        </v-text-field>
                     </v-row>
 
                     <v-row justify="center">
                         <v-col class="text-center" cols="12">
                             <v-bottom-sheet v-model="alwayselect" >
                                 <template v-slot:activator="{ on }">
-                                    <v-btn @click="saveCarRent" :class="{ white: !valid, green: valid }" class="subtitle-1 font-weight-bold">ยืนยัน</v-btn>
+                                    <v-btn @click="saveCarRent" 
+                                        :class="{ white: !valid, green: valid }"  
+                                        v-on="on" 
+                                        class="subtitle-1 font-weight-bold">ยืนยัน</v-btn>
                                 </template>
                                 <v-sheet class="text-center" height="200px">
                                     <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
