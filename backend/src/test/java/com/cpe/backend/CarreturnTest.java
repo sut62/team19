@@ -20,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-
 @DataJpaTest
 public class CarreturnTest {
 
@@ -80,10 +79,10 @@ public class CarreturnTest {
 
         // เซ็ตค่าต่างๆ
        returnsCar.setReturndate(returndate);
-       returnsCar.setNote("กขฅคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษศหฬอฮกขฅคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษศหฬอฮฮ");
+       returnsCar.setNote("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzqwertgfdsaz");
 
        Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
-        assertEquals(1, result.size());
+        assertEquals(2, result.size());
 
        ConstraintViolation<ReturnsCar> v = result.iterator().next();
         assertEquals("size must be between 1 and 88", v.getMessage());
@@ -92,7 +91,7 @@ public class CarreturnTest {
     }
 
     @Test
-    void b6010317_testNotelestthan88() {
+    void b6010317_testNotelestthan1() {
         // สร้าง
         ReturnsCar returnsCar = new ReturnsCar();
 
@@ -101,10 +100,28 @@ public class CarreturnTest {
        returnsCar.setNote("");
 
        Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
-        assertEquals(1, result.size());
+        assertEquals(2, result.size());
 
        ConstraintViolation<ReturnsCar> v = result.iterator().next();
         assertEquals("size must be between 1 and 88", v.getMessage());
+        assertEquals("note", v.getPropertyPath().toString());
+
+    }
+
+     @Test
+    void b6010317_testNotePattern() {
+        // สร้าง
+        ReturnsCar returnsCar = new ReturnsCar();
+
+        // เซ็ตค่าต่างๆ
+       returnsCar.setReturndate(returndate);
+       returnsCar.setNote("Engin jam");
+
+       Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
+        assertEquals(1, result.size());
+
+       ConstraintViolation<ReturnsCar> v = result.iterator().next();
+        assertEquals("must match \"^[ก-๏\\-]+$\"", v.getMessage());
         assertEquals("note", v.getPropertyPath().toString());
 
     }
