@@ -42,9 +42,9 @@ public class ReturnsCar {
     private LocalDateTime returndate;
 
     @NotNull
+    @Size(min = 1, max = 88)
     @Column(name="ANNOTATION")
     @Pattern(regexp = "^[ก-๏\\-]+$") //รูปแบบคือ ขึ้นต้นและลงท้ายด้วยตัวอักษร,สระภาษาไทยหรือ-
-    @Size(min = 1, max = 88)
     private  String note;
 
 
