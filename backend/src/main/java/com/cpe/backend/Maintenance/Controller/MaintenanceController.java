@@ -52,6 +52,11 @@ public class MaintenanceController {
         return maintenanceRepository.findAll().stream().collect(Collectors.toList());
     }
 
+    @GetMapping("/maintenance/{plate}")
+    public Collection<Maintenance> getMaintenanceByPlate(@PathVariable("plate") String plate) {
+        return maintenanceRepository.findMaintenanceByPlate(plate);
+    }
+
     @PostMapping("/maintenance/{messege_boxes}/{auto_parts}/{mileages}/{repairman_id}/{car_id}/{service_id}")
     public Maintenance newMaintenance(Maintenance newMaintenance,
             @PathVariable long repairman_id,
