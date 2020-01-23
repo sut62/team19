@@ -50,14 +50,14 @@ public class CustomerController {
         this.customerRepository = customerRepository;
     }
 
-    @GetMapping("/customer/{name}")
-    public Collection<Customer> getCustomerName(@PathVariable("name") String name) {
-        return customerRepository.findByNameCustomer(name);
-    }
-
     @GetMapping("/customer")
     public Collection<Customer> Customer() {
         return customerRepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @GetMapping("/customer/{name}")
+    public Collection<Customer> getCustomerByName(@PathVariable("name") String name) {
+        return customerRepository.findCustomerByName(name);
     }
 
     @PostMapping("/customer/{name}/{num_id}/{job_id}/{age}/{address}/{tel}/{registype_id}/{employee_id}")
