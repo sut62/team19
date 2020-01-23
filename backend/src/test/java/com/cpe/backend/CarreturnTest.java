@@ -79,10 +79,10 @@ public class CarreturnTest {
 
         // เซ็ตค่าต่างๆ
        returnsCar.setReturndate(returndate);
-       returnsCar.setNote("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzqwertgfdsaz");
+       returnsCar.setNote("กขฅคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษศหฬอฮกขฅคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษศหฬอไฮ");
 
        Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
-        assertEquals(2, result.size());
+        assertEquals(1, result.size());
 
        ConstraintViolation<ReturnsCar> v = result.iterator().next();
         assertEquals("size must be between 1 and 88", v.getMessage());
@@ -91,19 +91,19 @@ public class CarreturnTest {
     }
 
     @Test
-    void b6010317_testNotelestthan1() {
+    void b6010317_testNoteNoteMatchAnd1Data() {
         // สร้าง
         ReturnsCar returnsCar = new ReturnsCar();
 
         // เซ็ตค่าต่างๆ
        returnsCar.setReturndate(returndate);
-       returnsCar.setNote("");
+       returnsCar.setNote(" ");
 
        Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
-        assertEquals(2, result.size());
+        assertEquals(1, result.size());
 
        ConstraintViolation<ReturnsCar> v = result.iterator().next();
-        assertEquals("size must be between 1 and 88", v.getMessage());
+        assertEquals("must match \"^[ก-๏\\-]+$\"", v.getMessage());
         assertEquals("note", v.getPropertyPath().toString());
 
     }
