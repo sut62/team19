@@ -43,7 +43,8 @@ public class ReturnsCar {
 
     @NotNull
     @Column(name="ANNOTATION")
-    @Size(max = 88 , min = 1)
+    @Pattern(regexp = "^[ก-๏\\-]+$") //รูปแบบคือ ขึ้นต้นและลงท้ายด้วยตัวอักษร,สระภาษาไทยหรือ-
+    @Size(min = 1, max = 88)
     private  String note;
 
 
