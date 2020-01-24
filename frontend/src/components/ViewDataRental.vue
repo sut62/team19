@@ -29,7 +29,6 @@
             </v-row>
         </v-col>
     </v-row>
-
     <div v-if="customerCheck">
         <v-row justify="center">
             <v-col cols="12">
