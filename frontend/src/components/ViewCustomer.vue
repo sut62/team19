@@ -1,9 +1,9 @@
 <template>
-  <v-container>
+  <v-container class="application">
     <v-layout text-center wrap>
       <v-flex mb-4>
         <br />
-        <h1 class="display-2 font-weight-bold mb-3">Member Information</h1>
+        <h1>ข้อมูลสมาชิก</h1>
       </v-flex>
     </v-layout>
 
@@ -17,17 +17,14 @@
                 :rules="[(v) => !!v || 'Item is required']"
                 required
               ></v-text-field>
-              <v-bottom-sheet v-model="alwayselect" >
-                  <template v-slot:activator="{ on }">
                       <v-btn @click="findCustomer" style="margin-left: 15px;" depressed large color="darken-2">Search
                         <v-icon color="grey darken-2">mdi-magnify</v-icon>
                       </v-btn>
-                  </template>
-                    <v-sheet class="text-center" height="200px">
+                  <v-snackbar v-model="alwayselect" >
                       <div v-if="checkSearch==true" class="py-3">ค้นหาสำเร็จ</div>
                       <div v-if="checkSearch==false" class="py-3">ไม่พบข้อมูล</div>
-                    </v-sheet>
-              </v-bottom-sheet>
+                      <v-btn color="red" text @click="alwayselect = false">Close</v-btn>
+                  </v-snackbar>
           </v-row>
       </v-col>
   </v-row>
