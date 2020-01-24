@@ -5,6 +5,7 @@ import Car from '../components/Car'
 import Customer from '../components/Customer'
 import ViewCustomer from '../components/ViewCustomer'
 import Return from '../components/ReturnCar'
+import ReturnData from '../components/ReturnCardata'
 import Hello from '../components/ChoiceLogin'
 import loginm from '../components/loginm'
 import login from '../components/login'
@@ -56,6 +57,10 @@ export default new VueRouter({
         {
             path: '/returncar',
             component: Return
+        },
+        {
+            path: '/viewredata',
+            component: ReturnData
         },
         {
             path: '/pay',

@@ -41,7 +41,7 @@
 
                         <v-btn width="400" large rounded color="amber darken-1" dark href="/pay" target="_self">ค้นหาและแสดงข้อมูลการชำระเงิน</v-btn><br /><br />
 
-                        <v-btn width="400" large rounded color="amber darken-1" dark href="/returncar" target="_self">ค้นหาและแสดงข้อมูลการคืนรถ</v-btn>
+                        <v-btn width="400" large rounded color="amber darken-1" dark href="/viewredata" target="_self">ค้นหาและแสดงข้อมูลการคืนรถ</v-btn>
                     </v-col>
                 </v-row>
             </v-card>
