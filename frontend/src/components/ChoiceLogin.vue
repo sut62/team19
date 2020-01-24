@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="application">
     <v-layout text-center wrap>
       <v-flex mb-4>
         <br />
@@ -14,7 +14,7 @@
       
       <v-row>
                     <v-col class="text-center">
-                        <p></p><font><p class="text-center font-weight-black display-2  ">พนักงาน</p></font><p></p><br>
+                        <p></p><font><p class="application font-weight-black display-2 ">พนักงาน</p></font><p></p><br>
                         <img src="..\assets\employees.png" style="width:200px;height:200px;">
                         <v-btn rounded color="success" dark href="/login" target="_self" >เข้าสู่ระบบในฐานะพนักงาน</v-btn>
 

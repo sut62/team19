@@ -2,6 +2,7 @@
   <v-container
         fluid
         fill-height
+        class="application"
       >
         <v-layout
           align-center
