@@ -104,10 +104,12 @@ public class PaymentTest {
         assertEquals(1, result.size());
 
        ConstraintViolation<Payment> violation = result.iterator().next();
-        assertEquals("error", violation.getMessage());
+        assertEquals("size must be between 1 and 68", violation.getMessage());
         assertEquals("note", violation.getPropertyPath().toString());
 
     }
+
+    
 
 
 }
