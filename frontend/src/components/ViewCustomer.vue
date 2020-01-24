@@ -51,7 +51,6 @@ export default {
   data() {
     return {
       headers: [
-      //{ text: "ID", value: "id" },
         {
           text: "ชื่อลูกค้า",
           align: "left",
@@ -92,11 +91,11 @@ export default {
           } else {
             this.alwayselect = true;
             this.checkSearch = false;
-            this.clear();
           }          
         })
         .catch(e => {
           console.log(e);
+          this.clear();
         });
     },
     clear() {
