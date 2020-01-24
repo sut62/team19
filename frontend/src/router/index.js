@@ -13,6 +13,8 @@ import Maintenance from '../components/Maintenance'
 import Payment from '../components/Payment'
 import ViewRental from '../components/ViewDataRental'
 import CarData from '../components/CarData'
+import MaintenanceOptions from '../components/MaintenanceOptions'
+import MaintenanceHistory from '../components/MaintenanceHistory'
 
 Vue.use(VueRouter)
 
@@ -70,6 +72,14 @@ export default new VueRouter({
         {
             path: '/viewcustomer',
             component: ViewCustomer
+        },
+        {
+            path: '/Maintenance_Options',
+            component: MaintenanceOptions
+        },
+        {
+            path: '/Maintenance_History',
+            component: MaintenanceHistory
         }
     ]
 })
