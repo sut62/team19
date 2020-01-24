@@ -49,7 +49,7 @@ export default {
       return this.$router.history.current["path"] !== "/login" && this.$router.history.current["path"] !== "/loginm" && this.$router.history.current["path"] !== "/";
     },
     menu(){
-      return this.$router.history.current["path"] !== "/login" && this.$router.history.current["path"] !== "/loginm" && this.$router.history.current["path"] !== "/" && this.$router.history.current["path"] !== "/menu" && this.$router.history.current["path"] !== "/maintenance" && this.$router.history.current["path"] !== "/viewmt";
+      return this.$router.history.current["path"] !== "/login" && this.$router.history.current["path"] !== "/loginm" && this.$router.history.current["path"] !== "/" && this.$router.history.current["path"] !== "/menu" && this.$router.history.current["path"] !== "/maintenance" && this.$router.history.current["path"] !== "/viewmt"  && this.$router.history.current["path"] !== "/Maintenance_Options";
     },
     logout() {
       localStorage.removeItem("Name");
