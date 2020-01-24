@@ -58,7 +58,7 @@ public class ReturnsCarController {
 
      
     @GetMapping("/returnsCar/{rentid}")
-    public Collection<ReturnsCar> findByNameCustomer(@PathVariable("rentid") String rentid ){
+    public Collection<ReturnsCar> getCustomerByName(@PathVariable("rentid") String rentid ){
          return returnsCarRepository.findByRentcar(rentid);
      }
 
