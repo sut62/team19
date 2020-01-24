@@ -1,9 +1,9 @@
 <template>
 <v-form>
     <v-container>
-        <v-layout text-center wrap>
+        <v-layout text-center wrap  class="application">
             <v-flex>
-                <h1 class="display-2 font-weight-bold">เช่ารถ</h1>
+                <h1>เช่ารถ</h1>
             </v-flex>
         </v-layout>
 
@@ -80,19 +80,17 @@
 
                     <v-row justify="center">
                         <v-col class="text-center" cols="12">
-                            <v-bottom-sheet v-model="alwayselect" >
-                                <template v-slot:activator="{ on }">
-                                    <v-btn @click="saveCarRent" 
+                            <v-btn @click="saveCarRent" 
                                         :class="{ white: !valid, green: valid }"  
                                         v-on="on" 
                                         class="subtitle-1 font-weight-bold">ยืนยัน</v-btn>
-                                </template>
-                                <v-sheet class="text-center" height="200px">
-                                    <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
-                                    <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
-                                </v-sheet>
-                            </v-bottom-sheet>
-                  
+                            <v-snackbar v-model="alwayselect" :timeout="timeout" :vertical="vertical">
+                                <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
+                                <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
+                                <v-btn color="red" text @click="alwayselect = false">
+                                    Close
+                                </v-btn>
+                            </v-snackbar>
                             <v-btn style="margin-left: 15px;" @click="clear" class="subtitle-1 font-weight-bold">ล้างข้อมูล</v-btn>
                         </v-col>
                     </v-row>
@@ -105,6 +103,14 @@
 </v-form>
 </template>
 
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=Kanit");
+
+.application {
+    font-family: "Kanit";
+}
+</style>
+
 <script>
 import http from "../http-common";
 export default {
@@ -112,8 +118,10 @@ export default {
     
     data() {
         return {
-          checkSave: false,
-          alwayselect:false,
+            vertical:true,
+            timeout: 6000,
+            checkSave: false,
+            alwayselect:false,
             rentCar: {
                 rentTypeId: '',
                 customerId: "",
