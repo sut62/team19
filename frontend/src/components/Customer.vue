@@ -84,17 +84,14 @@
             </v-row>
   
             <v-row justify="center">
-              <v-bottom-sheet v-model="alwayselect" >
-                  <template v-slot:activator="{ on }">
-                      <v-btn @click="saveCustomer" :class="ma-2" color="primary" dark>สมัคร
+                      <v-btn @click="saveCustomer" :class="ma-2" >สมัคร
                         <v-icon dark right>mdi-checkbox-marked-circle</v-icon>
                       </v-btn>
-                  </template>
-                   <v-sheet class="text-center" height="200px">
+                  <v-snackbar v-model="alwayselect" >
                       <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
-                      <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
-                      </v-sheet>
-              </v-bottom-sheet>
+                      <div v-if="checkSave==false" class="py-3">บันทึกไม่สำเร็จ</div>
+                      <v-btn color="red" text @click="alwayselect = false">Close</v-btn>
+                  </v-snackbar>
               <v-btn style="margin-left: 15px;" @click="clear">clear</v-btn>
             </v-row>
         </v-form>
