@@ -35,7 +35,7 @@
                         <h3 style="margin-bottom: 20px;">ค้นหาและแสดงข้อมูล</h3>
                         <v-btn width="400" large rounded color="amber darken-1" dark href="/viewcustomer" target="_self">ค้นหาและแสดงข้อมูลสมัครสมาชิก</v-btn><br /><br />
 
-                        <v-btn width="400" large rounded color="amber darken-1" dark href="/car" target="_self">ค้นหาและแสดงข้อมูลเพิ่มรถเช่า</v-btn><br /><br />
+                        <v-btn width="400" large rounded color="amber darken-1" dark href="/car" target="_self">ค้นหาและแสดงข้อมูลรถเช่า</v-btn><br /><br />
 
                         <v-btn width="400" large rounded color="amber darken-1" dark href="/viewdatarent" target="_self">ค้นหาและแสดงข้อมูลการเช่ารถ</v-btn><br /><br />
 
