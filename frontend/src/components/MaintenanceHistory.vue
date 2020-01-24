@@ -15,10 +15,10 @@
           </v-col>
           <v-col cols="2">
             <div class="my-1">
-              <v-btn @click="findCustomer" v-on="on" depressed large color="primary">Search</v-btn>
+              <v-btn @click="getMaintenance" v-on="on" depressed large color="primary">Search</v-btn>
               <v-snackbar v-model="alwayselect" :timeout="timeout" :vertical="vertical">
                 <div v-if="checkSave==true" class="py-3">ค้นหาสำเร็จ</div>
-                <div v-if="checkSave==false" class="py-3">ชื่อไม่ถูกต้องกรุณากรอกใหม่</div>
+                <div v-if="checkSave==false" class="py-3">ทะเบียนรถไม่ถูกต้องกรุณากรอกใหม่</div>
                 <v-btn color="red" text @click="alwayselect = false">Close</v-btn>
               </v-snackbar>
             </div>
@@ -73,14 +73,21 @@ export default {
         .get("/maintenance/" + this.search)
         .then(response => {
           this.items = response.data;
-          console.log(this.items);
+          if(this.items.length == 0){
           this.alwayselect = true;
-          this.checkSave = true;
+            this.checkSave = false;
+            }
+          else {
+          this.alwayselect = true;
+            this.checkSave = true;
+          }
+          console.log(this.items);
+          
         })
         .catch(e => {
           console.log(e);
           this.alwayselect = true;
-          this.checkSave = false;
+          this.checkSave = true;
         });
     }
     /* eslint-disable no-console */
