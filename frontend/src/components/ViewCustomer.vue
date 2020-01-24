@@ -10,7 +10,6 @@
   <v-row justify="center">
       <v-col cols="4">
           <v-row justify="center">
-            <v-col cols="10">
               <v-text-field
                 solo
                 label="Customer Name"
@@ -18,12 +17,17 @@
                 :rules="[(v) => !!v || 'Item is required']"
                 required
               ></v-text-field>
-            </v-col>
-            <v-col cols="2">
-              <div class="my-2">
-                <v-btn @click="findCustomer" >Search</v-btn>
-              </div>
-            </v-col>
+              <v-bottom-sheet v-model="alwayselect" >
+                  <template v-slot:activator="{ on }">
+                      <v-btn @click="findCustomer" style="margin-left: 15px;" depressed large color="darken-2">Search
+                        <v-icon color="grey darken-2">mdi-magnify</v-icon>
+                      </v-btn>
+                  </template>
+                    <v-sheet class="text-center" height="200px">
+                      <div v-if="checkSearch==true" class="py-3">ค้นหาสำเร็จ</div>
+                      <div v-if="checkSearch==false" class="py-3">ไม่พบข้อมูล</div>
+                    </v-sheet>
+              </v-bottom-sheet>
           </v-row>
       </v-col>
   </v-row>
@@ -39,14 +43,6 @@
             </v-col>
         </v-row>
     </div>
-
-    <v-row justify="center">
-       <v-col>
-        <v-btn style="margin-left: 15px;"
-        href="/cus"
-        >back</v-btn>
-       </v-col>
-    </v-row>
 
   </v-container>
 </template>
@@ -77,8 +73,9 @@ export default {
       items: [],
       customerName: "",
       customerId: "",
-      customerCheck: false
-      
+      customerCheck: false,
+      checkSearch: false,
+      alwayselect:false   
     };
   },
 
@@ -89,23 +86,24 @@ export default {
       http
         .get("/customer/" + this.customerName)
         .then(response => {
-          //this.items = response.data;
-          //console.log(this.items);
           if (response.data[0] != null) {
             this.customerId = response.data.id;
             this.customerCheck = response.status;
+            this.alwayselect = true;
+            this.checkSearch = true;
             this.getCustomers();
           } else {
-            alert("ค้นหาผิดพลาด")
-            this.clear()
+            this.alwayselect = true;
+            this.checkSearch = false;
+            this.clear();
           }          
         })
         .catch(e => {
           console.log(e);
         });
     },
-    back() {
-      this.$router.push("/");
+    clear() {
+      this.$refs.form.reset();
     },
     getCustomers() {
       http

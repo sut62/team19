@@ -33,7 +33,7 @@
                 <v-row>
                     <v-col class="text-center" cols="12" sm="15">
                         <h3 style="margin-bottom: 20px;">ค้นหาและแสดงข้อมูล</h3>
-                        <v-btn width="400" large rounded color="amber darken-1" dark href="/viewcustomer" target="_self">ค้นหาและแสดงข้อมูลสมัครสมาชิก</v-btn><br /><br />
+                        <v-btn width="400" large rounded color="amber darken-1" dark href="/viewcustomer" target="_self">ค้นหาและแสดงข้อมูลสมาชิก</v-btn><br /><br />
 
                         <v-btn width="400" large rounded color="amber darken-1" dark href="/cardata" target="_self">ค้นหาและแสดงข้อมูลรถเช่า</v-btn><br /><br />
 
