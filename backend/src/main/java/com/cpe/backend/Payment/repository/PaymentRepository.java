@@ -11,7 +11,7 @@ import java.util.Collection;
 public
 interface PaymentRepository extends JpaRepository<Payment, Long> {
     Payment findById(long id);
-    	@Query( value = "SELECT * FROM Payment o join Rent_car r join Customer c where o.RENT_CAR_ID = r.RENT_CAR_ID and r.CUSTOMER_ID = :username",
+    	@Query( value = "SELECT * FROM Payment o join Rent_car r join Customer c where c.Customer_id = r.Customer_id and o.Rent_car_id = r.Rent_Car_id and c.Name = :username",
     			nativeQuery = true)
     Collection<Payment > findByRentcar(@Param("username") String username);
 }

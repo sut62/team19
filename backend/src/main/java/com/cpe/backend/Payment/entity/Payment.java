@@ -36,7 +36,7 @@ public class Payment {
     private @NotNull LocalDateTime date;
 
     @Column(name="NOTE")
-    @Size(max = 68 , message = "error")
+    @Size( min = 1 , max = 68 )
     private @NotNull String note;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = PaymentOptions.class)
