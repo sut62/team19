@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid class="application">
    <v-row justify="center" >
         <v-col cols="4">
         <br />
@@ -15,6 +15,13 @@
     </v-row>
     <v-row justify='center'>
 <v-btn color="green" @click="Check">ค้นหา</v-btn>
+ <v-snackbar v-model="alwayselect" :timeout="timeout" :vertical="vertical">
+                            <div v-if="checkSave==true" class="py-3">ค้นหาสำเร็จ</div>
+                            <div v-if="checkSave==false" class="py-3">ชื่อไม่ถูกต้องกรุณากรอกใหม่</div>
+                            <v-btn color="red" text @click="alwayselect = false">
+                                Close
+                            </v-btn>
+                        </v-snackbar>
 </v-row>
 <br/><br/>
 <v-row justify="center">
@@ -49,6 +56,8 @@ export default {
   name: "CarReturnData",
   data() {
     return {
+     checkSave: false,
+    alwayselect:false,
     search: '',
       headers: [
         { text: "ลำดับที่",sortable: false, value: "id" },
@@ -74,9 +83,13 @@ export default {
         .then(response => {
           this.items = response.data;
           console.log(this.items);
+          this.alwayselect = true;
+            this.checkSave = true;
         })
         .catch(e => {
           console.log(e);
+          this.alwayselect = true;
+            this.checkSave = true;
         });
     },
 

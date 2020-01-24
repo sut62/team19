@@ -1,10 +1,10 @@
 <template>
 <v-form>
-  <v-container>
+  <v-container fluid class="application">
     <v-layout text-center wrap>
       <v-flex mb-4>
         <br />
-        <h1 class="display-1 font-weight-bold mb-1">เพิ่มรถเช่า</h1>
+        <h1 class="application">เพิ่มรถเช่า</h1>
       </v-flex>
     </v-layout>
     <v-row justify="center">
@@ -13,19 +13,12 @@
           <v-row justify="center">
             <v-col cols="10">
               <v-text-field
-
                 solo
                 label="เลขตัวถังรถ"
                 v-model="car.vin"
                 :rules="[(v) => !!v || 'Item is required']"
                 required
               ></v-text-field>
-            </v-col>
-            <v-col cols="2">
-            </v-col>
-          </v-row>
-          <v-row justify="center">
-            <v-col cols="10">
               <v-text-field
                    
                 solo
@@ -34,15 +27,9 @@
                 :rules="[(v) => !!v || 'Item is required']"
                 required
               ></v-text-field>
-            </v-col>
-            <v-col cols="2">
-            </v-col>
-          </v-row>
-          <v-row>
-              <v-col cols="10">
+           
                 <v-select
                   label="จังหวัดป้ายทะเบียน"
-                  
                   v-model="car.provinceId"
                   :items="provinces"
                   item-text="province"
@@ -51,10 +38,7 @@
                   required
                   solo
                 ></v-select>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="10">
+
                 <v-select
                   label="ยี่ห้อรถ"
                   
@@ -66,13 +50,7 @@
                   required
                   solo
                 ></v-select>
-              </v-col>
-            </v-row>
-
-            <v-row>
-
-
-              <v-col cols="10">
+           
                 <v-select
                   label="จำนวนที่นั่ง"
                   
@@ -88,17 +66,18 @@
             </v-row>
 
             <v-row justify="center">
-               <v-col cols="8">
-                <v-bottom-sheet v-model="alwayselect" >
-                                <template v-slot:activator="{ on }">
-                                    <v-btn @click="saveCar" :class="{ white: !valid, green: valid }" class="subtitle-1 font-weight-bold">ยืนยัน</v-btn>
-                                </template>
-                                <v-sheet class="text-center" height="200px">
-                                    <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
-                                    <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
-                                </v-sheet>
-                            </v-bottom-sheet>
-                <v-btn style="margin-left: 2px;" @click="clear">clear</v-btn>
+               <v-col cols="5">
+               
+                <v-btn style="margin-left: 10px;" @click="saveCar" :class="{ white: !valid, green: valid }">ยืนยัน</v-btn>
+                <v-snackbar v-model="alwayselect" :timeout="timeout" :vertical="vertical">
+                            <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
+                            <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
+                            <v-btn color="red" text @click="alwayselect = false">
+                                Close
+                            </v-btn>
+                        </v-snackbar>
+                               
+                <v-btn style="margin-left: 2px;" @click="clear">ล้าง</v-btn>
               </v-col>
             </v-row>
             <br />
