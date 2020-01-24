@@ -108,9 +108,13 @@ export default {
                 .then(response => {
                     this.items = response.data;
                     console.log(this.items);
+                    this.alwayselect = true;
+                    this.checkSave = true;
                 })
                 .catch(e => {
                     console.log(e);
+                    this.alwayselect = true;
+                    this.checkSave = false;
                 });
         },
         findCustomer() {
@@ -120,15 +124,11 @@ export default {
                     //this.items = response.data;
                     this.customerId = response.data[0].id;
                     this.customerCheck = response.status;
-                    this.alwayselect = true;
-                    this.checkSave = true;
                     this.getRentCars();
                     //console.log(this.items);
                 })
                 .catch(e => {
                     console.log(e);
-                    this.alwayselect = true;
-                    this.checkSave = false;
                     this.clear();
                 });
         },
