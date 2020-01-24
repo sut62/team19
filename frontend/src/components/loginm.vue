@@ -83,7 +83,7 @@ export default {
             localStorage.setItem("Name",response.data[0].repairman);
             localStorage.setItem("Id",response.data[0].id);
             localStorage.getItem("Name"),
-            this.$router.push("/maintenance");
+            this.$router.push("/Maintenance_Options");
 
           }
           else{
