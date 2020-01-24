@@ -1,10 +1,10 @@
 <template>
   <v-container fluid class="application">
+    <v-btn rounded color="black" dark href="/Maintenance_Options" target="_self">กลับสู่หน้าเมนู</v-btn>
     <v-row justify="center">
       <v-col cols="5">
         <v-row justify="center">
           <v-col cols="10">
-            <div>{{checkSave}}</div>
             <v-text-field
               label="กรุณากรอกทะเบียนรถ"
               solo
