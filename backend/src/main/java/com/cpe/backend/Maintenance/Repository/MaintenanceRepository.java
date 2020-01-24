@@ -10,7 +10,7 @@ import java.util.Collection;
 @RepositoryRestResource
 public interface MaintenanceRepository extends JpaRepository<Maintenance, Long> {
 	Maintenance findById(long id);
-	@Query( value = "SELECT * FROM Car o where o.plate = :platee",
+	@Query( value = "SELECT * FROM Maintenanece o JOIN Car c where o.CAR_ID = c.CAR_ID and c.PLATE = :platee",
 	nativeQuery = true)
 	Collection<Maintenance> findMaintenanceByPlate(@Param("platee") String platee);
 }
