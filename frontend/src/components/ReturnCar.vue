@@ -139,11 +139,15 @@
                  <v-bottom-sheet v-model="alwayselect" >
                                 <template v-slot:activator="{ on }">
                                     <v-btn @click="saveCarReturn" :class="{ writh: !valid, green: valid }">Accept</v-btn>
+                                    <v-snackbar v-model="alwayselect" :timeout="timeout" :vertical="vertical">
+                                <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
+                                <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
+                                <v-btn color="red" text @click="alwayselect = false">
+                                    Close
+                                </v-btn>
+                            </v-snackbar>
                                 </template>
-                                <v-sheet class="text-center" height="200px">
-                                    <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
-                                    <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
-                                </v-sheet>
+                                
                   </v-bottom-sheet>
 
                
@@ -171,7 +175,7 @@ export default {
       returnsCar: {
         payforfineId: "",
         rentcarId: "", 
-        note: "-",
+        note: "",
 
         rentcarr:"",
         rentcarrId:"",
