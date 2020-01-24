@@ -1,43 +1,64 @@
 <template>
-  <v-container>
+<v-container fluid class="application">
     <v-layout text-center wrap>
-      <v-flex mb-4>
-        <br />
-        <h1 class="display-1 font-weight-bold mb-1">กรุณาเลือกรายการที่ต้องการทำ</h1>
-      </v-flex>
+        <v-flex mb-4>
+            <br />
+            <h1>กรุณาเลือกรายการที่ต้องการทำ</h1>
+        </v-flex>
     </v-layout>
-     
-       <v-card
-      max-width="200"
-      class="mx-auto"
-    >
-      
-      <v-row>
+    <v-row align="center">
+        <v-col cols="12" sm="6">
+            <v-card max-width="500" class="mx-auto">
+                <v-row>
                     <v-col class="text-center" cols="12" sm="15">
-                        <v-btn large rounded color="primary" dark href="/cus" target="_self" >สมัครสมาชิก</v-btn><br/><br/>
-                   
-                        <v-btn large rounded color="primary" dark href="/car" target="_self" >เพิ่มรถเช่า</v-btn><br/><br/>
-                    
-                        <v-btn large rounded color="primary" dark href="/rentcar" target="_self" >เช่ารถ</v-btn><br/><br/>
-                   
-                        <v-btn large rounded color="primary" dark href="/pay" target="_self" >ชำระเงิน</v-btn><br/><br/>
-                   
-                        <v-btn large rounded color="primary" dark href="/returncar" target="_self" >คืนรถ</v-btn>
+                        <h3 style="margin-bottom: 20px;">เพิ่มข้อมูล</h3>
+                        <v-btn large width="400" rounded color="primary" dark href="/cus" target="_self">สมัครสมาชิก</v-btn><br /><br />
+
+                        <v-btn large width="400" rounded color="primary" dark href="/car" target="_self">เพิ่มรถเช่า</v-btn><br /><br />
+
+                        <v-btn large width="400" rounded color="primary" dark href="/rentcar" target="_self">เช่ารถ</v-btn><br /><br />
+
+                        <v-btn large width="400" rounded color="primary" dark href="/pay" target="_self">ชำระเงิน</v-btn><br /><br />
+
+                        <v-btn large width="400" rounded color="primary" dark href="/returncar" target="_self">คืนรถ</v-btn>
                     </v-col>
-      </v-row>
-      
-  
-     
-  
-      <v-card-actions>
-         </v-card-actions>
-    </v-card>
+                </v-row>
+            </v-card>
+        </v-col>
 
-  </v-container>
+        <p></p>
+        <v-col cols="12" sm="6">
+            <v-card max-width="500" class="mx-auto">
 
+                <v-row>
+                    <v-col class="text-center" cols="12" sm="15">
+                        <h3 style="margin-bottom: 20px;">ค้นหาและแสดงข้อมูล</h3>
+                        <v-btn width="400" large rounded color="amber darken-1" dark href="/cus" target="_self">ค้นหาและแสดงข้อมูลสมัครสมาชิก</v-btn><br /><br />
+
+                        <v-btn width="400" large rounded color="amber darken-1" dark href="/car" target="_self">ค้นหาและแสดงข้อมูลเพิ่มรถเช่า</v-btn><br /><br />
+
+                        <v-btn width="400" large rounded color="amber darken-1" dark href="/viewdatarent" target="_self">ค้นหาและแสดงข้อมูลการเช่ารถ</v-btn><br /><br />
+
+                        <v-btn width="400" large rounded color="amber darken-1" dark href="/pay" target="_self">ค้นหาและแสดงข้อมูลการชำระเงิน</v-btn><br /><br />
+
+                        <v-btn width="400" large rounded color="amber darken-1" dark href="/returncar" target="_self">ค้นหาและแสดงข้อมูลการคืนรถ</v-btn>
+                    </v-col>
+                </v-row>
+            </v-card>
+        </v-col>
+    </v-row>
+
+</v-container>
 </template>
 
-<script>
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=Kanit");
 
+.application {
+    font-family: "Kanit";
+}
+</style>
+
+<script>
 
 </script>
