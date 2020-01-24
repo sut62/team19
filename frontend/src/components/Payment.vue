@@ -149,6 +149,7 @@
                 </v-bottom-sheet>
 
                 <v-btn style="margin-left: 30px;" @click="clear" color = "yellow">clear</v-btn>
+                
              
               </v-col>
             </v-row>

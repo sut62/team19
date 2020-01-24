@@ -12,10 +12,12 @@ import login from '../components/login'
 import menu from '../components/menu'
 import Maintenance from '../components/Maintenance'
 import Payment from '../components/Payment'
+import ViewDataPayment from '../components/ViewDataPayment'
 import ViewRental from '../components/ViewDataRental'
 import CarData from '../components/CarData'
 import MaintenanceOptions from '../components/MaintenanceOptions'
 import MaintenanceHistory from '../components/MaintenanceHistory'
+
 
 Vue.use(VueRouter)
 
@@ -65,6 +67,10 @@ export default new VueRouter({
         {
             path: '/pay',
             component: Payment
+        },
+        {
+            path: '/viewpay',
+            component: ViewDataPayment
         },
         {
             path: '/viewdatarent',
