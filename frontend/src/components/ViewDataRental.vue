@@ -100,7 +100,6 @@ export default {
     },
     methods: {
         /* eslint-disable no-console */
-        // ดึงข้อมูล RentCars ใส่ combobox
         getRentCars() {
             http
                 .get("/rentCar/" + this.customerId)
@@ -116,13 +115,11 @@ export default {
             http
                 .get("/customer/" + this.customerNamecheck)
                 .then(response => {
-                    //this.items = response.data;
                     this.customerId = response.data[0].id;
                     this.customerCheck = response.status;
                     this.getRentCars();
                     this.alwayselect = true;
                     this.checkSave = true;
-                    //console.log(this.items);
                 })
                 .catch(e => {
                     console.log(e);
