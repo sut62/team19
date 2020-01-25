@@ -9,7 +9,7 @@
     </v-layout>
 
     <v-row justify="center">
-      <v-col cols="6" >
+      <v-col class="text-center" cols="12" >
         <v-form v-model="valid" ref="form">
           <v-row justify="center">
            <v-row >
@@ -125,27 +125,33 @@
           <v-row >
           <v-col cols="12" sm="12" md="12">
           <v-text-field
-            v-model="payment.note"
-            :rules = "[(v) => !!v || 'กรุณากรอกข้อมูล']"
             solo
+            :rules = "[(v) => !!v || 'กรุณากรอกข้อมูล']"
             label="หมายเหตุ"
+            v-model="payment.note"
+            hint="หมายเหตุ"
+            persistent-hint
+
             clearable
           ></v-text-field>
         </v-col>
         </v-row>
 
 
-            <v-row >
-              <v-col cols="10" >
+            <v-row justify="center">
+              <v-col class="text-center" cols="12">
                 <v-bottom-sheet v-model="alwayselect" >
                                 <template v-slot:activator="{ on }">
                                     <v-btn @click="savePayment" :class="{ pink: !valid, teal: valid }">บันทึก</v-btn>
-                                </template>
-
-                                <v-sheet class="text-center" height="200px">
+                                    <v-snackbar v-model="alwayselect" :timeout="timeout" :vertical="vertical">
                                     <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
                                     <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
-                                </v-sheet>
+                                     <v-btn color="red" text @click="alwayselect = false">
+                                         ปิด
+                                </v-btn>
+                            </v-snackbar>
+                                </template>
+                                
                 </v-bottom-sheet>
 
                 <v-btn style="margin-left: 30px;" @click="clear" color = "yellow">clear</v-btn>
@@ -157,8 +163,8 @@
         </v-row>
         </v-form>
 
-                <v-row >
-                     <v-col cols="10" >
+                <v-row justify="center">
+              <v-col class="text-center" cols="6">
                       <v-text-field
                        solo
                        readonly
