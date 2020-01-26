@@ -104,10 +104,11 @@
             <template v-slot:activator="{ on }">
               <v-btn @click="saveMaintenance" :class="{ green: !valid, blue: valid }">submit</v-btn>
             </template>
-            <v-sheet class="text-center" height="200px">
-              <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
-              <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
-            </v-sheet>
+            <v-snackbar v-model="alwayselect" :timeout="timeout" :vertical="vertical">
+                <div v-if="checkSave==true" class="py-3">บันทึกสำเร็จ</div>
+                <div v-if="checkSave==false" class="py-3">ข้อมูลไม่ถูกต้องกรุณากรอกใหม่</div>
+                <v-btn color="red" text @click="alwayselect = false">Close</v-btn>
+              </v-snackbar>
           </v-bottom-sheet>
 
           <v-btn style="margin-left: 15px;" @click="clear">clear</v-btn>
