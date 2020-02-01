@@ -57,7 +57,7 @@ export default {
           sortable: false,
           value: "name"
         },
-        { text: "เลขบัตรประจำตัว", value: "num_id" },
+        { text: "เลขบัตรประจำตัว", value: "card_num" },
         { text: "อาชีพ", value: "work.job" },
         { text: "อายุ", value: "age" },
         { text: "ที่อยู่", value: "address" },
