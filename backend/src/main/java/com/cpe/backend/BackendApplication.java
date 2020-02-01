@@ -202,7 +202,7 @@ public class BackendApplication {
     		newCustomer.setAge(35);
     		newCustomer.setAddress("khonkean");
 			newCustomer.setTel("0619613675");
-			newCustomer.setNum_id("1234567890129"); 
+			newCustomer.setCard_num("1234567890129"); 
     		newCustomer.setCreatedBy(createdBy);
     		newCustomer.setType(type);
 			newCustomer.setDate(date);
