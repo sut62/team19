@@ -23,7 +23,7 @@
               <v-text-field style="margin-left: 15px;"
                  solo
                  label="เลขบัตรประชาชน"
-                 v-model="num_id"
+                 v-model="card_num"
                  :rules="[(v) => !!v || 'Item is required']"
                  required
                  clearable
@@ -205,7 +205,7 @@ export default {
           "/customer/" +
             this.name +
             "/" +
-            this.num_id +
+            this.card_num +
             "/" +
             this.customer.jobId +
             "/" +
