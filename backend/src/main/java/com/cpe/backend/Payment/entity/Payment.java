@@ -31,13 +31,16 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="payment_seq")
     @Column(name = "PAYMENT_ID", unique = true, nullable = true)
     private  Long id;
-
+    
+    @NotNull
     @Column(name="DATE")
-    private @NotNull LocalDateTime date;
+    private  LocalDateTime date;
 
+    @NotNull
     @Column(name="NOTE")
     @Size( min = 1 , max = 68 )
-    private @NotNull String note;
+    @Pattern(regexp = "^[ก-๏\\-]+$")
+    private  String note;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = PaymentOptions.class)
     @JoinColumn(name = "OPTIONS_ID", insertable = true)
@@ -51,4 +54,3 @@ public class Payment {
     @JoinColumn(name = "EMPLOYEE_ID", insertable = true)
     private Employee createdby;
 }
-

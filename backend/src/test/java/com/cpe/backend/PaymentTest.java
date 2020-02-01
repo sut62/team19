@@ -38,7 +38,7 @@ public class PaymentTest {
     LocalDateTime date = LocalDateTime.now();
     
     @Test
-    void b6008611_test_DateNotBeNull() {
+    void b6008611_test_Date_NotBeNull() {
         Payment payment = new Payment();
         payment.setDate(null);
         payment.setNote("ชำระเงินแล้ว");
@@ -52,7 +52,7 @@ public class PaymentTest {
         assertEquals("date", v.getPropertyPath().toString());
     
     }
-    void b6008611_test_NoteNotBeNull() {
+    void b6008611_test_Note_NotBeNull() {
        Payment payment = new Payment();
         payment.setDate(date);
         payment.setNote(null);
@@ -67,23 +67,9 @@ public class PaymentTest {
     
     }
 
-    @Test
-    void b6008611_test_OptionsNotNull() {
-        PaymentOptions options = new PaymentOptions();
-        options.setName(null);
-        
-
-        Set<ConstraintViolation<PaymentOptions>> result = validator.validate(options);
-        assertEquals(1, result.size());
-
-        ConstraintViolation<PaymentOptions> v = result.iterator().next();
-        assertEquals("must not be null", v.getMessage());
-        assertEquals("name", v.getPropertyPath().toString());
-    
-    }
 
     @Test
-    void b6008611_test_InsertInformation() {
+    void b6008611_test_InsertOk() {
         Payment payment = new Payment();
         payment.setDate(date);
         payment.setNote("ชำระเงินแล้ว");
@@ -95,10 +81,10 @@ public class PaymentTest {
     }
     
     @Test
-    void b6008611_testMaxsize() {
+    void b6008611_test_Maxsize() {
         Payment payment = new Payment();
        payment.setDate(date);
-       payment.setNote("กขฅคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษศหฬอฮabcdefghijklmnopqrstuvwxyzz");
+       payment.setNote("ฟหกดพพพพพปแผหหหหนสสวยมมมมบบลลลลจจจตคคคถภภภพพกกหหหผปปออทมสนววววววงงงบลชชชขขจจตยยยยฝฝฝฝวยสสยยนยยรรรดดอออปปผฟหหำพพพพพา");
 
        Set<ConstraintViolation<Payment>> result = validator.validate(payment);
         assertEquals(1, result.size());
@@ -109,10 +95,37 @@ public class PaymentTest {
 
     }
 
-    
+    @Test
+    void b6008611_test_Note_Match() {
+        Payment payment = new Payment();
+
+       payment.setDate(date);
+       payment.setNote(" ");
+
+       Set<ConstraintViolation<Payment>> result = validator.validate(payment);
+        assertEquals(1, result.size());
+
+       ConstraintViolation<Payment> v = result.iterator().next();
+        assertEquals("must match \"^[ก-๏\\-]+$\"", v.getMessage());
+        assertEquals("note", v.getPropertyPath().toString());
+
+    }
+
+    @Test
+    void b6008611_test_Note_Pattern() {
+        Payment payment = new Payment();
+
+       payment.setDate(date);
+       payment.setNote("hdhuu dyyyd");
+
+       Set<ConstraintViolation<Payment>> result = validator.validate(payment);
+        assertEquals(1, result.size());
+
+       ConstraintViolation<Payment> v = result.iterator().next();
+        assertEquals("must match \"^[ก-๏\\-]+$\"", v.getMessage());
+        assertEquals("note", v.getPropertyPath().toString());
+
+    }
 
 
 }
-
-
-
