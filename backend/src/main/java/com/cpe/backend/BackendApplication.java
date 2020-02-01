@@ -1,9 +1,13 @@
 package com.cpe.backend;
 
 import com.cpe.backend.RentCar.Entity.RentType;
+import com.cpe.backend.RentCar.Entity.RentCar;
+import com.cpe.backend.RentCar.Repository.RentCarRepository;
 import com.cpe.backend.RentCar.Repository.RentTypeRepository;
 
 import com.cpe.backend.Carreturn.Entity.Payforfine;
+import com.cpe.backend.Carreturn.Entity.ReturnsCar;
+import com.cpe.backend.Carreturn.Repository.ReturnsCarRepository;
 import com.cpe.backend.Carreturn.Repository.PayforfineRepository;
 
 import com.cpe.backend.Customer.Repository.JobRepository;
@@ -14,8 +18,10 @@ import com.cpe.backend.Customer.Entity.Job;
 import com.cpe.backend.Customer.Entity.RegisType;
 
 import com.cpe.backend.Carname.Entity.Brand;
+import com.cpe.backend.Carname.Entity.Car;
 import com.cpe.backend.Carname.Entity.Province;
 import com.cpe.backend.Carname.Entity.Carseat;
+import com.cpe.backend.Carname.Repository.CarRepository;
 import com.cpe.backend.Carname.Repository.BrandRepository;
 import com.cpe.backend.Carname.Repository.ProvinceRepository;
 import com.cpe.backend.Carname.Repository.CarseatRepository;
@@ -24,10 +30,14 @@ import com.cpe.backend.FileSharing.Entity.Employee;
 import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
 
 import com.cpe.backend.Payment.entity.PaymentOptions;
+import com.cpe.backend.Payment.entity.Payment;
+import com.cpe.backend.Payment.repository.PaymentRepository;
 import com.cpe.backend.Payment.repository.OptionsRepository;
 
 import com.cpe.backend.Maintenance.Entity.Repairman;
 import com.cpe.backend.Maintenance.Entity.Service;
+import com.cpe.backend.Maintenance.Entity.Maintenance;
+import com.cpe.backend.Maintenance.Repository.MaintenanceRepository;
 import com.cpe.backend.Maintenance.Repository.RepairmanRepository;
 import com.cpe.backend.Maintenance.Repository.ServiceRepository;
 
@@ -35,6 +45,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
+import java.time.LocalDateTime;
 
 import java.util.stream.Stream;
 
@@ -45,10 +56,15 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 	@Bean
-	ApplicationRunner init(RentTypeRepository rentTypeRepository,PayforfineRepository payforfineRepository,JobRepository jobRepository,
-		RegisTypeRepository regisTypeRepository,CustomerRepository customerRepository,EmployeeRepository employeeRepository,OptionsRepository optionsRepository,
-		RepairmanRepository repairmanRepository,ServiceRepository serviceRepository,BrandRepository brandRepository,ProvinceRepository provinceRepository,CarseatRepository carseatRepository) {
+	ApplicationRunner init(RentTypeRepository rentTypeRepository, PayforfineRepository payforfineRepository, JobRepository jobRepository,
+		RegisTypeRepository regisTypeRepository, CustomerRepository customerRepository, EmployeeRepository employeeRepository, 
+		OptionsRepository optionsRepository, RepairmanRepository repairmanRepository, ServiceRepository serviceRepository,
+		BrandRepository brandRepository, ProvinceRepository provinceRepository, CarseatRepository carseatRepository, CarRepository carRepository,
+		RentCarRepository rentcarRepository, PaymentRepository paymentRepository, ReturnsCarRepository returnsCarRepository,
+		MaintenanceRepository maintenanceRepository
+		) {
 		return args -> {
+
 			Stream.of("Toyota Vigo", "Honda civic", "Susuki swift", "Mclaren P1","Mitsubishi Pajero").forEach(name -> {
 				Brand brand = new Brand(); 
 				brand.setBrand(name); 
@@ -158,6 +174,100 @@ public class BackendApplication {
 			r3.setUsername("somsak");
 			r3.setPassword("ss12345678");
 			repairmanRepository.save(r3);
+
+			//Data car
+			Car newCar = new Car();
+			Carseat carseat = carseatRepository.findById(1);
+    		Brand brandd = brandRepository.findById(1);
+    		Province province = provinceRepository.findById(1);
+    		Employee employee = employeeRepository.findById(1);
+
+    		newCar.setPlate("กข1234");
+    		newCar.setVin("7896541230123");
+    		newCar.setCarseat(carseat);
+    		newCar.setCarbrand(brandd);
+    		newCar.setPlateprovince(province);
+			newCar.setCreatedby(employee);
+			carRepository.saveAndFlush(newCar);
+
+			//Data customer
+			Customer newCustomer = new Customer();
+			Job  work= jobRepository.findById(1);
+    		Employee createdBy = employeeRepository.findById(1);
+    		RegisType type = regisTypeRepository.findById(1);
+    		LocalDateTime date = LocalDateTime.now();
+
+    		newCustomer.setWork(work);
+    		newCustomer.setName("name");
+    		newCustomer.setAge(35);
+    		newCustomer.setAddress("khonkean");
+			newCustomer.setTel("0619613675");
+			newCustomer.setNum_id("1234567890129"); 
+    		newCustomer.setCreatedBy(createdBy);
+    		newCustomer.setType(type);
+			newCustomer.setDate(date);
+			customerRepository.saveAndFlush(newCustomer);
+
+			//Data rent car
+			RentCar newRentCar = new RentCar();
+			Customer rentalBy = customerRepository.findById(1);
+        	Car car = carRepository.findById(1);
+        	Employee createdby = employeeRepository.findById(1);
+        	RentType types = rentTypeRepository.findById(1);
+       		LocalDateTime rentDate = LocalDateTime.now();
+        
+        	newRentCar.setRentalBy(rentalBy);
+        	newRentCar.setSelectcar(car);
+       		newRentCar.setRentDate(rentDate);
+        	newRentCar.setCreatedby(createdby);
+        	newRentCar.setRentday(4);
+        	newRentCar.setType(types);
+        	newRentCar.setPrice(2400);
+			rentcarRepository.saveAndFlush(newRentCar);
+			
+			//Data payment
+			Payment newPayment = new Payment();
+			Employee createby = employeeRepository.findById(1);
+        	RentCar rent = rentcarRepository.findById(1);
+        	PaymentOptions payoptions = optionsRepository.findById(1);
+        	LocalDateTime paydate = LocalDateTime.now();
+
+        	newPayment.setCreatedby(createby);
+        	newPayment.setRent(rent);
+       		newPayment.setPayoptions(payoptions);
+        	newPayment.setDate(paydate);
+			newPayment.setNote("จ่ายครบ");
+			paymentRepository.save(newPayment);
+
+			//Data return car
+			ReturnsCar newReturnsCar = new ReturnsCar();
+			RentCar rents = rentcarRepository.findById(1);
+    		Employee create = employeeRepository.findById(1);
+    		Payforfine pays = payforfineRepository.findById(1);
+    		LocalDateTime returndate = LocalDateTime.now();
+
+    		newReturnsCar.setRents(rents);
+    		newReturnsCar.setCreatedby(create);
+    		newReturnsCar.setPays(pays);
+    		newReturnsCar.setNote("กระจกข้างเสียหาย");
+    		newReturnsCar.setReturndate(returndate);
+			returnsCarRepository.saveAndFlush(newReturnsCar);
+			
+			//Data maintenance
+			Maintenance newMaintenance = new Maintenance();
+			Repairman rm = repairmanRepository.findById(1);
+    		Car c = carRepository.findById(1);
+    		Service s = serviceRepository.findById(1);
+    		LocalDateTime fixdate = LocalDateTime.now();
+   
+    		newMaintenance.setFixedBy(rm);
+    		newMaintenance.setCar(c);
+    		newMaintenance.setService(s);
+    		newMaintenance.setMessageBox("เปลี่ยนยาง");
+    		newMaintenance.setAutoPart("ยางหลังฝั่งซ้าย");
+    		newMaintenance.setFixdate(fixdate);
+    		newMaintenance.setMileage((long)863463);
+    		maintenanceRepository.saveAndFlush(newMaintenance);
 
 			
 			provinceRepository.findAll().forEach(System.out::println);
