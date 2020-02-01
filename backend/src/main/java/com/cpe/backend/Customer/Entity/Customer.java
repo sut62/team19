@@ -26,7 +26,7 @@ import javax.validation.constraints.Max;
 @NoArgsConstructor
 @Table(
     name="CUSTOMER" , 
-    uniqueConstraints = @UniqueConstraint(columnNames = {"NUM_ID"})
+    uniqueConstraints = @UniqueConstraint(columnNames = {"CARD_NUM"})
     )
 public class Customer {
 
@@ -43,8 +43,8 @@ public class Customer {
 
     @NotNull 
     @Pattern(regexp = "\\d{13}")
-    @Column(name = "NUM_ID")
-    private String num_id;
+    @Column(name = "CARD_NUM")
+    private String card_num;
 
     @NotNull
     @Column(name = "AGE")

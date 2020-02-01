@@ -60,10 +60,10 @@ public class CustomerController {
         return customerRepository.findCustomerByName(name);
     }
 
-    @PostMapping("/customer/{name}/{num_id}/{job_id}/{age}/{address}/{tel}/{registype_id}/{employee_id}")
+    @PostMapping("/customer/{name}/{card_num}/{job_id}/{age}/{address}/{tel}/{registype_id}/{employee_id}")
     public Customer newCustomer(Customer newCustomer,
     @PathVariable String name,
-    @PathVariable String num_id,
+    @PathVariable String card_num,
     @PathVariable long registype_id,
     @PathVariable int age,
     @PathVariable String address,
@@ -79,6 +79,7 @@ public class CustomerController {
 
     newCustomer.setWork(work);
     newCustomer.setName(name);
+    newCustomer.setCard_num(card_num);
     newCustomer.setAge(age);
     newCustomer.setAddress(address);
     newCustomer.setTel(tel);
