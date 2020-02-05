@@ -56,7 +56,8 @@ public class RentCarTest {
         validator = factory.getValidator();
     }
     LocalDateTime rentDate = LocalDateTime.now();
-    // ตั้งชื่อ test ให้สอดคล้องกับสิ่งที่ต้อง test
+
+    
     @Test
     void b6004804_test_InsertDataNormal() {
         Customer rentalby = customerRepository.findById(1);
@@ -234,7 +235,7 @@ public class RentCarTest {
         System.out.println("\nTest price Must Be Max");
         System.out.println("\n=======================================\n");
         RentCar rentcar = new RentCar();
-        rentcar.setRentDate(LocalDateTime.now());
+        rentcar.setRentDate(rentDate);
         rentcar.setRentday(4);
         rentcar.setPrice(1234567890);
         rentcar.setRentalBy(rentalby);
@@ -282,6 +283,127 @@ public class RentCarTest {
         assertEquals("rentDate", v.getPropertyPath().toString());
     }
 
+
+    //======================================================================
+    //=                             [ Test Type]                       =
+    //======================================================================
+    @Test
+    void b6004804_test_TypeMustNotBeNull() {
+        Customer rentalby = customerRepository.findById(1);
+        Car car = carRepository.findById(1);
+        Employee createdby = employeeRepository.findById(1);
+
+        System.out.println("\n=======================================");
+        System.out.println("\nTest Type Must Not Be Null");
+        System.out.println("\n=======================================\n");
+        RentCar rentcar = new RentCar();
+        rentcar.setRentDate(rentDate);
+        rentcar.setRentday(4);
+        rentcar.setPrice(1200);
+        rentcar.setRentalBy(rentalby);
+        rentcar.setSelectcar(car);
+        rentcar.setCreatedby(createdby);
+        rentcar.setType(null);
+
+
+        Set<ConstraintViolation<RentCar>> result = validator.validate(rentcar);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<RentCar> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("type", v.getPropertyPath().toString());
+    }
+
+
+    //======================================================================
+    //=                             [ Test rentalBy]                       =
+    //======================================================================
+    @Test
+    void b6004804_test_rentalByMustNotBeNull() {
+        Car car = carRepository.findById(1);
+        Employee createdby = employeeRepository.findById(1);
+        RentType types = rentTypeRepository.findById(1);
+
+        System.out.println("\n=======================================");
+        System.out.println("\nTest rentalBy Must Not Be Null");
+        System.out.println("\n=======================================\n");
+        RentCar rentcar = new RentCar();
+        rentcar.setRentDate(rentDate);
+        rentcar.setRentday(4);
+        rentcar.setPrice(1200);
+        rentcar.setRentalBy(null);
+        rentcar.setSelectcar(car);
+        rentcar.setCreatedby(createdby);
+        rentcar.setType(types);
+
+
+        Set<ConstraintViolation<RentCar>> result = validator.validate(rentcar);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<RentCar> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("rentalBy", v.getPropertyPath().toString());
+    }
+
+    //======================================================================
+    //=                             [ Test selectcar]                       =
+    //======================================================================
+    @Test
+    void b6004804_test_selectcarMustNotBeNull() {
+        Customer rentalby = customerRepository.findById(1);
+        Employee createdby = employeeRepository.findById(1);
+        RentType types = rentTypeRepository.findById(1);
+
+        System.out.println("\n=======================================");
+        System.out.println("\nTest selectcar Must Not Be Null");
+        System.out.println("\n=======================================\n");
+        RentCar rentcar = new RentCar();
+        rentcar.setRentDate(rentDate);
+        rentcar.setRentday(4);
+        rentcar.setPrice(1200);
+        rentcar.setRentalBy(rentalby);
+        rentcar.setSelectcar(null);
+        rentcar.setCreatedby(createdby);
+        rentcar.setType(types);
+
+
+        Set<ConstraintViolation<RentCar>> result = validator.validate(rentcar);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<RentCar> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("selectcar", v.getPropertyPath().toString());
+    }
+
+    //======================================================================
+    //=                             [ Test createdby]                       =
+    //======================================================================
+    @Test
+    void b6004804_test_createdbyMustNotBeNull() {
+        Customer rentalby = customerRepository.findById(1);
+        Car car = carRepository.findById(1);
+        RentType types = rentTypeRepository.findById(1);
+
+        System.out.println("\n=======================================");
+        System.out.println("\nTest createdby Must Not Be Null");
+        System.out.println("\n=======================================\n");
+        RentCar rentcar = new RentCar();
+        rentcar.setRentDate(rentDate);
+        rentcar.setRentday(4);
+        rentcar.setPrice(1200);
+        rentcar.setRentalBy(rentalby);
+        rentcar.setSelectcar(car);
+        rentcar.setCreatedby(null);
+        rentcar.setType(types);
+
+
+        Set<ConstraintViolation<RentCar>> result = validator.validate(rentcar);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<RentCar> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("createdby", v.getPropertyPath().toString());
+    }
 }
 
 
