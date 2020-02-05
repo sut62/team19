@@ -52,17 +52,21 @@ public class RentCar {
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = RentType.class)
     @JoinColumn(name = "RENTTYPE_ID", insertable = true)
     @JsonManagedReference
+    @NotNull
     private RentType type;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Customer.class)
     @JoinColumn(name = "CUSTOMER_ID", insertable = true)
+    @NotNull
     private Customer rentalBy;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Car.class)
     @JoinColumn(name = "CAR_ID", insertable = true)
+    @NotNull
     private Car selectcar;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
     @JoinColumn(name = "EMPLOYEE_ID", insertable = true)
+    @NotNull
     private Employee createdby;
 }
