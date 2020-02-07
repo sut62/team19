@@ -78,7 +78,7 @@ public class PaymentTest {
     //======================================================================
 
     @Test
-    void b6008611_test_Date_NotBeNull() {
+    void b6008611_test_Date_MustNotBeNull() {
         Payment payment = new Payment();
         Employee createdby = employeeRepository.findById(1);
         RentCar rent = rentcarRepository.findById(1);
@@ -200,7 +200,7 @@ public class PaymentTest {
     //======================================================================
 
     @Test
-    void b6008611_test_PayOptionsMustBeNull() {
+    void b6008611_test_PayOptionsMustNotBeNull() {
         Payment payment = new Payment();
         Employee createdby = employeeRepository.findById(1);
         RentCar rent = rentcarRepository.findById(1);
@@ -224,7 +224,7 @@ public class PaymentTest {
     //======================================================================
 
     @Test
-    void b6008611_test_CreatedbyMustBeNull() {
+    void b6008611_test_CreatedbyMustNotBeNull() {
         Payment payment = new Payment();
         RentCar rent = rentcarRepository.findById(1);
         PaymentOptions payoptions = optionsRepository.findById(1);
@@ -248,7 +248,7 @@ public class PaymentTest {
     //======================================================================
 
     @Test
-    void b6008611_test_RentMustBeNull() {
+    void b6008611_test_RentMustNotBeNull() {
         Payment payment = new Payment();
         Employee createdby = employeeRepository.findById(1);
         PaymentOptions payoptions = optionsRepository.findById(1);
