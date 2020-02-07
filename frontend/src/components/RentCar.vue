@@ -19,7 +19,7 @@
                                 v-model="rentCar.customerId" 
                                 :items="customers" item-text="name" 
                                 item-value="id" 
-                                :rules="[(v) => !!v || 'Item is required']" 
+                                :rules="[(v) => !!v || 'กรุณาเลือกชื่อลูกค้า']" 
                                 required>
                             </v-select>
                         </v-col>
@@ -31,7 +31,7 @@
                             solo 
                             v-model="rentCar.rentType" 
                             :items="rentTypes" item-text="nametype" 
-                            item-value="id" :rules="[(v) => !!v || 'Item is required']" 
+                            item-value="id" :rules="[(v) => !!v || 'กรุณาเลือกประเภทการเช่า']" 
                             required 
                             @input="getPrice">
                         </v-select>
@@ -51,7 +51,7 @@
                             <v-select class="subtitle-1 font-weight-bold" 
                                 label="เลือกรถ" solo v-model="rentCar.carId" 
                                 :items="cars" item-text="carbrand.brand" 
-                                item-value="id" :rules="[(v) => !!v || 'Item is required']" 
+                                item-value="id" :rules="[(v) => !!v || 'กรุณาเลือกรถที่ต้องการเช่า']" 
                                 required>
                             </v-select>
                         </v-col>
@@ -63,7 +63,7 @@
                             label="จำนวนที่ต้องการเช่า" 
                             v-model="rentCar.rentday" 
                             suffix="วัน/เดือน" 
-                            :rules="[(v) => !!v || 'Item is required']" 
+                            :rules="[(v) => !!v || 'กรุณากรอกจำนวนวันหรือเดือน']" 
                             required 
                             @input="calculate">
                         </v-text-field>
