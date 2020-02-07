@@ -85,7 +85,7 @@ public class CarreturnTest {
     //======================================================================
 
     @Test
-    void b6010317_test_NoteMustBeNull() {
+    void b6010317_test_NoteMustNotBeNull() {
        ReturnsCar returnsCar = new ReturnsCar();
        Employee createdby = employeeRepository.findById(1);
        RentCar rents = rentCarRepository.findById(1);
@@ -130,7 +130,7 @@ public class CarreturnTest {
     }
 
     @Test
-    void b6010317_testNoteNoteMatchAnd1Data() {
+    void b6010317_testNoteNotMatchAnd1Data() {
         // สร้าง
         ReturnsCar returnsCar = new ReturnsCar();
         Employee createdby = employeeRepository.findById(1);
@@ -182,7 +182,7 @@ public class CarreturnTest {
     //======================================================================
 
      @Test
-    void b6010317_test_ReturndateMustBeNull() {
+    void b6010317_test_ReturndateMustNotBeNull() {
        ReturnsCar returnsCar = new ReturnsCar();
        Employee createdby = employeeRepository.findById(1);
        RentCar rents = rentCarRepository.findById(1);
@@ -207,7 +207,7 @@ public class CarreturnTest {
     //======================================================================
 
      @Test
-    void b6010317_test_PayforfineMustBeNull() {
+    void b6010317_test_PayforfineMustNotBeNull() {
        Payforfine payforfine = new Payforfine();
         payforfine.setDescription(null);
      
@@ -224,7 +224,7 @@ public class CarreturnTest {
     //======================================================================
 
      @Test
-    void b6010317_test_CreatedbyMustBeNull() {
+    void b6010317_test_CreatedbyMustNotBeNull() {
        ReturnsCar returnsCar = new ReturnsCar();
        Employee createdby = employeeRepository.findById(1);
        RentCar rents = rentCarRepository.findById(1);
@@ -249,7 +249,7 @@ public class CarreturnTest {
     //======================================================================
 
      @Test
-    void b6010317_test_RentsMustBeNull() {
+    void b6010317_test_RentsMustNotBeNull() {
        ReturnsCar returnsCar = new ReturnsCar();
        Employee createdby = employeeRepository.findById(1);
        RentCar rents = rentCarRepository.findById(1);
@@ -274,7 +274,7 @@ public class CarreturnTest {
     //======================================================================
 
      @Test
-    void b6010317_test_PaysMustBeNull() {
+    void b6010317_test_PaysMustNotBeNull() {
        ReturnsCar returnsCar = new ReturnsCar();
        Employee createdby = employeeRepository.findById(1);
        RentCar rents = rentCarRepository.findById(1);
