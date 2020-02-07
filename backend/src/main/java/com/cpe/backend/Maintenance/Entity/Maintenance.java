@@ -45,14 +45,17 @@ public class Maintenance {
     @Column(name="FIXDATE")
     private @NotNull LocalDateTime fixdate;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Repairman.class)
     @JoinColumn(name = "REPAIRMAN_ID", insertable = true)
     private Repairman fixedBy;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Car.class)
     @JoinColumn(name = "CAR_ID", insertable = true)
     private Car car;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Service.class)
     @JoinColumn(name = "SERVICE_ID", insertable = true)
     private Service service;  
