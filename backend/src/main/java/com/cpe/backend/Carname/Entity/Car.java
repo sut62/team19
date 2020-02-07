@@ -49,18 +49,22 @@ public class Car {
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Brand.class)
     @JoinColumn(name = "BRAND_ID", insertable = true)
+    @NotNull
     private Brand carbrand;
 
      @ManyToOne(fetch = FetchType.EAGER, targetEntity = Carseat.class)
     @JoinColumn(name = "SEAT_ID", insertable = true)
+    @NotNull
     private Carseat carseat;
 
      @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
     @JoinColumn(name = "PROVINCE_ID", insertable = true)
+    @NotNull
     private Province plateprovince;
 
      @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
     @JoinColumn(name = "EMPLOYEE_ID", insertable = true)
+    @NotNull
     private Employee createdby;
 
 
