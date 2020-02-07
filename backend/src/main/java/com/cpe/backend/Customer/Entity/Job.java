@@ -15,6 +15,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -25,8 +26,11 @@ public class Job {
     @SequenceGenerator(name="JOB_seq",sequenceName="JOB_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="JOB_seq")
     @Column(name = "JOB_ID", unique = true, nullable = true)
-    private @NonNull Long id;
-    private @NonNull String job;
+    @NonNull
+    private Long id;
+    
+    @NonNull
+    private String job;
 
     @OneToMany(fetch = FetchType.EAGER)
     private Collection<Customer> cus;
