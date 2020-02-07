@@ -69,10 +69,10 @@ public class CarreturnTest {
         // เซ็ตค่าต่างๆ
        returnsCar.setReturndate(returndate);
        returnsCar.setNote("กระจกข้างเสียหาย");
-       returnsCar = returnsCarRepository.saveAndFlush(returnsCar);
        returnsCar.setCreatedby(createdby);
        returnsCar.setRents(rents);
        returnsCar.setPays(pays);
+       returnsCar = returnsCarRepository.saveAndFlush(returnsCar);
 
 
         Optional<ReturnsCar> found = returnsCarRepository.findById(returnsCar.getId());
@@ -218,6 +218,82 @@ public class CarreturnTest {
         assertEquals("must not be null", v.getMessage());
         assertEquals("description", v.getPropertyPath().toString());
     }
+
+    //======================================================================
+    //=                             [ Test createdby ]                     =
+    //======================================================================
+
+     @Test
+    void b6010317_test_CreatedbyMustBeNull() {
+       ReturnsCar returnsCar = new ReturnsCar();
+       Employee createdby = employeeRepository.findById(1);
+       RentCar rents = rentCarRepository.findById(1);
+       Payforfine pays = payforfineRepository.findById(1);
+
+        returnsCar.setReturndate(returndate);
+        returnsCar.setNote("กันชนหลังแตก");
+        returnsCar.setCreatedby(null);
+        returnsCar.setRents(rents);
+        returnsCar.setPays(pays);
+
+        Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<ReturnsCar> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("createdby", v.getPropertyPath().toString());
+    }
+
+    //======================================================================
+    //=                             [ Test rents ]                         =
+    //======================================================================
+
+     @Test
+    void b6010317_test_RentsMustBeNull() {
+       ReturnsCar returnsCar = new ReturnsCar();
+       Employee createdby = employeeRepository.findById(1);
+       RentCar rents = rentCarRepository.findById(1);
+       Payforfine pays = payforfineRepository.findById(1);
+
+        returnsCar.setReturndate(returndate);
+        returnsCar.setNote("กันชนหลังแตก");
+        returnsCar.setCreatedby(createdby);
+        returnsCar.setRents(null);
+        returnsCar.setPays(pays);
+
+        Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<ReturnsCar> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("rents", v.getPropertyPath().toString());
+    }
+
+    //======================================================================
+    //=                             [ Test pays ]                          =
+    //======================================================================
+
+     @Test
+    void b6010317_test_PaysMustBeNull() {
+       ReturnsCar returnsCar = new ReturnsCar();
+       Employee createdby = employeeRepository.findById(1);
+       RentCar rents = rentCarRepository.findById(1);
+       Payforfine pays = payforfineRepository.findById(1);
+
+        returnsCar.setReturndate(returndate);
+        returnsCar.setNote("กันชนหลังแตก");
+        returnsCar.setCreatedby(createdby);
+        returnsCar.setRents(rents);
+        returnsCar.setPays(null);
+
+        Set<ConstraintViolation<ReturnsCar>> result = validator.validate(returnsCar);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<ReturnsCar> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("pays", v.getPropertyPath().toString());
+    }
+
 }
 
 
