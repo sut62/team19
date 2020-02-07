@@ -15,6 +15,8 @@ import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+import javax.validation.constraints.NotNull;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -24,8 +26,8 @@ public class Payforfine {
 	@SequenceGenerator(name="payforfine_seq",sequenceName="payforfine_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="payforfine_seq")
 	@Column(name="PAYFORFINE_ID",unique = true, nullable = true)
-	private @NonNull Long id;
-	private @NonNull String description;
+	private  Long id;
+	private @NotNull String description;
 
 	@OneToMany(fetch = FetchType.EAGER)
 	
