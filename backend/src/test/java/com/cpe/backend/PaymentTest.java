@@ -2,6 +2,10 @@ package com.cpe.backend;
 
 import com.cpe.backend.Payment.entity.Payment;
 import com.cpe.backend.Payment.entity.PaymentOptions;
+import com.cpe.backend.FileSharing.Entity.Employee;
+import com.cpe.backend.RentCar.Entity.RentCar;
+import com.cpe.backend.RentCar.Repository.RentCarRepository;
+import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
 import com.cpe.backend.Payment.repository.PaymentRepository;
 import com.cpe.backend.Payment.repository.OptionsRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,6 +34,15 @@ public class PaymentTest {
     @Autowired
     private PaymentRepository paymentRepository;
 
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private RentCarRepository rentcarRepository;
+
+    @Autowired
+    private OptionsRepository optionsRepository;
+
     @BeforeEach
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -37,12 +50,45 @@ public class PaymentTest {
     }
     LocalDateTime date = LocalDateTime.now();
     
+    //======================================================================
+    //=                             [ Test Data Ok]                        =
+    //======================================================================
+
+    @Test
+    void b6008611_test_Insert_Data_Ok() {
+        Payment payment = new Payment();
+        Employee createdby = employeeRepository.findById(1);
+        RentCar rent = rentcarRepository.findById(1);
+        PaymentOptions payoptions = optionsRepository.findById(1);
+
+        payment.setDate(date);
+        payment.setNote("ชำระเงินแล้ว");
+        payment.setCreatedby(createdby);
+        payment.setRent(rent);
+        payment.setPayoptions(payoptions);
+        payment = paymentRepository.saveAndFlush(payment);
+
+        Optional<Payment> found = paymentRepository.findById(payment.getId());
+        assertEquals(payment, found.get());
+
+    }
+
+    //======================================================================
+    //=                             [ Test Date]                           =
+    //======================================================================
+
     @Test
     void b6008611_test_Date_NotBeNull() {
         Payment payment = new Payment();
+        Employee createdby = employeeRepository.findById(1);
+        RentCar rent = rentcarRepository.findById(1);
+        PaymentOptions payoptions = optionsRepository.findById(1);
+
         payment.setDate(null);
         payment.setNote("ชำระเงินแล้ว");
-        
+        payment.setCreatedby(createdby);
+        payment.setRent(rent);
+        payment.setPayoptions(payoptions);
 
         Set<ConstraintViolation<Payment>> result = validator.validate(payment);
         assertEquals(1, result.size());
@@ -52,10 +98,23 @@ public class PaymentTest {
         assertEquals("date", v.getPropertyPath().toString());
     
     }
-    void b6008611_test_Note_NotBeNull() {
-       Payment payment = new Payment();
+
+    //======================================================================
+    //=                             [ Test Note]                        =
+    //======================================================================
+
+    @Test
+    void b6008611_test_Note_MustNotBeNull() {
+        Payment payment = new Payment();
+        Employee createdby = employeeRepository.findById(1);
+        RentCar rent = rentcarRepository.findById(1);
+        PaymentOptions payoptions = optionsRepository.findById(1);
+
         payment.setDate(date);
         payment.setNote(null);
+        payment.setCreatedby(createdby);
+        payment.setRent(rent);
+        payment.setPayoptions(payoptions);
         
 
         Set<ConstraintViolation<Payment>> result = validator.validate(payment);
@@ -68,23 +127,20 @@ public class PaymentTest {
     }
 
 
-    @Test
-    void b6008611_test_InsertOk() {
-        Payment payment = new Payment();
-        payment.setDate(date);
-        payment.setNote("ชำระเงินแล้ว");
-        payment = paymentRepository.saveAndFlush(payment);
-
-        Optional<Payment> found = paymentRepository.findById(payment.getId());
-        assertEquals(payment, found.get());
-
-    }
+    
     
     @Test
-    void b6008611_test_Maxsize() {
+    void b6008611_test_Note_Maxsize() {
         Payment payment = new Payment();
-       payment.setDate(date);
-       payment.setNote("ฟหกดพพพพพปแผหหหหนสสวยมมมมบบลลลลจจจตคคคถภภภพพกกหหหผปปออทมสนววววววงงงบลชชชขขจจตยยยยฝฝฝฝวยสสยยนยยรรรดดอออปปผฟหหำพพพพพา");
+        Employee createdby = employeeRepository.findById(1);
+        RentCar rent = rentcarRepository.findById(1);
+        PaymentOptions payoptions = optionsRepository.findById(1);
+
+        payment.setDate(date);
+        payment.setNote("ฟหกดพพพพพปแผหหหหนสสวยมมมมบบลลลลจจจตคคคถภภภพพกกหหหผปปออทมสนววววววงงงบลชชชขขจจตยยยยฝฝฝฝวยสสยยนยยรรรดดอออปปผฟหหำพพพพพา");
+        payment.setCreatedby(createdby);
+        payment.setRent(rent);
+        payment.setPayoptions(payoptions);
 
        Set<ConstraintViolation<Payment>> result = validator.validate(payment);
         assertEquals(1, result.size());
@@ -98,9 +154,15 @@ public class PaymentTest {
     @Test
     void b6008611_test_Note_Match() {
         Payment payment = new Payment();
+        Employee createdby = employeeRepository.findById(1);
+        RentCar rent = rentcarRepository.findById(1);
+        PaymentOptions payoptions = optionsRepository.findById(1);
 
-       payment.setDate(date);
-       payment.setNote(" ");
+        payment.setDate(date);
+        payment.setNote(" ");
+        payment.setCreatedby(createdby);
+        payment.setRent(rent);
+        payment.setPayoptions(payoptions);
 
        Set<ConstraintViolation<Payment>> result = validator.validate(payment);
         assertEquals(1, result.size());
@@ -114,9 +176,15 @@ public class PaymentTest {
     @Test
     void b6008611_test_Note_Pattern() {
         Payment payment = new Payment();
+        Employee createdby = employeeRepository.findById(1);
+        RentCar rent = rentcarRepository.findById(1);
+        PaymentOptions payoptions = optionsRepository.findById(1);
 
-       payment.setDate(date);
-       payment.setNote("hdhuu dyyyd");
+        payment.setDate(date);
+        payment.setNote("hdhuu dyyyd");
+        payment.setCreatedby(createdby);
+        payment.setRent(rent);
+        payment.setPayoptions(payoptions);
 
        Set<ConstraintViolation<Payment>> result = validator.validate(payment);
         assertEquals(1, result.size());
@@ -126,6 +194,79 @@ public class PaymentTest {
         assertEquals("note", v.getPropertyPath().toString());
 
     }
+
+    //======================================================================
+    //=                             [ Test payoptions]                     =
+    //======================================================================
+
+    @Test
+    void b6008611_test_PayOptionsMustBeNull() {
+        Payment payment = new Payment();
+        Employee createdby = employeeRepository.findById(1);
+        RentCar rent = rentcarRepository.findById(1);
+
+        payment.setDate(date);
+        payment.setNote("ชำระเงินแล้ว");
+        payment.setCreatedby(createdby);
+        payment.setRent(rent);
+        payment.setPayoptions(null);
+     
+        Set<ConstraintViolation<Payment>> result = validator.validate(payment);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<Payment> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("payoptions", v.getPropertyPath().toString());
+    }
+
+    //======================================================================
+    //=                             [ Test createdby]                      =
+    //======================================================================
+
+    @Test
+    void b6008611_test_CreatedbyMustBeNull() {
+        Payment payment = new Payment();
+        RentCar rent = rentcarRepository.findById(1);
+        PaymentOptions payoptions = optionsRepository.findById(1);
+
+        payment.setDate(date);
+        payment.setNote("ชำระเงินแล้ว");
+        payment.setCreatedby(null);
+        payment.setRent(rent);
+        payment.setPayoptions(payoptions);
+     
+        Set<ConstraintViolation<Payment>> result = validator.validate(payment);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<Payment> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("createdby", v.getPropertyPath().toString());
+    }
+
+    //======================================================================
+    //=                             [ Test Rent]                      =
+    //======================================================================
+
+    @Test
+    void b6008611_test_RentMustBeNull() {
+        Payment payment = new Payment();
+        Employee createdby = employeeRepository.findById(1);
+        PaymentOptions payoptions = optionsRepository.findById(1);
+
+        payment.setDate(date);
+        payment.setNote("ชำระเงินแล้ว");
+        payment.setCreatedby(createdby);
+        payment.setRent(null);
+        payment.setPayoptions(payoptions);
+     
+        Set<ConstraintViolation<Payment>> result = validator.validate(payment);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<Payment> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("rent", v.getPropertyPath().toString());
+    }
+
 
 
 }
