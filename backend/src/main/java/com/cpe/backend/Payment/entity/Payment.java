@@ -42,14 +42,17 @@ public class Payment {
     @Pattern(regexp = "^[ก-๏\\-]+$")
     private  String note;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = PaymentOptions.class)
     @JoinColumn(name = "OPTIONS_ID", insertable = true)
     private PaymentOptions payoptions;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = RentCar.class)
     @JoinColumn(name = "RENT_CAR_ID", insertable = true)
     private RentCar rent;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
     @JoinColumn(name = "EMPLOYEE_ID", insertable = true)
     private Employee createdby;
