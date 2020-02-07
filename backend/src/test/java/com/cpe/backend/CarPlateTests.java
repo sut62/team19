@@ -2,6 +2,14 @@ package com.cpe.backend;
 
 import com.cpe.backend.Carname.Entity.Car;
 import com.cpe.backend.Carname.Repository.CarRepository;
+import com.cpe.backend.Carname.Entity.Brand;
+import com.cpe.backend.Carname.Repository.BrandRepository;
+import com.cpe.backend.Carname.Entity.Carseat;
+import com.cpe.backend.Carname.Repository.CarseatRepository;
+import com.cpe.backend.Carname.Entity.Province;
+import com.cpe.backend.Carname.Repository.ProvinceRepository;
+import com.cpe.backend.FileSharing.Entity.Employee;
+import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +35,19 @@ public class CarPlateTests {
     @Autowired
     private CarRepository carRepository;
 
+    @Autowired
+    private BrandRepository brandRepository;
+
+    @Autowired
+    private CarseatRepository carseatRepository;
+
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private ProvinceRepository provinceRepository;
+
+
     @BeforeEach
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -36,9 +57,17 @@ public class CarPlateTests {
     // ตั้งชื่อ test ให้สอดคล้องกับสิ่งที่ต้อง test
      @Test
     void b6000950_TestBeOk() {
+        Brand carbrand = brandRepository.findById(1);
+        Carseat carseat = carseatRepository.findById(1);
+        Province province = provinceRepository.findById(1);
+        Employee createdby = employeeRepository.findById(1);
         Car plate = new Car();
         plate.setPlate("บฟ4685");
         plate.setVin("A1234567890123");
+        plate.setCarbrand(carbrand);
+        plate.setPlateprovince(province);
+        plate.setCarseat(carseat);
+        plate.setCreatedby(createdby);
         plate = carRepository.saveAndFlush(plate);
 
         // error message ตรงชนิด และถูก field
@@ -47,9 +76,17 @@ public class CarPlateTests {
     }
  @Test
     void b6000950_Testnotnull() {
+        Brand carbrand = brandRepository.findById(1);
+        Carseat carseat = carseatRepository.findById(1);
+        Province province = provinceRepository.findById(1);
+        Employee createdby = employeeRepository.findById(1);
         Car carplate = new Car();
         carplate.setPlate(null);
         carplate.setVin("A1234567890123");
+        carplate.setCarbrand(carbrand);
+        carplate.setPlateprovince(province);
+        carplate.setCarseat(carseat);
+        carplate.setCreatedby(createdby);
         Set<ConstraintViolation<Car>> result = validator.validate(carplate);
 
         // result ต้องมี error 1 ค่าเท่านั้น
@@ -62,9 +99,17 @@ public class CarPlateTests {
     }
 @Test
     void b6000950_testPattrenPlateNumber(){
+        Brand carbrand = brandRepository.findById(1);
+        Carseat carseat = carseatRepository.findById(1);
+        Province province = provinceRepository.findById(1);
+        Employee createdby = employeeRepository.findById(1);
         Car carplate = new Car();
         carplate.setPlate("ก78445");
         carplate.setVin("A1234567890123");
+        carplate.setCarbrand(carbrand);
+        carplate.setPlateprovince(province);
+        carplate.setCarseat(carseat);
+        carplate.setCreatedby(createdby);
 
         Set<ConstraintViolation<Car>> result = validator.validate(carplate);
 
@@ -75,9 +120,17 @@ public class CarPlateTests {
     }
     @Test
     void b6000950_testPattrenPlateLetter(){
+        Brand carbrand = brandRepository.findById(1);
+        Carseat carseat = carseatRepository.findById(1);
+        Province province = provinceRepository.findById(1);
+        Employee createdby = employeeRepository.findById(1);
         Car carplate = new Car();
         carplate.setPlate("กกก445");
         carplate.setVin("A1234567890123");
+        carplate.setCarbrand(carbrand);
+        carplate.setPlateprovince(province);
+        carplate.setCarseat(carseat);
+        carplate.setCreatedby(createdby);
 
         Set<ConstraintViolation<Car>> result = validator.validate(carplate);
 
