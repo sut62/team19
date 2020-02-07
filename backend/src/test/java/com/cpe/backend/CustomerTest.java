@@ -1,7 +1,15 @@
 package com.cpe.backend;
 
 import com.cpe.backend.Customer.Entity.Customer;
+import com.cpe.backend.Customer.Entity.Job;
+import com.cpe.backend.Customer.Entity.RegisType;
+import com.cpe.backend.FileSharing.Entity.Employee;
+
 import com.cpe.backend.Customer.Repository.CustomerRepository;
+import com.cpe.backend.Customer.Repository.JobRepository;
+import com.cpe.backend.Customer.Repository.RegisTypeRepository;
+import com.cpe.backend.FileSharing.Repository.EmployeeRepository;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +36,15 @@ public class CustomerTest {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private RegisTypeRepository regisTypeRepository;
+
+    @Autowired
+    private JobRepository jobRepository;
+
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
     @BeforeEach
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -37,12 +54,19 @@ public class CustomerTest {
     // ตั้งชื่อ test ให้สอดคล้องกับสิ่งที่ต้อง test
     @Test
     void B6015107_testCustomerOK() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         customer = customerRepository.saveAndFlush(customer);
@@ -60,12 +84,19 @@ public class CustomerTest {
     // Test for Name
     @Test
     void B6015107_testNameMustNotBeNull() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName(null);
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -80,12 +111,19 @@ public class CustomerTest {
     }
     @Test
     void B6015107_testNameMustMatchString() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("12345678 12345678");
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -100,12 +138,19 @@ public class CustomerTest {
     }
     @Test
     void B6015107_testNameMustBeMore30String() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("NattapolNattapolNattapolPantaPantaPantaname");
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -124,12 +169,19 @@ public class CustomerTest {
     // Test for Card_num
     @Test
     void B6015107_testCard_NumMustNotBeNull() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num(null); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -144,12 +196,19 @@ public class CustomerTest {
     }
     @Test
     void B6015107_testCard_NumMustNotBe12Digits() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("123456789012"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -164,12 +223,19 @@ public class CustomerTest {
     }
     @Test
     void B6015107_testCard_numMustNotBe14Digits() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("12345678901234"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -184,12 +250,19 @@ public class CustomerTest {
     }
     @Test
     void B6015107_testCard_numMustNotDigits() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("abcdefghijklm"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -204,6 +277,10 @@ public class CustomerTest {
     }
     @Test
     void testCard_numMustBeUnique() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         // สร้าง Card_num object
         Customer c1 = new Customer();
         c1.setName("Nattapol Panta");
@@ -211,6 +288,9 @@ public class CustomerTest {
         c1.setAge(21);
         c1.setAddress("149/29 suranaree p.saraburi");
         c1.setTel("0812345678");
+        c1.setWork(work);
+        c1.setType(type);
+        c1.setCreatedBy(createdBy);
         c1.setDate(LocalDateTime.now());
 
         customerRepository.saveAndFlush(c1);
@@ -224,6 +304,9 @@ public class CustomerTest {
             c2.setAge(21);
             c2.setAddress("149/29 suranaree p.saraburi");
             c2.setTel("0812345678");
+            c2.setWork(work);
+            c2.setType(type);
+            c2.setCreatedBy(createdBy);
             c2.setDate(LocalDateTime.now());
             customerRepository.saveAndFlush(c2);
         });
@@ -234,12 +317,19 @@ public class CustomerTest {
     // Test for Age
     @Test
     void B6015107_testAgeMustNotBeNull() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(null);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -254,12 +344,19 @@ public class CustomerTest {
     }
     @Test
     void B6015107_testAgeMustBeGreaterThan20() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(18);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -275,12 +372,19 @@ public class CustomerTest {
 
     @Test
     void B6015107_testAgeMustBeLessThan70() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(123);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -300,12 +404,19 @@ public class CustomerTest {
     // Test for Address
     @Test
     void B6015107_testAddressMustNotBeNull() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress(null);
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -320,12 +431,19 @@ public class CustomerTest {
     }
     @Test
     void B6015107_testAddressMustMatch() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi149/29 suranaree p.saraburi149/29 suranaree p.saraburi149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -344,12 +462,19 @@ public class CustomerTest {
     // Test for Tel
     @Test
     void B6015107_testTelMustNotBeNull() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel(null);
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -364,12 +489,19 @@ public class CustomerTest {
     }
     @Test
     void B6015107_testTelMustNotBe9Digits() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("081234567");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -384,12 +516,19 @@ public class CustomerTest {
     }
     @Test
     void B6015107_testTelMustNotBe11Digits() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("08123456789");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -404,12 +543,19 @@ public class CustomerTest {
     }
     @Test
     void B6015107_testTelMustNotDigits() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("abcdefghij");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(LocalDateTime.now());
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -427,12 +573,19 @@ public class CustomerTest {
     // Test for Date
     @Test
     void B6015107_testDateMustNotBeNull() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
         Customer customer = new Customer();
         customer.setName("Nattapol Panta");
         customer.setCard_num("1234567890123"); 
         customer.setAge(21);
         customer.setAddress("149/29 suranaree p.saraburi");
         customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
         customer.setDate(null);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -446,23 +599,88 @@ public class CustomerTest {
         assertEquals("date", v.getPropertyPath().toString());
     }
 
+    //======================================================================
+    //=                             [ Test work]                       =
+    //======================================================================
+    @Test
+    void B6015107_test_workMustNotBeNull() {
+        Employee createdBy = employeeRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
+        Customer customer = new Customer();
+        customer.setName("Nattapol Panta");
+        customer.setCard_num("1234567890123"); 
+        customer.setAge(21);
+        customer.setAddress("149/29 suranaree p.saraburi");
+        customer.setTel("0812345678");
+        customer.setWork(null);
+        customer.setType(type);
+        customer.setCreatedBy(createdBy);
+        customer.setDate(LocalDateTime.now());
+
+
+        Set<ConstraintViolation<Customer>> result = validator.validate(customer);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<Customer> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("work", v.getPropertyPath().toString());
+    }
+
+    //======================================================================
+    //=                             [ Test createdBy]                       =
+    //======================================================================
+    @Test
+    void B6015107_test_createdByMustNotBeNull() {
+        Job work = jobRepository.findById(1);
+        RegisType type = regisTypeRepository.findById(1);
+
+        Customer customer = new Customer();
+        customer.setName("Nattapol Panta");
+        customer.setCard_num("1234567890123"); 
+        customer.setAge(21);
+        customer.setAddress("149/29 suranaree p.saraburi");
+        customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(type);
+        customer.setCreatedBy(null);
+        customer.setDate(LocalDateTime.now());
+
+
+        Set<ConstraintViolation<Customer>> result = validator.validate(customer);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<Customer> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("createdBy", v.getPropertyPath().toString());
+    }
+
+    //======================================================================
+    //=                             [ Test type]                       =
+    //======================================================================
+    @Test
+    void B6015107_test_typeMustNotBeNull() {
+        Job work = jobRepository.findById(1);
+        Employee createdBy = employeeRepository.findById(1);
+
+        Customer customer = new Customer();
+        customer.setName("Nattapol Panta");
+        customer.setCard_num("1234567890123"); 
+        customer.setAge(21);
+        customer.setAddress("149/29 suranaree p.saraburi");
+        customer.setTel("0812345678");
+        customer.setWork(work);
+        customer.setType(null);
+        customer.setCreatedBy(createdBy);
+        customer.setDate(LocalDateTime.now());
+
+
+        Set<ConstraintViolation<Customer>> result = validator.validate(customer);
+        assertEquals(1, result.size());
+
+        ConstraintViolation<Customer> v = result.iterator().next();
+        assertEquals("must not be null", v.getMessage());
+        assertEquals("type", v.getPropertyPath().toString());
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

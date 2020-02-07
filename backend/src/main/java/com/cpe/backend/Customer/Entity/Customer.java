@@ -68,14 +68,17 @@ public class Customer {
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Job.class)
     @JoinColumn(name = "JOB", insertable = true)
+    @NotNull
     private Job work;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
     @JoinColumn(name = "EMPLOYEE", insertable = true)
+    @NotNull
     private Employee createdBy;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = RegisType.class)
     @JoinColumn(name = "REGISTYPE", insertable = true)
+    @NotNull
     private RegisType type;
 
 
