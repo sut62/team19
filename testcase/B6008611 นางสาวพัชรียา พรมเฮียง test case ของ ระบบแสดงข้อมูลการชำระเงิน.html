@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>B6008611 นางสาวพัชรียา พรมเฮียง test case ของ ระบบแสดงข้อมูลการชำระเงิน</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ค้นหาและแสดงข้อมูลสำเร็จ</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://localhost:8081/<datalist><option>http://localhost:8081/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//div[@id='app']/div/main/div/div/div[2]/div/div/a/span<datalist><option>//div[@id='app']/div/main/div/div/div[2]/div/div/a/span</option><option>//a/span</option><option>css=span.v-btn__content</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=input-10<datalist><option>id=input-10</option><option>//input[@id='input-10']</option><option>//div[@id='app']/div/main/div/div/div/div/div/div/form/div/div/div/div/input</option><option>//input</option><option>css=#input-10</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=input-10<datalist><option>id=input-10</option><option>//input[@id='input-10']</option><option>//div[@id='app']/div/main/div/div/div/div/div/div/form/div/div/div/div/input</option><option>//input</option><option>css=#input-10</option></datalist></td><td>denchai</td>
+</tr>
+<tr><td>click</td><td>id=input-13<datalist><option>id=input-13</option><option>name=input-10-1</option><option>//input[@id='input-13']</option><option>//div[@id='app']/div/main/div/div/div/div/div/div/form/div[2]/div/div/div/input</option><option>//div[2]/div/div/div/input</option><option>css=#input-13</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=input-13<datalist><option>id=input-13</option><option>name=input-10-1</option><option>//input[@id='input-13']</option><option>//div[@id='app']/div/main/div/div/div/div/div/div/form/div[2]/div/div/div/input</option><option>//div[2]/div/div/div/input</option><option>css=#input-13</option></datalist></td><td>12345678</td>
+</tr>
+<tr><td>click</td><td>//div[@id='app']/div/main/div/div/div/div/div/div[2]/button/span<datalist><option>//div[@id='app']/div/main/div/div/div/div/div/div[2]/button/span</option><option>//button/span</option><option>css=span.v-btn__content</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//div[@id='app']/div/main/div/div/div[2]/div[2]/div/div/div/a[4]/span<datalist><option>//div[@id='app']/div/main/div/div/div[2]/div[2]/div/div/div/a[4]/span</option><option>//div[2]/div/div/div/a[4]/span</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=input-14<datalist><option>id=input-14</option><option>//input[@id='input-14']</option><option>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div/div/div/div/div/input</option><option>//input</option><option>css=#input-14</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=input-14<datalist><option>id=input-14</option><option>//input[@id='input-14']</option><option>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div/div/div/div/div/input</option><option>//input</option><option>css=#input-14</option></datalist></td><td>name</td>
+</tr>
+<tr><td>click</td><td>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/button/span<datalist><option>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/button/span</option><option>//div[2]/div/button/span</option><option>css=button.v-btn.v-btn--depressed.theme--light.v-size--large &gt; span.v-btn__content</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/div/div/div/div<datalist><option>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/div/div/div/div</option><option>//div[2]/div/div[2]/div/div/div/div/div</option><option>css=div.py-3</option></datalist></td><td></td>
+</tr>
+<tr><td>assertText</td><td>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/div/div/div/div<datalist><option>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/div/div/div/div</option><option>//div[2]/div/div[2]/div/div/div/div/div</option><option>css=div.py-3</option></datalist></td><td>ค้นหาสำเร็จ</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ค้นหาและแสดงข้อมูลไม่สำเร็จ</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://localhost:8081/<datalist><option>http://localhost:8081/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//div[@id='app']/div/main/div/div/div[2]/div/div/a/span<datalist><option>//div[@id='app']/div/main/div/div/div[2]/div/div/a/span</option><option>//a/span</option><option>css=span.v-btn__content</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=input-10<datalist><option>id=input-10</option><option>//input[@id='input-10']</option><option>//div[@id='app']/div/main/div/div/div/div/div/div/form/div/div/div/div/input</option><option>//input</option><option>css=#input-10</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=input-10<datalist><option>id=input-10</option><option>//input[@id='input-10']</option><option>//div[@id='app']/div/main/div/div/div/div/div/div/form/div/div/div/div/input</option><option>//input</option><option>css=#input-10</option></datalist></td><td>denchai</td>
+</tr>
+<tr><td>click</td><td>id=input-13<datalist><option>id=input-13</option><option>name=input-10-1</option><option>//input[@id='input-13']</option><option>//div[@id='app']/div/main/div/div/div/div/div/div/form/div[2]/div/div/div/input</option><option>//div[2]/div/div/div/input</option><option>css=#input-13</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=input-13<datalist><option>id=input-13</option><option>name=input-10-1</option><option>//input[@id='input-13']</option><option>//div[@id='app']/div/main/div/div/div/div/div/div/form/div[2]/div/div/div/input</option><option>//div[2]/div/div/div/input</option><option>css=#input-13</option></datalist></td><td>12345678</td>
+</tr>
+<tr><td>click</td><td>//div[@id='app']/div/main/div/div/div/div/div/div[2]/button/span<datalist><option>//div[@id='app']/div/main/div/div/div/div/div/div[2]/button/span</option><option>//button/span</option><option>css=span.v-btn__content</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//div[@id='app']/div/main/div/div/div[2]/div[2]/div/div/div/a[4]/span<datalist><option>//div[@id='app']/div/main/div/div/div[2]/div[2]/div/div/div/a[4]/span</option><option>//div[2]/div/div/div/a[4]/span</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=input-14<datalist><option>id=input-14</option><option>//input[@id='input-14']</option><option>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div/div/div/div/div/input</option><option>//input</option><option>css=#input-14</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=input-14<datalist><option>id=input-14</option><option>//input[@id='input-14']</option><option>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div/div/div/div/div/input</option><option>//input</option><option>css=#input-14</option></datalist></td><td>mama</td>
+</tr>
+<tr><td>click</td><td>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/button/span<datalist><option>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/button/span</option><option>//div[2]/div/button/span</option><option>css=button.v-btn.v-btn--depressed.theme--light.v-size--large &gt; span.v-btn__content</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/div/div/div/div<datalist><option>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/div/div/div/div</option><option>//div[2]/div/div[2]/div/div/div/div/div</option><option>css=div.py-3</option></datalist></td><td></td>
+</tr>
+<tr><td>assertText</td><td>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/div/div/div/div<datalist><option>//div[@id='app']/div/main/div/div/div/div[3]/div[2]/div/div[2]/div/div/div/div/div</option><option>//div[2]/div/div[2]/div/div/div/div/div</option><option>css=div.py-3</option></datalist></td><td>ชื่อไม่ถูกต้องกรุณากรอกใหม่</td>
+</tr>
+</tbody></table>
+</body>
+</html>
