@@ -37,7 +37,7 @@ public class RepairmanTest {
     }
 
     @Test
-    void test_InsertDataNormal() {
+    void b6012328_testInsertDataNormal() {
         Repairman repairman = new Repairman();
         repairman.setRepairman("สมศักดิ์ จิตรดี");
         repairman.setUsername("somsak");
