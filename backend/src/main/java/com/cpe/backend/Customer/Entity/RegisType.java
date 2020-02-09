@@ -12,6 +12,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -24,7 +26,9 @@ public class RegisType {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="RegisType_seq")
     @Column(name = "RegisType_ID", unique = true, nullable = true)
     private @NonNull Long id;
-    private @NonNull String type;
+    
+    @NotNull
+    private String type;
 
     @OneToMany(fetch = FetchType.EAGER)
     private Collection<Customer> cus;

@@ -45,6 +45,8 @@ public class CustomerTest {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    LocalDateTime date = LocalDateTime.now();
+
     @BeforeEach
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -67,7 +69,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         customer = customerRepository.saveAndFlush(customer);
 
@@ -77,6 +79,10 @@ public class CustomerTest {
         assertEquals(21, found.get().getAge());
         assertEquals("149/29 suranaree p.saraburi", found.get().getAddress());
         assertEquals("0812345678", found.get().getTel());
+        assertEquals(work, found.get().getWork());
+        assertEquals(type, found.get().getType());
+        assertEquals(createdBy, found.get().getCreatedBy());
+        assertEquals(date, found.get().getDate());
     }
 
     //==============================================================================
@@ -97,7 +103,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -124,7 +130,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -151,7 +157,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -182,7 +188,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -209,7 +215,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -236,7 +242,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -263,7 +269,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -276,7 +282,7 @@ public class CustomerTest {
         assertEquals("card_num", v.getPropertyPath().toString());
     }
     @Test
-    void testCard_numMustBeUnique() {
+    void B6015107_testCard_numMustBeUnique() {
         Job work = jobRepository.findById(1);
         Employee createdBy = employeeRepository.findById(1);
         RegisType type = regisTypeRepository.findById(1);
@@ -291,7 +297,7 @@ public class CustomerTest {
         c1.setWork(work);
         c1.setType(type);
         c1.setCreatedBy(createdBy);
-        c1.setDate(LocalDateTime.now());
+        c1.setDate(date);
 
         customerRepository.saveAndFlush(c1);
 
@@ -307,7 +313,7 @@ public class CustomerTest {
             c2.setWork(work);
             c2.setType(type);
             c2.setCreatedBy(createdBy);
-            c2.setDate(LocalDateTime.now());
+            c2.setDate(date);
             customerRepository.saveAndFlush(c2);
         });
     }
@@ -330,7 +336,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -357,7 +363,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -385,7 +391,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -417,7 +423,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -444,7 +450,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -475,7 +481,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -502,7 +508,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -529,7 +535,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -556,7 +562,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
 
@@ -616,7 +622,7 @@ public class CustomerTest {
         customer.setWork(null);
         customer.setType(type);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -644,7 +650,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(type);
         customer.setCreatedBy(null);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
@@ -672,7 +678,7 @@ public class CustomerTest {
         customer.setWork(work);
         customer.setType(null);
         customer.setCreatedBy(createdBy);
-        customer.setDate(LocalDateTime.now());
+        customer.setDate(date);
 
 
         Set<ConstraintViolation<Customer>> result = validator.validate(customer);
