@@ -15,7 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-
+import javax.validation.constraints.NotNull;
 @Data
 @Entity
 @NoArgsConstructor
@@ -27,7 +27,8 @@ public class Carseat {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="carseat_seq")  
     @Column(name = "SEAT_ID", unique = true, nullable = true)
     private @NonNull Long id;
-    private @NonNull String carseat;
+    @NotNull
+    private String carseat;
 
 
     @OneToMany(fetch = FetchType.EAGER)
