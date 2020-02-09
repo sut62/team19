@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.validation.constraints.NotNull;
 
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -24,7 +25,8 @@ public class PaymentOptions {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="options_seq")
     @Column(name = "OPTIONS_ID", unique = true, nullable = true)
     private Long id;
-    private @NotNull String name;
+    @NotNull
+    private String name;
 
     @OneToMany(fetch = FetchType.EAGER)
     private Collection<Payment> pay;
