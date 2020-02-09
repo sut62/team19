@@ -15,6 +15,8 @@ import javax.persistence.Entity;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import javax.validation.constraints.NotNull;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -25,8 +27,12 @@ public class RentType {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="renttype_seq")
     @Column(name="RENTTYPE_ID",unique = true, nullable = true)
     private @NonNull Long id;
-    private @NonNull Integer unitprice;
-    private @NonNull String nametype;
+
+    @NotNull
+    private Integer unitprice;
+
+    @NotNull
+    private String nametype;
 
     @OneToMany(fetch = FetchType.EAGER)
     @Fetch(FetchMode.SUBSELECT)
