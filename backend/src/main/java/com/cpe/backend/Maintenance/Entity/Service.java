@@ -14,6 +14,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -24,9 +25,9 @@ public class Service {
     @SequenceGenerator(name="SERVICE_SEQ",sequenceName="SERVICE_SEQ")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="SERVICE_SEQ")
     @Column(name="SERVICE_ID",unique = true, nullable = true)
-    private @NonNull Long id;
+    private Long id;
 
-    private @NonNull String service;
+    private @NotNull String service;
 
     @OneToMany(fetch = FetchType.EAGER)
     private Collection<Maintenance> repair;
