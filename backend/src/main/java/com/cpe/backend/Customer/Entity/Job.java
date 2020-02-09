@@ -15,6 +15,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -29,7 +31,7 @@ public class Job {
     @NonNull
     private Long id;
     
-    @NonNull
+    @NotNull
     private String job;
 
     @OneToMany(fetch = FetchType.EAGER)
