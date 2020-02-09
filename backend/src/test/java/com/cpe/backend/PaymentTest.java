@@ -55,7 +55,7 @@ public class PaymentTest {
     //======================================================================
 
     @Test
-    void b6008611_test_Insert_Data_Ok() {
+    void b6008611_test_InsertDataOk() {
         Payment payment = new Payment();
         Employee createdby = employeeRepository.findById(1);
         RentCar rent = rentcarRepository.findById(1);
@@ -244,7 +244,7 @@ public class PaymentTest {
     }
 
     //======================================================================
-    //=                             [ Test Rent]                      =
+    //=                             [ Test Rent]                           =
     //======================================================================
 
     @Test
@@ -266,7 +266,6 @@ public class PaymentTest {
         assertEquals("must not be null", v.getMessage());
         assertEquals("rent", v.getPropertyPath().toString());
     }
-
 
 
 }
