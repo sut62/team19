@@ -72,9 +72,14 @@ public class CarTests {
         // error message ตรงชนิด และถูก field
         Optional<Car> found = carRepository.findById(vin.getId());
         assertEquals("A4567890123", found.get().getVin());
+        assertEquals("บพ4525", found.get().getPlate());
+        assertEquals(carbrand, found.get().getCarbrand());
+        assertEquals(province, found.get().getPlateprovince());
+        assertEquals(carseat, found.get().getCarseat());
+        assertEquals(createdby, found.get().getCreatedby());
     }
     @Test
-    void b6000950_testSize() {
+    void b6000950_testSizeMin() {
         Brand carbrand = brandRepository.findById(1);
         Carseat carseat = carseatRepository.findById(1);
         Province province = provinceRepository.findById(1);
@@ -92,6 +97,26 @@ public class CarTests {
         assertEquals("size must be between 11 and 17", v.getMessage());
         assertEquals("vin",v.getPropertyPath().toString());
     }
+      @Test
+    void b6000950_testSizeMax() {
+        Brand carbrand = brandRepository.findById(1);
+        Carseat carseat = carseatRepository.findById(1);
+        Province province = provinceRepository.findById(1);
+        Employee createdby = employeeRepository.findById(1);
+        Car vincar = new Car();
+        vincar.setVin("123456789012345678");
+        vincar.setPlate("บพ4525");
+        vincar.setCarbrand(carbrand);
+        vincar.setPlateprovince(province);
+        vincar.setCarseat(carseat);
+        vincar.setCreatedby(createdby);
+        Set<ConstraintViolation<Car>> result = validator.validate(vincar);
+        assertEquals(1, result.size());
+        ConstraintViolation<Car> v = result.iterator().next();
+        assertEquals("size must be between 11 and 17", v.getMessage());
+        assertEquals("vin",v.getPropertyPath().toString());
+    }
+
 
     @Test
     void b6000950_Testnotnull() {

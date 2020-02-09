@@ -72,7 +72,13 @@ public class CarPlateTests {
 
         // error message ตรงชนิด และถูก field
         Optional<Car> found = carRepository.findById(plate.getId());
-        assertEquals("บฟ4685", found.get().getPlate());
+         assertEquals("บฟ4685", found.get().getPlate());
+        assertEquals("A1234567890123", found.get().getVin());
+        assertEquals(carbrand, found.get().getCarbrand());
+        assertEquals(province, found.get().getPlateprovince());
+        assertEquals(carseat, found.get().getCarseat());
+        assertEquals(createdby, found.get().getCreatedby());
+
     }
  @Test
     void b6000950_Testnotnull() {
@@ -139,6 +145,29 @@ public class CarPlateTests {
         assertEquals("must match \"[ก-ฮ][ก-ฮ]\\d{4}\"",message.getMessage());
         assertEquals("plate",message.getPropertyPath().toString());
     }
+     
+     @Test
+    void b6000950_testPattrenPlatenotmacth(){
+        Brand carbrand = brandRepository.findById(1);
+        Carseat carseat = carseatRepository.findById(1);
+        Province province = provinceRepository.findById(1);
+        Employee createdby = employeeRepository.findById(1);
+        Car carplate = new Car();
+        carplate.setPlate("กก74458");
+        carplate.setVin("A1234567890123");
+        carplate.setCarbrand(carbrand);
+        carplate.setPlateprovince(province);
+        carplate.setCarseat(carseat);
+        carplate.setCreatedby(createdby);
+
+        Set<ConstraintViolation<Car>> result = validator.validate(carplate);
+
+        assertEquals(1, result.size());
+        ConstraintViolation<Car> message = result.iterator().next();
+        assertEquals("must match \"[ก-ฮ][ก-ฮ]\\d{4}\"",message.getMessage());
+        assertEquals("plate",message.getPropertyPath().toString());
+    }
+    
     
 
 }
