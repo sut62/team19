@@ -130,7 +130,7 @@ public class CarreturnTest {
     }
 
     @Test
-    void b6010317_testNoteNotMatchAnd1Data() {
+    void b6010317_testNoteNotMatchAndNoteHave1Data() {
         // สร้าง
         ReturnsCar returnsCar = new ReturnsCar();
         Employee createdby = employeeRepository.findById(1);
@@ -202,22 +202,6 @@ public class CarreturnTest {
         assertEquals("returndate", v.getPropertyPath().toString());
     }
 
-    //======================================================================
-    //=                             [ Test Payforfine ]                    =
-    //======================================================================
-
-     @Test
-    void b6010317_test_PayforfineMustNotBeNull() {
-       Payforfine payforfine = new Payforfine();
-        payforfine.setDescription(null);
-     
-        Set<ConstraintViolation<Payforfine>> result = validator.validate(payforfine);
-        assertEquals(1, result.size());
-
-        ConstraintViolation<Payforfine> v = result.iterator().next();
-        assertEquals("must not be null", v.getMessage());
-        assertEquals("description", v.getPropertyPath().toString());
-    }
 
     //======================================================================
     //=                             [ Test createdby ]                     =
