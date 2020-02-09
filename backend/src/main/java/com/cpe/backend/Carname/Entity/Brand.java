@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-
+import javax.validation.constraints.NotNull;
 @Data
 @Entity
 @NoArgsConstructor
@@ -24,7 +24,8 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="brand_seq")  
     @Column(name = "BRAND_ID", unique = true, nullable = true)
     private @NonNull Long id;
-    private @NonNull String brand;
+    @NotNull
+    private String brand;
 
 
    	@OneToMany(fetch = FetchType.EAGER)
