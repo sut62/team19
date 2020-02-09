@@ -17,6 +17,8 @@ import java.util.Collection;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import javax.validation.constraints.NotNull;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -28,8 +30,14 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="employee_seq")
     @Column(name = "EMPLOYEE_ID", unique = true, nullable = true)
     private @NonNull Long id;
+
+    @NotNull
     private String name;
+
+    @NotNull
     private String username;
+
+    @NotNull
     private String password;
 
     @OneToMany(fetch = FetchType.EAGER)
