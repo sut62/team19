@@ -47,6 +47,8 @@ public class RepairmanTest {
 
         Optional<Repairman> found = repairmanRepository.findById(repairman.getId());
         assertEquals("สมศักดิ์ จิตรดี", found.get().getRepairman());
+        assertEquals("somsak", found.get().getUsername());
+        assertEquals("ss12345678", found.get().getPassword());
     }
 
     @Test
