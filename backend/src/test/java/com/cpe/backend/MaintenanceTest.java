@@ -60,17 +60,25 @@ public class MaintenanceTest {
         Service service = serviceRepository.findById(1);
 
         Maintenance maintenance = new Maintenance();
-        maintenance.setFixdate(fixdate);
         maintenance.setMessageBox("เปลี่ยนยาง");
         maintenance.setAutoPart("ยางหลังฝั่งซ้าย");
         maintenance.setMileage((long)863463);
         maintenance.setFixedBy(fixedby);
         maintenance.setService(service);
         maintenance.setCar(car);
+        maintenance.setFixdate(fixdate);
 
         maintenance = maintenanceRepository.saveAndFlush(maintenance);
 
         Optional<Maintenance> found = maintenanceRepository.findById(maintenance.getId());
+        
+        assertEquals("เปลี่ยนยาง", found.get().getMessageBox());
+        assertEquals("ยางหลังฝั่งซ้าย", found.get().getAutoPart());
+        assertEquals((long)863463, found.get().getMileage());
+        assertEquals(fixedby, found.get().getFixedBy());
+        assertEquals(service, found.get().getService());
+        assertEquals(car, found.get().getCar());
+        assertEquals(fixdate, found.get().getFixdate());
         
     }
 
