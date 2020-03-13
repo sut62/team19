@@ -37,7 +37,7 @@ public class ServiceTest {
     }
 
     @Test
-    void test_InsertDataNormal() {
+    void b6012328_testInsertDataNormal() {
         Service service = new Service();
         service.setService("เกี่ยวกับช่วงล่าง/เบรก/ล้อ");
 
