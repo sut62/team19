@@ -35,7 +35,7 @@ import com.cpe.backend.RentCar.Repository.RentCarRepository;
 import com.cpe.backend.Customer.Repository.CustomerRepository;
 
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class PaymentController {
     @Autowired

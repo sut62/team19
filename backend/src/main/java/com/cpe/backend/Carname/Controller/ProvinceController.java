@@ -13,7 +13,7 @@ import com.cpe.backend.Carname.Repository.ProvinceRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class ProvinceController {
 
