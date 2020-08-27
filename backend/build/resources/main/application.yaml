@@ -1,10 +1,9 @@
 spring:
-   jpa:
-      show-sql: true
-   h2:
-      console:
-         enabled: true
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
 
-server:  
+server:
   port: 9000
-
